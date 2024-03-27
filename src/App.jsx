@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import Header from "./Components/Header/Header";
-import TestDiv from "./Components/Header/TestDiv";
+import Header from "./components/Header/Header";
+import TestDiv from "./components/Header/TestDiv";
 
 export default function App() {
   return (
