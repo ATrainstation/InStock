@@ -5,20 +5,20 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/warehouses" element={<wareHouse />} />
-        <Route path="/warehouse/:id" element={<warehouseDetails />} />
-        <Route path="/warehouse/:id/edit" element={<editWarehouse />} />
-        <Route path="/warehouse/:id/add" element={<addWarehouse />} />
-        <Route path="/warehouse/:id/inventory" element={<itemInventory />} />
+        <Route path="/warehouses" element={<WareHouse />} />
+        <Route path="/warehouse/:id" element={<WarehouseDetails />} />
+        <Route path="/warehouse/:id/edit" element={<EditWarehouse />} />
+        <Route path="/warehouse/:id/add" element={<AddWarehouse />} />
+        <Route path="/warehouse/:id/inventory" element={<ItemInventory />} />
         <Route
           path="/warehouse/:id/inventory/:id"
-          element={<itemInventoryDetails />}
+          element={<ItemInventoryDetails />}
         />
         <Route
           path="/warehouse/:id/inventory/:id/edit"
-          element={<editItem />}
+          element={<EditItem />}
         />
-        <Route path="/warehouse/:id/inventory/:id/add" element={<addItem />} />
+        <Route path="/warehouse/:id/inventory/:id/add" element={<AddItem />} />
       </Routes>
     </BrowserRouter>
   );
