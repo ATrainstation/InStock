@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WareHouse from "./components/WareHouse"; 
 import "./App.css";
 
 export default function App() {
@@ -6,7 +7,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<>WareHouse</>} />
-        <Route path="/warehouses" element={<>WareHouse</>} />
+        <Route path="/warehouses" element={<WareHouse/>} />
         <Route path="/warehouse/:id" element={<>WarehouseDetails</>} />
         <Route path="/warehouse/:id/edit" element={<>EditWarehouse</>} />
         <Route path="/warehouse/:id/add" element={<>AddWarehouse</>} />
