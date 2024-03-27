@@ -5,6 +5,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<>WareHouse</>} />
         <Route path="/warehouses" element={<>WareHouse</>} />
         <Route path="/warehouse/:id" element={<>WarehouseDetails</>} />
         <Route path="/warehouse/:id/edit" element={<>EditWarehouse</>} />
