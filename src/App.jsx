@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Header from "./component/Header";
 
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Header></Header>
       <Routes>
         <Route path="/warehouses" element={<WareHouse />} />
         <Route path="/warehouse/:id" element={<WarehouseDetails />} />
