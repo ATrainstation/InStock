@@ -17,6 +17,13 @@
     z-index: 1000;
     background-color: white;
     
+    @include tablet-styling {
+
+    }
+
+    @include desktop-styling {
+      
+    }
     // Destop and Tablet Sizing
     // position: fixed;
     // top: 50%;
