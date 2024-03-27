@@ -1,0 +1,71 @@
+.warehouses {
+  width: 80vw;
+  background-color: white;
+}
+
+.warehouse-header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-bottom: solid grey 1px;
+  flex-direction: column;
+  text-align: start;
+  &__title {
+    color: black;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__add {
+    background-color: #2e66e5;
+  }
+}
+
+.header-interactive {
+  &__search {
+    box-sizing: border-box;
+    background-image: url();
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .warehouse-header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: none;
+    flex-direction: row;
+    text-align: start;
+    &__title {
+      margin: 0;
+    }
+
+    &__add {
+      width: 40%;
+    }
+  }
+
+  .header-interactive {
+    width: 70%;
+    display: flex;
+    &__search {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+
+}
