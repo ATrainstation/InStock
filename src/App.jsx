@@ -1,10 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import WareHouse from "./components/WareHouse"; 
-import "./App.css";
+
+import "./App.scss";
+import Header from "./components/Header/Header";
+import TestDiv from "./components/Header/TestDiv";
+
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Header></Header>
+      <TestDiv></TestDiv>
       <Routes>
         <Route path="/" element={<>WareHouse</>} />
         <Route path="/warehouses" element={<WareHouse/>} />
