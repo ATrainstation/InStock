@@ -2,7 +2,6 @@ import "./Modal.scss";
 import React, { useState } from "react";
 
 
-
 export const Modal = ({
   showModal,
   setShowModal,
@@ -34,9 +33,6 @@ export const Modal = ({
         
           <h2>{`Delete ${warehouseName} warehouse?`}</h2>
           <p>{`Please confirm that you’d like to delete ${warehouseName} from the list of warehouses. You won’t be able to undo this action.`}</p>
-        
-          <h2>{`Delete ${inventoryItemName} inventory item?`}</h2>
-          <p>{`Please confirm that you’d like to delete ${inventoryItemName} from the inventory list. You won’t be able to undo this action.`}</p>
          
           <button className="cancel-button" onClick={handleCloseModal}>
             Cancel
