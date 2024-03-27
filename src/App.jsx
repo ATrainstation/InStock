@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.scss";
 import Header from "./components/Header/Header";
 import TestDiv from "./components/Header/TestDiv";
+
 
 export default function App() {
   return (
@@ -10,7 +12,7 @@ export default function App() {
       <TestDiv></TestDiv>
       <Routes>
         <Route path="/" element={<>WareHouse</>} />
-        <Route path="/warehouses" element={<>WareHouse</>} />
+        <Route path="/warehouses" element={<WareHouse/>} />
         <Route path="/warehouse/:id" element={<>WarehouseDetails</>} />
         <Route path="/warehouse/:id/edit" element={<>EditWarehouse</>} />
         <Route path="/warehouse/:id/add" element={<>AddWarehouse</>} />
