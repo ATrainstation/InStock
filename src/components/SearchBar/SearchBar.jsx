@@ -1,7 +1,7 @@
 import "./SearchBar.scss";
 
 export default function SearchBar(prop) {
-  const { placeholder, classname, searchwidth} = prop;
+  const { placeholder, classname} = prop;
 
-  return <input style={{ width: searchwidth }} className={`${classname} default`} type="text" placeholder={placeholder}/>;
+  return <input className={`${classname} default`} type="text" placeholder={placeholder}/>;
 }

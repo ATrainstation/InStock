@@ -1,71 +1,93 @@
 .warehouses {
-  width: 100%;
+  width: 80%;
   background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  border-radius: 5px;
 }
 
 .warehouse-header {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 1.5rem 1rem 1.5rem;
-  border-bottom: solid grey 1px;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   flex-direction: column;
   text-align: start;
   &__title {
     color: black;
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
-    margin-bottom: 1rem;
-  }
-
-  &__add {
-    background-color: #2e66e5;
+    margin-bottom: 1.2rem;
   }
 }
 
 .header-interactive {
   &__search {
     box-sizing: border-box;
-    background-image: url();
+    background-image: url(../../assets/icons/search-24px.svg);
+    background-repeat: no-repeat;
+    background-position: 14.5rem;
     width: 100%;
+    border: 0.5px solid #bdc5d5;
     margin-bottom: 1rem;
   }
 
-  &__button {
+  &__add {
     width: 100%;
   }
 }
 
+.warehouse-list{
+display: none;
+font-size: 12px;
+}
+
 @media screen and (min-width: 768px) {
   .warehouse-header {
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
-    border-bottom: none;
     flex-direction: row;
-    text-align: start;
+    border: none;
     &__title {
       margin: 0;
+      width: 30%;
+      font-size: 32px;
+    }
+  }
+
+  .header-interactive {
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    &__search {
+      width: 45%;
+      background-position: 10rem;
+      margin: 0;
+      margin-right: 1rem;
     }
 
     &__add {
       width: 40%;
     }
   }
-
-  .header-interactive {
-    width: 70%;
+  .warehouse-list{
     display: flex;
-    &__search {
-      margin-right: 1rem;
-      margin-bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 24px 0 24px;
+    box-sizing: border-box;
+    background-color: #bdc5d5;
     }
-  }
 }
 
+@media screen and (min-width: 1280px) {
+  .header-interactive {
+    &__search {
+      width: 40%;
+      background-position: 16rem;
+    }
 
-@media screen and (min-width: 768px) {
-
-
+    &__add {
+      width: 30%;
+    }
+  }
 }
