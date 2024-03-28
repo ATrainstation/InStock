@@ -3,6 +3,9 @@ import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import "./WareHouseItem.scss";
 import Modal from "../Modal/Modal";
+import { Link } from "react-router-dom";
+
+import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem() {
   const testData = [
@@ -51,7 +54,13 @@ export default function WareHouseItem() {
           <div className="row">
             <div className="item">
               <p className="item__header">WAREHOUSE</p>
-              <button className="item__warehouse">{item.warehouse}</button>
+              <Link className="linkDetails" to={`/warehouse/asda`}>
+              <div className="warehouse-link">
+                <button className="item__warehouse">{item.warehouse}</button>
+                <img src={HeaderArrow} alt="header arrow" />
+              </div>
+              </Link>
+
             </div>
             <div className="item">
               <p className="item__header">CONTACT NAME</p>
@@ -61,7 +70,7 @@ export default function WareHouseItem() {
               <p className="item__header">ADDRESS</p>
               <p className="item__address">{item.address}</p>
             </div>
-            <div className="item">
+            <div className="item item-contact">
               <p className="item__header">CONTACT INFORMATION</p>
               <p className="item__email">{item.info}</p>
               <p className="item__phone">{item.info}</p>
@@ -78,7 +87,7 @@ export default function WareHouseItem() {
         ))}
         {/* Temp delete button */}
         <button onClick={deleteHandler}>DELETE</button>
-      </div>
+        </div>
     </>
   );
 }
