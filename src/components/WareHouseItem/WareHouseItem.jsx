@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import "./WareHouseItem.scss";
+import Modal from "../Modal/Modal";
 
 export default function WareHouseItem() {
   const testData = [
@@ -18,8 +20,35 @@ export default function WareHouseItem() {
     { warehouse: 1, contact: 2, address: 3, info: 4 },
   ];
 
+  const [showModal, setShowModal] = useState(false);
+  const [showWarehouseModal, setShowWarehouseModal] = useState(false);
+  const [showInventoryModal, setShowInventoryModal] = useState(false);
+
+  const warehouseName = "TEMP Washington";
+  const inventoryItemName = "TEMP Washington";
+
+  const deleteHandler = () => {
+    setShowModal(true), setShowWarehouseModal(true);
+  };
+
   return (
     <>
+
+
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          showWarehouseModal={showWarehouseModal}
+          setShowWarehouseModal={setShowWarehouseModal}
+          showInventoryModal={showInventoryModal}
+          setShowInventoryModal={setShowInventoryModal}
+          warehouseName={warehouseName}
+          inventoryItemName={inventoryItemName}
+        />
+      )}
+
+      <div>
       {testData.map((item) => (
         <div className="row">
           <div className="item">
@@ -49,6 +78,9 @@ export default function WareHouseItem() {
           </div>
         </div>
       ))}
+        {/* Temp delete button */}
+        <button onClick={deleteHandler}>DELETE</button>
+      </div>
     </>
   );
 }

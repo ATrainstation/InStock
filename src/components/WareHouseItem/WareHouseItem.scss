@@ -1,3 +1,6 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
 .item {
   width: 45%;
   margin-bottom: 0.5rem;
@@ -8,8 +11,8 @@
   }
   &__warehouse {
     border: none;
-    background-color: white;
-    color: #2e66e5;
+    background-color: $white;
+    color: $instock-indigo;
   }
 }
 
@@ -18,7 +21,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1rem;
-  border-top: 0.2px solid grey;
+  border-top: 0.2px solid $cloud;
 }
 
 .actions {
@@ -29,7 +32,7 @@
   &__delete,
   &__edit {
     border: none;
-    background-color: white;
+    background-color: $white;
   }
 }
 

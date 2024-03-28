@@ -1,3 +1,6 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles//partials//mixins' as *;
+
 .warehouses-container {
   width: 100%;
   display: flex;
@@ -5,21 +8,21 @@
 
 .warehouses {
   width: 100%;
-  background-color: white;
+  background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 0 1rem;
 }
 
 .warehouse-header {
-  background-color: white;
+  background-color: $white;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   flex-direction: column;
   text-align: start;
   &__title {
-    color: black;
+    color: $instock-black;
     font-size: 28px;
     margin: 0;
     margin-bottom: 1.2rem;
