@@ -29,6 +29,7 @@ export default function App() {
         />
         <Route path="/warehouse/:id/inventory/:id/add" element={<>AddItem</>} />
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }
