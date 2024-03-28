@@ -4,8 +4,17 @@ $instock-indigo: #2e66e5;
 $white: #ffffff;
 
 // Secondary Colors
-$slate: #000000;
+$slate: #5C667E;
 $cloud: #bdc5d5;
+
+// Background Colors
+$graphite: #232940;
+$light-grey: #bdc5d5;
+
+// Support Colors
+$green: #158463;
+$red:#C94515;
+
 
 //Breakpoints
 $mobile-breakpoint: 320px;
@@ -55,6 +64,10 @@ $table-header-line-height-mb: 0.65rem;
 $body-lg-line-height-mb: 1.6rem;
 $body-m-line-height-mb: 1.25rem;
 $body-sm-line-height-mb: 1rem;
+
+//TextWeight
+$text-weight-bold:600;
+$text-weight-regular:400;
 
 //Margin sizes Desktop/Tablet/Mobile
 
