@@ -2,12 +2,13 @@
 @use '../../styles/partials/variables' as *;
 
 .item {
-  width: 45%;
+  width: 47%;
   margin-bottom: 0.5rem;
   font-size: 13px;
   &__header {
     font-size: 11px;
     margin-bottom: 0.2rem;
+    font-weight: 600;
   }
   &__warehouse {
     border: none;
