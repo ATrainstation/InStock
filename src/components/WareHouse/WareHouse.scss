@@ -1,21 +1,31 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles//partials//mixins" as *;
+
+.warehouses-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: -5rem;
+}
+
 .warehouses {
-  width: 80%;
-  background-color: white;
+  width: 100%;
+  background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  margin: auto;
   border-radius: 5px;
+  margin: 0 1rem;
 }
 
 .warehouse-header {
-  background-color: white;
+  background-color: $white;
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 2.5rem;
   flex-direction: column;
   text-align: start;
   &__title {
-    color: black;
-    font-size: 28px;
+    color: $instock-black;
+    font-size: $header-ts-mobile;
     margin: 0;
     margin-bottom: 1.2rem;
   }
@@ -26,7 +36,8 @@
     box-sizing: border-box;
     background-image: url(../../assets/icons/search-24px.svg);
     background-repeat: no-repeat;
-    background-position: 14.5rem;
+    background-position: center right 1rem;
+    background-size: 20px;
     width: 100%;
     border: 0.5px solid #bdc5d5;
     margin-bottom: 1rem;
@@ -37,9 +48,13 @@
   }
 }
 
-.warehouse-list{
-display: none;
-font-size: 12px;
+.warehouse-list {
+  display: none;
+  font-size: $table-header-ts-mobile;
+  background-color: $light-grey;
+}
+.warehouse-list p {
+  color: $slate;
 }
 
 @media screen and (min-width: 768px) {
@@ -49,7 +64,7 @@ font-size: 12px;
     &__title {
       margin: 0;
       width: 30%;
-      font-size: 32px;
+      font-size: $header-text-size;
     }
   }
 
@@ -59,35 +74,73 @@ font-size: 12px;
     justify-content: end;
     align-items: center;
     &__search {
-      width: 45%;
-      background-position: 10rem;
+      width: 47%;
       margin: 0;
       margin-right: 1rem;
     }
 
     &__add {
-      width: 40%;
+      width: 43%;
     }
   }
-  .warehouse-list{
+  .warehouse-list {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 24px 0 24px;
+    padding: 11px 24px 11px 24px;
     box-sizing: border-box;
-    background-color: #bdc5d5;
+    &__last {
+      text-align: end;
+      justify-content: end;
+      display: flex;
     }
+  }
+}
+.item-container {
+  width: 20%;
+  display: flex;
+  align-items: center;
+
+  &__icon{
+width: 15px;
+  }
+}
+.item-container-actions {
+  width: 10%;
+}
+.item-contact{
+width: 22%;
 }
 
 @media screen and (min-width: 1280px) {
+  .warehouses {
+    margin: 0 130px;
+  }
+  .warehouse-header {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .item-container-actions {
+    width: 6.5%;
+  }
   .header-interactive {
     &__search {
-      width: 40%;
-      background-position: 16rem;
+      width: 55%;
     }
 
     &__add {
-      width: 30%;
+      width: 32%;
+    }
+  }
+
+  .warehouse-list {
+    padding: 11px 48px 11px 48px;
+
+    &__last {
+      text-align: end;
+      justify-content: end;
+      display: flex;
     }
   }
 }
