@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import TestDiv from "./components/Header/TestDiv";
 import WareHouse from "./components/WareHouse/WareHouse";
 import Footer from "./components/Footer/Footer";
-
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 
 export default function App() {
@@ -15,9 +15,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<WareHouse/>} />
         <Route path="/warehouses" element={<>WareHouse</>} />
+
         <Route path="/warehouse/:id" element={<>WarehouseDetails</>} />
         <Route path="/warehouse/:id/edit" element={<>EditWarehouse</>} />
-        <Route path="/warehouse/:id/add" element={<>AddWarehouse</>} />
+        <Route path="/warehouse/add" element={<AddWarehouse />} />
         <Route path="/warehouse/:id/inventory" element={<>ItemInventory</>} />
         <Route
           path="/warehouse/:id/inventory/:id"

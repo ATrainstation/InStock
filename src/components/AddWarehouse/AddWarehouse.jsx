@@ -1,6 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
-import React from "react";
+import React, { useState } from "react";
 
 function AddWarehouse() {
   const [formData, setFormData] = useState({
@@ -19,9 +19,9 @@ function AddWarehouse() {
   };
 
   return (
-    <div className="warehouses">
-      <div className="warehouse-header">
-        <h1 className="warehouse-header__title">Warehouses</h1>
+    <div className="component-container">
+      <div className="component-header">
+        <h1 className="component-header__title">Warehouses</h1>
       </div>
 
       <div className="add-warehouse__form__container">

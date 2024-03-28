@@ -2,8 +2,17 @@ import WareHouseItem from "../WareHouseItem/WareHouseItem";
 import "./WareHouse.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 export default function () {
+
+  const navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`/warehouse/add`);
+  };
 
   return (
     <div className="warehouses">
@@ -14,10 +23,12 @@ export default function () {
             classname="header-interactive__search"
             placeholder="Search..."
           />
-          <Button
-            buttonText="+ Add New Warehouse"
-            classname="header-interactive__add"
-          />
+          <div onClick={handleNavigate}>
+            <Button
+              buttonText="+ Add New Warehouse"
+              classname="header-interactive__add"
+            />
+          </div>
         </div>
       </div>
 

@@ -1,12 +1,17 @@
-.warehouses {
-    width: 80%;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    margin: auto;
-    border-radius: 5px;
+.component-container {
+  position: relative;
+  top: 300px;
+  right: -94px;
+
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  border-radius: 5px;
+  z-index: 100;
   }
   
-  .warehouse-header {
+  .component-header {
     background-color: white;
     display: flex;
     justify-content: space-between;
