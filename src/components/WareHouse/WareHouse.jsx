@@ -3,9 +3,12 @@ import "./WareHouse.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import { useNavigate } from 'react-router-dom';
+import HeaderChevron from "../../assets/icons/sort-24px.svg";
 
-
-
+  const navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`/warehouse/add`);
+  };
 
 export default function () {
 
@@ -13,22 +16,22 @@ export default function () {
   const handleNavigate = (id) => {
     navigate(`/warehouse/add`);
   };
-
   return (
-    <div className="warehouses">
-      <div className="warehouse-header">
-        <h1 className="warehouse-header__title">Warehouses</h1>
-        <div className="header-interactive">
-          <SearchBar
-            classname="header-interactive__search"
-            placeholder="Search..."
-          />
-          <Button
-            buttonText="+ Add New Warehouse"
-            classname="header-interactive__add"
-          />
+    <div className="warehouses-container">
+      <div className="warehouses">
+        <div className="warehouse-header">
+          <h1 className="warehouse-header__title">Warehouses</h1>
+          <div className="header-interactive">
+            <SearchBar
+              classname="header-interactive__search"
+              placeholder="Search..."
+            />
+            <Button
+              buttonText="+ Add New Warehouse"
+              classname="header-interactive__add"
+            />
+          </div>
         </div>
-      </div>
 
         <div className="warehouse-list">
           <span className="item-container">
@@ -52,6 +55,7 @@ export default function () {
           </span>
         </div>
         <WareHouseItem className="warehouse-rows" />
+      </div>
       </div>
   );
 }
