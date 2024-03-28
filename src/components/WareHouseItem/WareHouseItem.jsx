@@ -4,7 +4,12 @@ import "./WareHouseItem.scss";
 
 export default function WareHouseItem() {
   const testData = [
-    { warehouse: 'Manhatten', contact: 'Parmin Aujla', address: '503 Broadway, New York, USA', info: '647 807 5673' },
+    {
+      warehouse: "Manhatten",
+      contact: "Parmin Aujla",
+      address: "503 Broadway, New York, USA",
+      info: "647 807 5673",
+    },
     { warehouse: 1, contact: 2, address: 3, info: 4 },
     { warehouse: 1, contact: 2, address: 3, info: 4 },
     { warehouse: 1, contact: 2, address: 3, info: 4 },
@@ -14,7 +19,7 @@ export default function WareHouseItem() {
   ];
 
   return (
-    <div>
+    <>
       {testData.map((item) => (
         <div className="row">
           <div className="item">
@@ -44,6 +49,6 @@ export default function WareHouseItem() {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }

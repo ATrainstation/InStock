@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 export default function () {
 
   return (
+    <div className="warehouses-container"> 
     <div className="warehouses">
       <div className="warehouse-header">
         <h1 className="warehouse-header__title">Warehouses</h1>
@@ -22,13 +23,24 @@ export default function () {
       </div>
 
       <div className="warehouse-list">
+        <span className="item-container">
         <p>WAREHOUSE</p>
+        </span>
+        <span className="item-container">
         <p>ADDRESS</p>
+        </span>
+        <span className="item-container">
         <p>CONTACT NAME</p>
+        </span>
+        <span className="item-container">
         <p>CONTACT INFORMATION</p>
-        <p>ACTIONS</p>
+        </span>
+        <span className="item-container-actions">
+        <p className="warehouse-list__last">ACTIONS</p>
+        </span>
       </div>
       <WareHouseItem className="warehouse-rows" />
+    </div>
     </div>
   );
 }

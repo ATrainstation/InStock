@@ -1,9 +1,14 @@
+.warehouses-container {
+  width: 100%;
+  display: flex;
+}
+
 .warehouses {
-  width: 80%;
+  width: 100%;
   background-color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  margin: auto;
   border-radius: 5px;
+  margin: 0 1rem;
 }
 
 .warehouse-header {
@@ -26,7 +31,7 @@
     box-sizing: border-box;
     background-image: url(../../assets/icons/search-24px.svg);
     background-repeat: no-repeat;
-    background-position: 14.5rem;
+    background-position: right;
     width: 100%;
     border: 0.5px solid #bdc5d5;
     margin-bottom: 1rem;
@@ -37,9 +42,9 @@
   }
 }
 
-.warehouse-list{
-display: none;
-font-size: 12px;
+.warehouse-list {
+  display: none;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,35 +64,69 @@ font-size: 12px;
     justify-content: end;
     align-items: center;
     &__search {
-      width: 45%;
-      background-position: 10rem;
+      width: 47%;
       margin: 0;
       margin-right: 1rem;
     }
 
     &__add {
-      width: 40%;
+      width: 43%;
     }
   }
-  .warehouse-list{
+  .warehouse-list {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 24px 0 24px;
+    padding: 11px 24px 11px 24px;
     box-sizing: border-box;
     background-color: #bdc5d5;
+
+    &__last {
+      text-align: end;
+      justify-content: end;
+      display: flex;
     }
+  }
+}
+.item-container {
+  width: 20%;
+}
+.item-container p {
+  width: 100%;
+}
+.item-container-actions {
+  width: 10%;
 }
 
 @media screen and (min-width: 1280px) {
+  .warehouses {
+    margin: 0 130px;
+  }
+  .warehouse-header{
+padding-left: 48px;
+padding-right: 48px;
+  }
+
+  .item-container-actions {
+    width: 6.5%;
+  }
   .header-interactive {
     &__search {
-      width: 40%;
-      background-position: 16rem;
+      width: 55%;
     }
 
     &__add {
-      width: 30%;
+      width: 32%;
+    }
+  }
+
+  .warehouse-list {
+    padding: 11px 48px 11px 48px;
+
+    &__last {
+      text-align: end;
+      justify-content: end;
+      display: flex;
     }
   }
 }
