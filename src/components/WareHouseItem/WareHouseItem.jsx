@@ -70,7 +70,7 @@ export default function WareHouseItem() {
               <p className="item__header">ADDRESS</p>
               <p className="item__address">{item.address}</p>
             </div>
-            <div className="item">
+            <div className="item item-contact">
               <p className="item__header">CONTACT INFORMATION</p>
               <p className="item__email">{item.info}</p>
               <p className="item__phone">{item.info}</p>

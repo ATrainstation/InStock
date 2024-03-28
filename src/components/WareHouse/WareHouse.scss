@@ -1,5 +1,5 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles//partials//mixins' as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles//partials//mixins" as *;
 
 .warehouses-container {
   width: 100%;
@@ -48,6 +48,10 @@
 .warehouse-list {
   display: none;
   font-size: 12px;
+  background-color: $light-grey;
+}
+.warehouse-list p {
+  color: $slate;
 }
 
 @media screen and (min-width: 768px) {
@@ -82,8 +86,6 @@
     justify-content: space-between;
     padding: 11px 24px 11px 24px;
     box-sizing: border-box;
-    background-color: #bdc5d5;
-
     &__last {
       text-align: end;
       justify-content: end;
@@ -93,21 +95,27 @@
 }
 .item-container {
   width: 20%;
-}
-.item-container p {
-  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__icon{
+width: 15px;
+  }
 }
 .item-container-actions {
   width: 10%;
+}
+.item-contact{
+width: 22%;
 }
 
 @media screen and (min-width: 1280px) {
   .warehouses {
     margin: 0 130px;
   }
-  .warehouse-header{
-padding-left: 48px;
-padding-right: 48px;
+  .warehouse-header {
+    padding-left: 48px;
+    padding-right: 48px;
   }
 
   .item-container-actions {
