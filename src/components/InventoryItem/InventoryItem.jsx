@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
+import IsInStock from "../IsInStock/IsInStock";
 import "./InventoryItem.scss";
 import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
@@ -69,7 +70,7 @@ export default function WareHouseItem() {
             </div>
             <div className="item">
               <p className="item__header">STATUS</p>
-              <p className="item__address">{item.isInStock}</p>
+              <p className="item__address"><IsInStock isInStock={item.isInStock}/></p>
             </div>
             <div className="item item-contact">
               <p className="item__header">QTY</p>
