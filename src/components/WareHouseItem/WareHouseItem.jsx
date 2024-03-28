@@ -3,6 +3,9 @@ import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import "./WareHouseItem.scss";
 import Modal from "../Modal/Modal";
+import { Link } from "react-router-dom";
+
+import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem() {
   const testData = [
@@ -33,8 +36,6 @@ export default function WareHouseItem() {
 
   return (
     <>
-
-
       {showModal && (
         <Modal
           showModal={showModal}
@@ -49,38 +50,44 @@ export default function WareHouseItem() {
       )}
 
       <div>
-      {testData.map((item) => (
-        <div className="row">
-          <div className="item">
-            <p className="item__header">WAREHOUSE</p>
-            <button className="item__warehouse">{item.warehouse}</button>
+        {testData.map((item) => (
+          <div className="row">
+            <div className="item">
+              <p className="item__header">WAREHOUSE</p>
+              <Link className="linkDetails" to={`/warehouse/asda`}>
+              <div className="warehouse-link">
+                <button className="item__warehouse">{item.warehouse}</button>
+                <img src={HeaderArrow} alt="header arrow" />
+              </div>
+              </Link>
+
+            </div>
+            <div className="item">
+              <p className="item__header">CONTACT NAME</p>
+              <p className="item__name">{item.contact}</p>
+            </div>
+            <div className="item">
+              <p className="item__header">ADDRESS</p>
+              <p className="item__address">{item.address}</p>
+            </div>
+            <div className="item">
+              <p className="item__header">CONTACT INFORMATION</p>
+              <p className="item__email">{item.info}</p>
+              <p className="item__phone">{item.info}</p>
+            </div>
+            <div className="actions">
+              <button className="actions__delete">
+                <img src={Delete} alt="delete icon" />
+              </button>
+              <button className="actions__edit">
+                <img src={Edit} alt="edit icon" />
+              </button>
+            </div>
           </div>
-          <div className="item">
-            <p className="item__header">CONTACT NAME</p>
-            <p className="item__name">{item.contact}</p>
-          </div>
-          <div className="item">
-            <p className="item__header">ADDRESS</p>
-            <p className="item__address">{item.address}</p>
-          </div>
-          <div className="item">
-            <p className="item__header">CONTACT INFORMATION</p>
-            <p className="item__email">{item.info}</p>
-            <p className="item__phone">{item.info}</p>
-          </div>
-          <div className="actions">
-            <button className="actions__delete">
-              <img src={Delete} alt="delete icon" />
-            </button>
-            <button className="actions__edit">
-              <img src={Edit} alt="edit icon" />
-            </button>
-          </div>
-        </div>
-      ))}
+        ))}
         {/* Temp delete button */}
         <button onClick={deleteHandler}>DELETE</button>
-      </div>
+        </div>
     </>
   );
 }

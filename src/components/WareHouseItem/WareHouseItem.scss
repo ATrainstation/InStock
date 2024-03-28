@@ -1,6 +1,8 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+* {
+  text-decoration: none;
+}
 .item {
   width: 47%;
   margin-bottom: 0.5rem;
@@ -9,12 +11,17 @@
     font-size: 11px;
     margin-bottom: 0.2rem;
     font-weight: 600;
+    color: $slate;
   }
   &__warehouse {
     border: none;
     background-color: $white;
     color: $instock-indigo;
   }
+}
+
+.warehouse-link {
+  display: flex;
 }
 
 .row {
@@ -41,7 +48,7 @@
   .row {
     justify-content: space-between;
     align-items: center;
-    padding-right:24px;
+    padding-right: 24px;
     padding-left: 24px;
   }
   .item {
@@ -70,7 +77,7 @@
   .row {
     justify-content: space-between;
     align-items: center;
-    padding-right:48px;
+    padding-right: 48px;
     padding-left: 48px;
   }
   .item {
