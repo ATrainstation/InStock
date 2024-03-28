@@ -1,0 +1,58 @@
+.item {
+  width: 50%;
+  margin-bottom: 0.5rem;
+  font-size: 11px;
+  &__header {
+    font-size: 10px;
+    margin-bottom: 0.2rem;
+  }
+  &__warehouse {
+    border: none;
+    background-color: white;
+    color: #2e66e5;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 0.2px solid grey;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  &__delete,
+  &__edit {
+    border: none;
+    background-color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    justify-content: start;
+    align-items: center;
+  }
+  .item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 15%;
+    font-size: 12px;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+  }
+  .actions {
+    width: 10%;
+    margin: 0;
+  }
+}

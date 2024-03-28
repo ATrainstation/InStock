@@ -1,12 +1,22 @@
 .button {
 background-color: #2E66E5;
 border-radius: 20px;
-padding: 0.52rem;
-width: 100%;
 color: white;
+height: 36px;
+box-sizing: border-box;
+border: none;
+padding: 0.4rem 1rem 0.4rem 1rem;
 &__text{
 margin: 0;
 padding: 0;
-font-size: 0.75rem;
+font-size: 13px;
 }
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    &__text{
+    font-size: 14px;
+    }
+    }
 }
