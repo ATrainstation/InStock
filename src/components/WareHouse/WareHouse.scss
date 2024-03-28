@@ -23,7 +23,7 @@
   text-align: start;
   &__title {
     color: $instock-black;
-    font-size: 28px;
+    font-size: $header-ts-mobile;
     margin: 0;
     margin-bottom: 1.2rem;
   }
@@ -48,7 +48,7 @@
 
 .warehouse-list {
   display: none;
-  font-size: 12px;
+  font-size: $table-header-ts-mobile;
   background-color: $light-grey;
 }
 .warehouse-list p {
@@ -62,7 +62,7 @@
     &__title {
       margin: 0;
       width: 30%;
-      font-size: 32px;
+      font-size: $header-text-size;
     }
   }
 
