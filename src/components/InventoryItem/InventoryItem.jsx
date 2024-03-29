@@ -82,7 +82,7 @@ export default function WareHouseItem() {
             </div>
             <div className="actions">
               <button className="actions__delete">
-                <Link><img src={Delete} onClick={deleteHandler} alt="delete icon" /></Link>
+                <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
               </button>
               <button className="actions__edit">
                 <img src={Edit} alt="edit icon" />
