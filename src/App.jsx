@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import WareHouse from "./components/WareHouse/WareHouse";
 import Footer from "./components/Footer/Footer";
 import Inventory from "./components/Inventory/Inventory";
+import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 
 
 
@@ -28,7 +29,7 @@ export default function App() {
           path="/warehouse/:id/inventory/:id/edit"
           element={<>EditItem</>}
         />
-        <Route path="/warehouse/:id/inventory/:id/add" element={<>AddItem</>} />
+        <Route path="/inventory/add" element={<AddInventoryItem/>} />
         <Route path="/inventory" element={<Inventory/>} />
       </Routes>
       <Footer></Footer>

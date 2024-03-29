@@ -1,0 +1,43 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles//partials//mixins" as *;
+
+
+
+.inventory-add{
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 0 1rem;
+
+
+    &__container{
+        width: 100%;
+        display: flex;
+        position: relative;
+        top: -5rem;
+    }
+
+    &__header{
+        background-color: $white;
+        display: flex;
+        padding: 2.5rem;
+        flex-direction: row;
+        align-items: baseline;
+        border-bottom: 1px solid $cloud;
+        gap: 1rem;
+
+    }
+    &__back-icon{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+
+.item-details-form{
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    border-radius: 5px;
+}
