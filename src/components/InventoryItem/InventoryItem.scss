@@ -1,0 +1,103 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+* {
+  text-decoration: none;
+}
+.item {
+  width: 47%;
+  margin-bottom: 0.5rem;
+  font-size: $body-m-ts-mobile;
+  &__header {
+    font-size: $table-header-ts-mobile;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+    color: $slate;
+  }
+  &__warehouse {
+    border: none;
+    background-color: $white;
+    color: $instock-indigo;
+  }
+}
+
+.warehouse-link {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 0.2px solid $cloud;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  &__delete,
+  &__edit {
+    border: none;
+    background-color: $white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+  .item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 10%;
+    font-size: $body-sm-text-size;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+  }
+  .item p {
+    width: 70%;
+  }
+  .actions {
+    width: 10%;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+  .item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 10%;
+    font-size: 0.75rem;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+  }
+  .item p {
+    width: 80%;
+  }
+  .actions {
+    width: 6.5%;
+    margin: 0;
+  }
+}
