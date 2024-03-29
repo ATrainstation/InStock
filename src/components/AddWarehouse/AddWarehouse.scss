@@ -1,27 +1,73 @@
-.component-container {
-  position: relative;
-  top: 300px;
-  right: -94px;
+@use "../../styles/partials/variables" as *;
+@use "../../styles//partials//mixins" as *;
 
-  width: 80%;
-  background-color: white;
+.arrow-icon {
+  height: 35px;
+  width: auto;
+}
+
+.add-warehouses-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: -5rem;
+}
+
+
+.component-container {
+  width: 100%;
+  background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  margin: auto;
   border-radius: 5px;
-  z-index: 100;
+  margin: 0 1rem;
+  }
+
+  .header__content {
+    display: flex;
+    padding: 0 2rem;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .component-header {
+    background-color: $white;
+    display: flex;
+    padding: 2rem 0;
+    border-bottom: 2px solid $cloud;
+
+    &__title {
+      color: $instock-black;
+      font-size: $header-ts-mobile;
+    }
+  }
+  .add-warehouse__form__container {
+    padding: 1rem 2rem;
+  }
+
+  .input-title{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .input-box {
+    height: 36px;
+    border: 2px solid $cloud;
+    border-radius: 20px;
+    padding: 0 1rem;
+    margin-top: 4px;
+  }
+
+  .contact-details {
+    margin-top: 2rem;
   }
   
-  .component-header {
-    background-color: white;
+  .buttons{
     display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    flex-direction: column;
-    text-align: start;
-    &__title {
-      color: black;
-      font-size: 28px;
-      margin: 0;
-      margin-bottom: 1.2rem;
-    }
+    background-color: $cloud;
+    width: 100%;
+    height: 3rem;
   }

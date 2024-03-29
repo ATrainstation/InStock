@@ -1,6 +1,8 @@
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import React, { useState } from "react";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
+import "./AddWarehouse.scss";
 
 function AddWarehouse() {
   const [formData, setFormData] = useState({
@@ -19,67 +21,76 @@ function AddWarehouse() {
   };
 
   return (
-    <div className="component-container">
-      <div className="component-header">
-        <h1 className="component-header__title">Warehouses</h1>
-      </div>
+    <div className="add-warehouses-container">
+      <div className="component-container">
+        <div className="component-header">
+          <div className="header__content">
+            <img className="arrow-icon" src={backArrow} />
+            <h1 className="component-header__title">Add New Warehouse</h1>
+          </div>
+        </div>
 
-      <div className="add-warehouse__form__container">
-        <div className="Warehouse Details">
-          <h2>Warehouse Details</h2>
-
+        <div className="add-warehouse__form__container">
           <form>
+            <div className="Warehouse Details">
+              <h2>Warehouse Details</h2>
+
               <label className="input-title">
                 Warehouse Name
-                <input />
+                <input className="input-box" placeholder="Warehouse Name" />
               </label>
-    
+
               <label className="input-title">
                 Street Address
-                <input />
+                <input className="input-box" placeholder="Street Address" />
               </label>
-    
+
               <label className="input-title">
                 City
-                <input />
+                <input className="input-box" placeholder="City" />
               </label>
-    
+
               <label className="input-title">
                 Country
-                <input />
+                <input className="input-box" placeholder="Country" />
               </label>
-
-              </form>
             </div>
-          
 
-        <div className="Contact Details">
-          <h2>Contact Details</h2>
+            <div className="contact-details">
+              <h2>Contact Details</h2>
 
-          <form>
               <label className="input-title">
                 Contact Name
-                <input />
+                <input className="input-box" placeholder="Contact Name" />
               </label>
-    
+
               <label className="input-title">
                 Position
-                <input />
+                <input className="input-box" placeholder="Position" />
               </label>
-    
+
               <label className="input-title">
                 Phone Number
-                <input />
+                <input className="input-box" placeholder="Phone Number" />
               </label>
-    
+
               <label className="input-title">
                 Email
-                <input />
-          </label>
+                <input className="input-box" placeholder="Email" />
+              </label>
+            </div>
+
 
           </form>
+
         </div>
-      </div>
+
+        <div className="buttons">
+              <button>Cancel</button>
+              <button>+ Add Warehouse</button>
+        </div>
+        
+        </div>
     </div>
   );
 }
