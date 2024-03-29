@@ -87,6 +87,7 @@ function AddWarehouse() {
 
         <div className="buttons">
               <button>Cancel</button>
+              <Button />
               <button>+ Add Warehouse</button>
         </div>
         
