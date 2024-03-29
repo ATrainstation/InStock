@@ -1,14 +1,14 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles//partials//mixins" as *;
 
-.warehouses-container {
+.inventory-container {
   width: 100%;
   display: flex;
   position: relative;
   top: -5rem;
 }
 
-.warehouses {
+.inventory {
   width: 100%;
   background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -16,7 +16,7 @@
   margin: 0 1rem;
 }
 
-.warehouse-header {
+.inventory-header {
   background-color: $white;
   display: flex;
   justify-content: space-between;
@@ -48,17 +48,17 @@
   }
 }
 
-.warehouse-list {
+.inventory-list {
   display: none;
   font-size: $table-header-ts-mobile;
   background-color: $light-grey;
 }
-.warehouse-list p {
+.inventory-list p {
   color: $slate;
 }
 
-@include tablet {
-  .warehouse-header {
+@media screen and (min-width: 768px) {
+  .inventory-header {
     flex-direction: row;
     border: none;
     &__title {
@@ -83,7 +83,7 @@
       width: 43%;
     }
   }
-  .warehouse-list {
+  .inventory-list {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -97,7 +97,7 @@
   }
 }
 .item-container {
-  width: 20%;
+  width: 10%;
   display: flex;
   align-items: center;
 
@@ -110,10 +110,10 @@ width: 15px;
 }
 
 @media screen and (min-width: 1280px) {
-  .warehouses {
+  .inventory {
     margin: 0 130px;
   }
-  .warehouse-header {
+  .inventory-header {
     padding-left: 48px;
     padding-right: 48px;
   }
@@ -131,7 +131,7 @@ width: 15px;
     }
   }
 
-  .warehouse-list {
+  .inventory-list {
     padding: 11px 48px 11px 48px;
 
     &__last {

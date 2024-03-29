@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
-import "./WareHouseItem.scss";
+import IsInStock from "../IsInStock/IsInStock";
+import "./InventoryItem.scss";
 import Modal from "../Modal/Modal";
 import { Link } from "react-router-dom";
 
@@ -10,17 +11,18 @@ import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 export default function WareHouseItem() {
   const testData = [
     {
-      warehouse: "Manhatten",
-      contact: "Parmin Aujla",
-      address: "503 Broadway, New York, USA",
-      info: "647 807 5673",
+      item: "Television",
+      category: "Electronics",
+      isInStock: true,
+      qty: "500",
+      warehouse: "Washington",
     },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
   ];
 
   const [showModal, setShowModal] = useState(false);
@@ -53,27 +55,30 @@ export default function WareHouseItem() {
         {testData.map((item) => (
           <div className="row">
             <div className="item">
-              <p className="item__header">WAREHOUSE</p>
+              <p className="item__header">ITEM</p>
               <Link className="linkDetails" to={`/warehouse/asda`}>
               <div className="warehouse-link">
-                <button className="item__warehouse">{item.warehouse}</button>
+                <button className="item__warehouse">{item.item}</button>
                 <img src={HeaderArrow} alt="header arrow" />
               </div>
               </Link>
 
             </div>
             <div className="item">
-              <p className="item__header">CONTACT NAME</p>
-              <p className="item__name">{item.contact}</p>
+              <p className="item__header">CATEGORY</p>
+              <p className="item__name">{item.category}</p>
             </div>
             <div className="item">
-              <p className="item__header">ADDRESS</p>
-              <p className="item__address">{item.address}</p>
+              <p className="item__header">STATUS</p>
+              <p className="item__address"><IsInStock isInStock={item.isInStock}/></p>
             </div>
             <div className="item item-contact">
-              <p className="item__header">CONTACT INFORMATION</p>
-              <p className="item__email">{item.info}</p>
-              <p className="item__phone">{item.info}</p>
+              <p className="item__header">QTY</p>
+              <p className="item__email">{item.qty}</p>
+            </div>
+            <div className="item item-contact">
+              <p className="item__header">WAREHOUSE</p>
+              <p className="item__email">{item.warehouse}</p>
             </div>
             <div className="actions">
               <button className="actions__delete">
