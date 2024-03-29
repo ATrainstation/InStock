@@ -1,9 +1,26 @@
-import './Button.scss';
+import "./Button.scss";
+import EditIcon from "/src/assets/icons/edit-24px-white.svg";
 
-//add onlick, and pass in specific function as prop
+// Add onclick and pass in a specific function as a prop
 export default function Button(prop) {
-const {buttonText, classname} = prop
+  const { buttonText, classname } = prop;
+
   return (
-<button className={`${classname} button`}><p className='button__text'>{buttonText}</p></button>
-  )
+    <button className={`${classname} button`}>
+      <img
+        className={`${
+          classname === "edit-button" ? "button__icon-edit" : "button__icon"
+        }`}
+        src={EditIcon}
+        alt="button icon"
+      />
+      <p
+        className={`${
+          classname === "edit-button" ? "button__icon-text" : "button__text"
+        }`}
+      >
+        {buttonText}
+      </p>
+    </button>
+  );
 }
