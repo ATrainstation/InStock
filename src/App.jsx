@@ -4,8 +4,13 @@ import Header from "./components/Header/Header";
 import WareHouse from "./components/WareHouse/WareHouse";
 import Footer from "./components/Footer/Footer";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
+import Inventory from "./components/Inventory/Inventory";
+
+
+
 
 export default function App() {
+  
   return (
     <BrowserRouter>
       <Header></Header>
@@ -25,6 +30,7 @@ export default function App() {
           element={<>EditItem</>}
         />
         <Route path="/warehouse/:id/inventory/:id/add" element={<>AddItem</>} />
+        <Route path="/inventory" element={<Inventory/>} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

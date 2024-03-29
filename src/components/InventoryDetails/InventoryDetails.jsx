@@ -1,6 +1,7 @@
 import "./InventoryDetails.scss";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
+import IsInStock from "../IsInStock/IsInStock";
 
 export default function InventoryDetails() {
   return (
@@ -31,14 +32,14 @@ export default function InventoryDetails() {
 
           <div className="body-container2">
             <div className="body-status-quantity">
-            <div className="body-status">
-              <p className="body__header">STATUS:</p>
-              <p className="body__text">asdsdF</p>
-            </div>
-            <div className="body-quantity">
-              <p className="body__header">QUANTITY:</p>
-              <p className="body__text">FAsdsad</p>
-            </div>
+              <div className="body-status">
+                <p className="body__header">STATUS:</p>
+                <p className="body__text">{<IsInStock isInStock={true} />}</p>
+              </div>
+              <div className="body-quantity">
+                <p className="body__header">QUANTITY:</p>
+                <p className="body__text">FAsdsad</p>
+              </div>
             </div>
             <div className="body">
               <p className="body__header">WAREHOUSE:</p>
