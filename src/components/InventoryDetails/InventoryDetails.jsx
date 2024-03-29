@@ -2,6 +2,7 @@ import "./InventoryDetails.scss";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
 import IsInStock from "../IsInStock/IsInStock";
+import { Link } from "react-router-dom";
 
 export default function InventoryDetails() {
   return (
@@ -9,14 +10,14 @@ export default function InventoryDetails() {
       <div className="InventoryDetails">
         <div className="details-header">
           <div className="details-title">
-            <img
-              className="details-title__back"
-              src={BackIcon}
-              alt="back icon"
-            />
+            <Link to='/warehouse/:id/inventory' className="details-title__back"> 
+              <img src={BackIcon} alt="back icon" />
+            </Link>
             <h1 className="details-title__title">Television</h1>
           </div>
+          <Link to='/warehouse/:id/inventory/:id/edit'>
           <Button buttonText="Edit" classname="edit-button" />
+          </Link>
         </div>
         <div className="details-body">
           <div className="body-container1">

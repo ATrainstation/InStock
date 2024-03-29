@@ -34,6 +34,8 @@
   }
   &__back {
     margin-right: 6px;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -119,5 +121,26 @@
   .body__text-descript {
     max-width: 90%;
     word-wrap: break-word;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .InventoryDetails {
+    margin: 0 130px;
+  }
+
+  .details-header {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .body-container1 {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .body-container2 {
+    padding-left: 35px;
+    padding-right: 35px;
   }
 }
