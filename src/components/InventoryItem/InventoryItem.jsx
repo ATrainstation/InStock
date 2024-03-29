@@ -82,7 +82,7 @@ export default function WareHouseItem() {
             </div>
             <div className="actions">
               <button className="actions__delete">
-                <img src={Delete} alt="delete icon" />
+                <Link><img src={Delete} onClick={deleteHandler} alt="delete icon" /></Link>
               </button>
               <button className="actions__edit">
                 <img src={Edit} alt="edit icon" />
@@ -91,7 +91,7 @@ export default function WareHouseItem() {
           </div>
         ))}
         {/* Temp delete button */}
-        <button onClick={deleteHandler}>DELETE</button>
+        {/* <button onClick={deleteHandler}>DELETE</button> */}
         </div>
     </>
   );
