@@ -26,14 +26,12 @@ export default function WareHouseItem() {
   ];
 
   const [showModal, setShowModal] = useState(false);
-  const [showWarehouseModal, setShowWarehouseModal] = useState(false);
   const [showInventoryModal, setShowInventoryModal] = useState(false);
 
-  const warehouseName = "TEMP Washington";
   const inventoryItemName = "TEMP Washington";
 
   const deleteHandler = () => {
-    setShowModal(true), setShowWarehouseModal(true);
+    setShowModal(true), setShowInventoryModal(true);
   };
 
   return (
@@ -42,11 +40,8 @@ export default function WareHouseItem() {
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          showWarehouseModal={showWarehouseModal}
-          setShowWarehouseModal={setShowWarehouseModal}
           showInventoryModal={showInventoryModal}
           setShowInventoryModal={setShowInventoryModal}
-          warehouseName={warehouseName}
           inventoryItemName={inventoryItemName}
         />
       )}

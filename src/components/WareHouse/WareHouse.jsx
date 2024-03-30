@@ -7,9 +7,13 @@ import HeaderChevron from "../../assets/icons/sort-24px.svg";
 export default function () {
 
   const navigate = useNavigate();
-  const handleNavigate = (id) => {
+  const handleAdd = (e) => {
     navigate(`/warehouse/add`);
   };
+
+  const handleEdit = (e) => {
+    navigate(`/warehouse/:id/edit`)
+  }
 
   return (
     <div className="warehouses-container">
@@ -25,7 +29,7 @@ export default function () {
               <Button
                 classname="header-interactive__add"
                 buttonText="+ Add New Warehouse"
-                link={handleNavigate}
+                link={handleAdd}
               />
 
           </div>
@@ -54,6 +58,7 @@ export default function () {
         </div>
         <WareHouseItem className="warehouse-rows" 
         // key={id}
+        handleEdit={handleEdit}
          />
       </div>
       </div>
