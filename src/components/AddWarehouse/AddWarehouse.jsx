@@ -83,6 +83,7 @@ function AddWarehouse() {
     return 'input-box';
   };
 
+  // CHANGE THE CLASSNAMES
   return (
     <div className="add-warehouses-container">
       <div className="component-container">

@@ -1,5 +1,6 @@
 import "./Modal.scss";
 import React, { useState } from "react";
+
 import closeIcon from "../../assets/icons/close-24px.svg"
 import CancelButton from "../CancelButton/CancelButton";
 
@@ -19,6 +20,7 @@ export const Modal = ({
     setShowModal(!showModal);
   };
 
+
   const deleteHandler = () => {
     // include on warehouse/inventory page, pass as prop, delete from list in delete request
   };
@@ -26,8 +28,10 @@ export const Modal = ({
   return (
     <>
       {showWarehouseModal && (
+
+
         <div className={showHideClassName}>
-          <div className="modal-overlay"></div>
+          <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-content">
            <div className="content-cont">
               <button className="close-modal" onClick={handleCloseModal}>
@@ -54,6 +58,7 @@ export const Modal = ({
       )}
 
       {showInventoryModal && (
+
         <div className={showHideClassName}>
           <div className="modal-overlay"></div>
           <div className="modal-content">
@@ -69,6 +74,8 @@ export const Modal = ({
             </div>
           </div>
         </div>
+
+
       )}
     </>
   );
