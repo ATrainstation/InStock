@@ -22,8 +22,8 @@ function AddWarehouse() {
   });
 
   const [formValidation, setFormValidation] = useState({
-    warehouseName: true,
-    streetAddress: true,
+    itemName: true,
+    description: true,
     city: true,
     country: true,
     contactName: true,
@@ -84,43 +84,45 @@ function AddWarehouse() {
   };
 
   return (
+    // CHANGE CLASS NAMES!!!
     <div className="add-warehouses-container">
       <div className="component-container">
         <div className="component-header">
           <div className="header__content">
             <img className="arrow-icon" src={backArrow} alt="Back"
               onClick={handleBackClick} />
-            <h1 className="component-header__title">Add New Warehouse</h1>
+            <h1 className="component-header__title">Add New Inventory Item</h1>
           </div>
         </div>
 
         <div className="add-warehouse__form__container">
           <form className="add-warehouse__form">
             <div className="warehouse-details">
-              <h2>Warehouse Details</h2>
+              <h2>Item Details</h2>
 
-              <label className="input-title">Warehouse Name
+              <label className="input-title">Item Name
               <input
-                name="warehouseName"
-                value={formData.warehouseName}
+                name="itemName"
+                value={formData.itemName}
                 onChange={handleChange}
-                className={getInputClass('warehouseName')}
-                placeholder="Warehouse Name"
+                className={getInputClass('itemName')}
+                placeholder="Item Name"
               />
             </label>
 
-            <label className="input-title">Street Address
-              <input
-                name="streetAddress"
+            <label className="input-title">Description
+              <textarea
+                name="description"
                 value={formData.streetAddress}
                 onChange={handleChange}
-                className={getInputClass('streetAddress')}
-                placeholder="Street Address"
+                className={getInputClass('description')}
+                placeholder="Please enter a brief item description..."
               />
             </label>
 
             <label className="input-title">City
               <input
+              type="dropdown"
                 name="city"
                 value={formData.city}
                 onChange={handleChange}

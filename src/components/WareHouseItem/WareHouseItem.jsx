@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function WareHouseItem() {
+export default function WareHouseItem({handleEdit}) {
   const testData = [
     {
       warehouse: "Manhatten",
@@ -25,10 +25,9 @@ export default function WareHouseItem() {
 
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
-  const [showInventoryModal, setShowInventoryModal] = useState(false);
+ 
 
   const warehouseName = "TEMP Washington";
-  const inventoryItemName = "TEMP Washington";
 
   const deleteHandler = () => {
     setShowModal(true), setShowWarehouseModal(true);
@@ -42,10 +41,8 @@ export default function WareHouseItem() {
           setShowModal={setShowModal}
           showWarehouseModal={showWarehouseModal}
           setShowWarehouseModal={setShowWarehouseModal}
-          showInventoryModal={showInventoryModal}
-          setShowInventoryModal={setShowInventoryModal}
+
           warehouseName={warehouseName}
-          inventoryItemName={inventoryItemName}
         />
       )}
 
@@ -80,7 +77,10 @@ export default function WareHouseItem() {
                 <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
               </button>
               <button className="actions__edit">
-                <img src={Edit} alt="edit icon" />
+                <img 
+                src={Edit} 
+                alt="edit icon"
+                onClick={handleEdit} />
               </button>
             </div>
           </div>
