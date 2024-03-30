@@ -65,7 +65,7 @@ export default function WareHouseItem() {
             </div>
             <div className="item">
               <p className="item__header">STATUS</p>
-              <p className="item__address"><IsInStock isInStock={item.isInStock}/></p>
+              <IsInStock isInStock={item.isInStock}/>
             </div>
             <div className="item item-contact">
               <p className="item__header">QTY</p>
