@@ -90,20 +90,7 @@
     }
   }
 
-  .cancel-button {
-    width: 50%;
-    height: 36px;
-    padding: 0.5rem 1rem;
-    background: none;
-    border: 2px $cloud solid;
-    border-radius: 20px;
-    cursor: pointer;
 
-    @include tablet {
-      height: 38px;
-      width: 20%;
-    }
-  }
   
   .delete-button {
     width: 50%;

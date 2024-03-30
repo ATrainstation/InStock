@@ -1,10 +1,13 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .button {
   background-color: #2e66e5;
   border-radius: 20px;
   color: white;
   height: 36px;
-  box-sizing: border-box;
   border: none;
+  box-sizing: border-box;
   padding: 0.4rem;
   display: flex;
   justify-content: center;
@@ -23,16 +26,16 @@
   &__text {
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    font-size: $button-ts-mobile;
     font-weight: 600;
   }
 }
 
-@media screen and (min-width: 768px) {
+@include tablet {
   .button {
     padding: 0.8rem;
     &__icon-text {
-      font-size: 14px;
+      font-size: $button-text-size;
       display: contents;
     }
     &__icon-edit {
