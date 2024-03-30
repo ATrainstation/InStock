@@ -53,6 +53,10 @@
   &__edit {
     border: none;
     background-color: inherit;
+      &:hover {
+        cursor: pointer;
+      }
+    
   }
 }
 

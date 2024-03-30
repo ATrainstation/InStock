@@ -1,13 +1,16 @@
+import "../Modal/Modal.scss"
+import "./WareHouseItem.scss";
+import "../../styles/partials/_transitions.scss";
 import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group';
+import { Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
-import "./WareHouseItem.scss";
 import Modal from "../Modal/Modal";
-import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function WareHouseItem() {
+export default function WareHouseItem({handleEdit}) {
   const testData = [
     {
       warehouse: "Manhatten",
@@ -25,10 +28,10 @@ export default function WareHouseItem() {
 
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
-  const [showInventoryModal, setShowInventoryModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
+ 
 
   const warehouseName = "TEMP Washington";
-  const inventoryItemName = "TEMP Washington";
 
   const deleteHandler = () => {
     setShowModal(true), setShowWarehouseModal(true);
@@ -36,18 +39,20 @@ export default function WareHouseItem() {
 
   return (
     <>
-      {showModal && (
+          <CSSTransition
+in={showModal}
+timeout={250}
+classNames="fade"
+unmountOnExit
+>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
           showWarehouseModal={showWarehouseModal}
           setShowWarehouseModal={setShowWarehouseModal}
-          showInventoryModal={showInventoryModal}
-          setShowInventoryModal={setShowInventoryModal}
           warehouseName={warehouseName}
-          inventoryItemName={inventoryItemName}
         />
-      )}
+     </CSSTransition>
 
       <div className="warehouse-container">
         {testData.map((item) => (
@@ -80,7 +85,10 @@ export default function WareHouseItem() {
                 <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
               </button>
               <button className="actions__edit">
-                <img src={Edit} alt="edit icon" />
+                <img 
+                src={Edit} 
+                alt="edit icon"
+                onClick={handleEdit} />
               </button>
             </div>
           </div>

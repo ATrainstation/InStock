@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+// import "../Modal/Modal.scss"
+import "./InventoryItem.scss";
+import "../../styles/partials/_transitions.scss";
+import Modal from "../Modal/Modal";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import IsInStock from "../IsInStock/IsInStock";
-import "./InventoryItem.scss";
-import Modal from "../Modal/Modal";
+import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group';
 import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
@@ -26,37 +29,38 @@ export default function inventoryItem() {
   ];
 
   const [showModal, setShowModal] = useState(false);
-  const [showinventoryModal, setShowinventoryModal] = useState(false);
   const [showInventoryModal, setShowInventoryModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
 
-  const inventoryName = "TEMP Washington";
   const inventoryItemName = "TEMP Washington";
 
   const deleteHandler = () => {
-    setShowModal(true), setShowinventoryModal(true);
+    setShowModal(true), setShowInventoryModal(true);
   };
 
   return (
     <>
-      {showModal && (
+    <CSSTransition
+in={showModal}
+timeout={200}
+classNames="fade"
+unmountOnExit
+>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          showinventoryModal={showinventoryModal}
-          setShowinventoryModal={setShowinventoryModal}
           showInventoryModal={showInventoryModal}
           setShowInventoryModal={setShowInventoryModal}
-          inventoryName={inventoryName}
           inventoryItemName={inventoryItemName}
         />
-      )}
+      </CSSTransition>
 
       <div className="invent-container">
         {testData.map((item) => (
           <div className="inventory-row">
             <div className="inventory-item inventory-item-item">
-              <p className="inventory-item__header">ITEM</p>
-              <Link className="inventory-linkDetails" to={`/warehouse/asda`}>
+              <p className="inventory-item__header">INVENTORY ITEM</p>
+              <Link className="inventory-linkDetails" to={`/warehouse/:id/inventory/:id`}>
               <div className="inventory-link">
                 <button className="inventory-item__inventory">{item.item}</button>
                 <img src={HeaderArrow} alt="header arrow" />
@@ -92,6 +96,7 @@ export default function inventoryItem() {
         {/* Temp delete button */}
         {/* <button onClick={deleteHandler}>DELETE</button> */}
         </div>
+        
     </>
   );
 }
