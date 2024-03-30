@@ -11,6 +11,8 @@ import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 
 export default function App() {
+ 
+  
   return (
     <BrowserRouter>
       <Header></Header>

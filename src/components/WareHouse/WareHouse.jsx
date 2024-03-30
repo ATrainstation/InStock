@@ -7,10 +7,11 @@ import HeaderChevron from "../../assets/icons/sort-24px.svg";
 export default function () {
 
   const navigate = useNavigate();
+
+
   const handleAdd = (e) => {
     navigate(`/warehouse/add`);
   };
-
   const handleEdit = (e) => {
     navigate(`/warehouse/:id/edit`)
   }

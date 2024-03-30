@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+// import "../Modal/Modal.scss"
+import "./InventoryItem.scss";
+import "../../styles/partials/_transitions.scss";
+import Modal from "../Modal/Modal";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import IsInStock from "../IsInStock/IsInStock";
-import "./InventoryItem.scss";
-import Modal from "../Modal/Modal";
+import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group';
 import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
@@ -27,6 +30,7 @@ export default function WareHouseItem() {
 
   const [showModal, setShowModal] = useState(false);
   const [showInventoryModal, setShowInventoryModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
 
   const inventoryItemName = "TEMP Washington";
 
@@ -36,7 +40,12 @@ export default function WareHouseItem() {
 
   return (
     <>
-      {showModal && (
+    <CSSTransition
+in={showModal}
+timeout={200}
+classNames="fade"
+unmountOnExit
+>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
@@ -44,7 +53,7 @@ export default function WareHouseItem() {
           setShowInventoryModal={setShowInventoryModal}
           inventoryItemName={inventoryItemName}
         />
-      )}
+      </CSSTransition>
 
       <div>
         {testData.map((item) => (
@@ -88,6 +97,7 @@ export default function WareHouseItem() {
         {/* Temp delete button */}
         {/* <button onClick={deleteHandler}>DELETE</button> */}
         </div>
+        
     </>
   );
 }
