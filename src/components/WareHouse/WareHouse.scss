@@ -20,7 +20,7 @@
   background-color: $white;
   display: flex;
   justify-content: space-between;
-  padding: 2.5rem;
+  padding: 1rem;
   flex-direction: column;
   text-align: start;
   &__title {
@@ -61,6 +61,7 @@
   .warehouse-header {
     flex-direction: row;
     border: none;
+    padding: 24px;
     &__title {
       margin: 0;
       width: 30%;
@@ -97,16 +98,18 @@
   }
 }
 .item-container {
-  width: 20%;
   display: flex;
   align-items: center;
-
-  &__icon{
-width: 15px;
+  width: 20%;
+  &__icon {
+    width: 15px;
   }
 }
+
 .item-container-actions {
   width: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 1280px) {

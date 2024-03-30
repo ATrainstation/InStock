@@ -49,7 +49,7 @@ export default function WareHouseItem() {
         />
       )}
 
-      <div>
+      <div className="row-container">
         {testData.map((item) => (
           <div className="row">
             <div className="item">
