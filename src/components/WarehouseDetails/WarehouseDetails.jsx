@@ -1,7 +1,6 @@
 import "./WarehouseDetails.scss";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
-import IsInStock from "../IsInStock/IsInStock";
 import { Link } from "react-router-dom";
 
 export default function WarehouseDetails() {
@@ -16,7 +15,7 @@ export default function WarehouseDetails() {
             <h1 className="details-title__title">Toronto</h1>
           </div>
           <Link to="/warehouse/:id/edit">
-            <Button buttonText="Edit" classname="edit-button" />
+            <Button buttonText="Edit" className="edit-button" />
           </Link>
         </div>
         <div className="details-body">
