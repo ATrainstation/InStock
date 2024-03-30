@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function WareHouseItem() {
+export default function inventoryItem() {
   const testData = [
     {
       item: "Television",
       category: "Electronics",
       isInStock: true,
       qty: "500",
-      warehouse: "Washington",
+      inventory: "Washington",
     },
     { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
     { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
@@ -55,40 +55,39 @@ unmountOnExit
         />
       </CSSTransition>
 
-      <div>
+      <div className="invent-container">
         {testData.map((item) => (
-          <div className="row">
-            <div className="item">
-              <p className="item__header">ITEM</p>
-              <Link className="linkDetails" to={`/warehouse/:id/inventory/:id`}>
-              <div className="warehouse-link">
-                <button className="item__warehouse">{item.item}</button>
+          <div className="inventory-row">
+            <div className="inventory-item inventory-item-item">
+              <p className="inventory-item__header">INVENTORY ITEM</p>
+              <Link className="inventory-linkDetails" to={`/warehouse/:id/inventory/:id`}>
+              <div className="inventory-link">
+                <button className="inventory-item__inventory">{item.item}</button>
                 <img src={HeaderArrow} alt="header arrow" />
               </div>
               </Link>
-
             </div>
-            <div className="item">
-              <p className="item__header">CATEGORY</p>
-              <p className="item__name">{item.category}</p>
+            <div className="inventory-item inventory-item-category">
+              <p className="inventory-item__header">CATEGORY</p>
+              <p className="inventory-item__name">{item.category}</p>
             </div>
-            <div className="item">
-              <p className="item__header">STATUS</p>
-              <p className="item__address"><IsInStock isInStock={item.isInStock}/></p>
+            <div className="inventory-item inventory-item-status">
+              <p className="inventory-item__header">STATUS</p>
+              <p className="inventory-item__address"><IsInStock isInStock={item.isInStock}/></p>
             </div>
-            <div className="item item-contact">
-              <p className="item__header">QTY</p>
-              <p className="item__email">{item.qty}</p>
+            <div className="inventory-item inventory-item-quantity">
+              <p className="inventory-item__header">QTY</p>
+              <p className="inventory-item__qty">{item.qty}</p>
             </div>
-            <div className="item item-contact">
-              <p className="item__header">WAREHOUSE</p>
-              <p className="item__email">{item.warehouse}</p>
+            <div className="inventory-item inventory-item-warehouse">
+              <p className="inventory-item__header">WAREHOUSE</p>
+              <p className="inventory-item__warehouse">{item.inventory}</p>
             </div>
-            <div className="actions">
-              <button className="actions__delete">
+            <div className="inventory-actions inventory-item-actions">
+              <button className="inventory-actions__delete">
                 <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
               </button>
-              <button className="actions__edit">
+              <button className="inventory-actions__edit">
                 <img src={Edit} alt="edit icon" />
               </button>
             </div>

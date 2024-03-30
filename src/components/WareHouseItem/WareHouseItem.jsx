@@ -54,7 +54,7 @@ unmountOnExit
         />
      </CSSTransition>
 
-      <div>
+      <div className="warehouse-container">
         {testData.map((item) => (
           <div className="row">
             <div className="item">
