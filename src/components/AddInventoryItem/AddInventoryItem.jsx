@@ -24,7 +24,7 @@ export default function AddInventoryItem() {
                 <option value="Other">Other</option>
             </select>
 
-            <button onClick={}>s</button>
+            <button>s</button>
         </form>
       </div>
     </div>
