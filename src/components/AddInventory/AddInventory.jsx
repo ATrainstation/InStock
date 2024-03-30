@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import "./AddWarehouse.scss";
 import CancelButton from "../CancelButton/CancelButton";
 
+
 function AddWarehouse() {
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);

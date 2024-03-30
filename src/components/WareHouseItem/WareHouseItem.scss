@@ -3,6 +3,9 @@
 * {
   text-decoration: none;
 }
+
+
+
 .item {
   width: 47%;
   margin-bottom: 0.5rem;
@@ -41,6 +44,12 @@
   &__edit {
     border: none;
     background-color: $white;
+
+    
+      &:hover {
+        cursor: pointer;
+      }
+    
   }
 }
 

@@ -45,6 +45,10 @@
 
   &__add {
     width: 100%;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

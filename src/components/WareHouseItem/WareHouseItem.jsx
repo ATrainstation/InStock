@@ -1,9 +1,12 @@
+import "../Modal/Modal.scss"
+import "./WareHouseItem.scss";
+import "../../styles/partials/_transitions.scss";
 import React, { useState } from "react";
+import { CSSTransition } from 'react-transition-group';
+import { Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
-import "./WareHouseItem.scss";
 import Modal from "../Modal/Modal";
-import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
@@ -25,6 +28,7 @@ export default function WareHouseItem({handleEdit}) {
 
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
  
 
   const warehouseName = "TEMP Washington";
@@ -35,16 +39,20 @@ export default function WareHouseItem({handleEdit}) {
 
   return (
     <>
-      {showModal && (
+          <CSSTransition
+in={showModal}
+timeout={250}
+classNames="fade"
+unmountOnExit
+>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
           showWarehouseModal={showWarehouseModal}
           setShowWarehouseModal={setShowWarehouseModal}
-
           warehouseName={warehouseName}
         />
-      )}
+     </CSSTransition>
 
       <div>
         {testData.map((item) => (
