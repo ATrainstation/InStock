@@ -8,6 +8,7 @@ import CancelButton from "../CancelButton/CancelButton";
 
 function AddWarehouse() {
   const navigate = useNavigate();
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
     warehouseName: "",
@@ -20,8 +21,20 @@ function AddWarehouse() {
     email: "",
   });
 
+  const [formValidation, setFormValidation] = useState({
+    warehouseName: true,
+    streetAddress: true,
+    city: true,
+    country: true,
+    contactName: true,
+    position: true,
+    phoneNumber: true,
+    email: true,
+  });
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormValidation({ ...formValidation, [e.target.name]: true });
   };
 
   const handleCancel = (id) => {
@@ -33,11 +46,40 @@ function AddWarehouse() {
     });
   };
 
-  const handleSubmit = (id) => {
-    
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    let isValid = true;
+    const newValidation = {};
+
+    Object.keys(formData).forEach(key => {
+      if (formData[key].trim() === "") {
+        isValid = false;
+        newValidation[key] = false;
+      } else {
+        newValidation[key] = true;
+      }
+    });
+
+    setFormValidation(newValidation);
+    setFormSubmitted(true);
+
+    if (isValid) {
+      console.log("Form is valid. Submitting data...", formData);
+      navigate('/');
+    } else {
+      console.log("Form is invalid. Please fill in all fields.");
+    }
   };
 
-  const classname = ""
+  const getInputClass = (name) => {
+    if (!formValidation[name]) {
+      return 'input-box input-error'; 
+    }
+    // if (userCorrections[name]) {
+    //   return 'input-box input-corrected'; 
+    // }
+    return 'input-box';
+  };
 
   return (
     <div className="add-warehouses-container">
@@ -54,49 +96,89 @@ function AddWarehouse() {
             <div className="warehouse-details">
               <h2>Warehouse Details</h2>
 
-              <label className="input-title">
-                Warehouse Name
-                <input className="input-box" placeholder="Warehouse Name" />
-              </label>
+              <label className="input-title">Warehouse Name
+              <input
+                name="warehouseName"
+                value={formData.warehouseName}
+                onChange={handleChange}
+                className={getInputClass('warehouseName')}
+                placeholder="Warehouse Name"
+              />
+            </label>
 
-              <label className="input-title">
-                Street Address
-                <input className="input-box" placeholder="Street Address" />
-              </label>
+            <label className="input-title">Street Address
+              <input
+                name="streetAddress"
+                value={formData.streetAddress}
+                onChange={handleChange}
+                className={getInputClass('streetAddress')}
+                placeholder="Street Address"
+              />
+            </label>
 
-              <label className="input-title">
-                City
-                <input className="input-box" placeholder="City" />
-              </label>
+            <label className="input-title">City
+              <input
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                className={getInputClass('city')}
+                placeholder="City"
+              />
+            </label>
 
-              <label className="input-title">
-                Country
-                <input className="input-box" placeholder="Country" />
-              </label>
-            </div>
+            <label className="input-title">Country
+              <input
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
+                className={getInputClass('country')}
+                placeholder="Country"
+              />
+            </label>
+          </div>
 
-            <div className="contact-details">
-              <h2>Contact Details</h2>
+          <div className="contact-details">
+            <h2>Contact Details</h2>
 
-              <label className="input-title">
-                Contact Name
-                <input className="input-box" placeholder="Contact Name" />
-              </label>
+            <label className="input-title">Contact Name
+              <input
+                name="contactName"
+                value={formData.contactName}
+                onChange={handleChange}
+                className={getInputClass('contactName')}
+                placeholder="Contact Name"
+              />
+            </label>
 
-              <label className="input-title">
-                Position
-                <input className="input-box" placeholder="Position" />
-              </label>
+            <label className="input-title">Position
+              <input
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+                className={getInputClass('position')}
+                placeholder="Position"
+              />
+            </label>
 
-              <label className="input-title">
-                Phone Number
-                <input className="input-box" placeholder="Phone Number" />
-              </label>
+            <label className="input-title">Phone Number
+              <input
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className={getInputClass('phoneNumber')}
+                placeholder="Phone Number"
+              />
+            </label>
 
-              <label className="input-title">
-                Email
-                <input className="input-box" placeholder="Email" />
-              </label>
+            <label className="input-title">Email
+              <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={getInputClass('email')}
+                placeholder="Email"
+              />
+            </label>
             </div>
 
 
