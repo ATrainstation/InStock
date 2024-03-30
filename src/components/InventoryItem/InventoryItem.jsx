@@ -51,7 +51,7 @@ export default function WareHouseItem() {
           <div className="row">
             <div className="item">
               <p className="item__header">ITEM</p>
-              <Link className="linkDetails" to={`/warehouse/asda`}>
+              <Link className="linkDetails" to={`/warehouse/:id/inventory/:id`}>
               <div className="warehouse-link">
                 <button className="item__warehouse">{item.item}</button>
                 <img src={HeaderArrow} alt="header arrow" />

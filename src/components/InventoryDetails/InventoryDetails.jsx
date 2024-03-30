@@ -10,7 +10,7 @@ export default function InventoryDetails() {
       <div className="InventoryDetails">
         <div className="details-header">
           <div className="details-title">
-            <Link to='/warehouse/:id/inventory' className="details-title__back"> 
+            <Link to='/inventory' className="details-title__back"> 
               <img src={BackIcon} alt="back icon" />
             </Link>
             <h1 className="details-title__title">Television</h1>
