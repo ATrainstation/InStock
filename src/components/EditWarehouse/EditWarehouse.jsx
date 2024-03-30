@@ -3,10 +3,10 @@ import Button from "../Button/Button";
 import React, { useState } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from 'react-router-dom';
-import "./AddWarehouse.scss";
+import "./EditWarehouse.scss";
 import CancelButton from "../CancelButton/CancelButton";
 
-function AddWarehouse() {
+function EditWarehouse() {
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -32,7 +32,6 @@ function AddWarehouse() {
     email: true,
   });
 
-
   const handleBackClick = (e) => {
     navigate(-1);
   }
@@ -43,7 +42,7 @@ function AddWarehouse() {
   };
 
   const handleCancel = (id) => {
-    navigate(`/#`);
+    navigate(`/`);
     window.scrollTo({
       top: 0,
       left: 0,
@@ -74,12 +73,16 @@ function AddWarehouse() {
     } else {
       console.log("Form is invalid. Please fill in all fields.");
     }
+    navigate('/');
   };
 
   const getInputClass = (name) => {
     if (!formValidation[name]) {
       return 'input-box input-error'; 
     }
+    // if (userCorrections[name]) {
+    //   return 'input-box input-corrected'; 
+    // }
     return 'input-box';
   };
 
@@ -90,7 +93,7 @@ function AddWarehouse() {
           <div className="header__content">
             <img className="arrow-icon" src={backArrow} alt="Back"
               onClick={handleBackClick} />
-            <h1 className="component-header__title">Add New Warehouse</h1>
+            <h1 className="component-header__title">Edit Warehouse</h1>
           </div>
         </div>
 
@@ -194,7 +197,7 @@ function AddWarehouse() {
                 <CancelButton classname="cancel-button-sizes" link={handleCancel} />
                 <Button
                   classname="header-interactive__add add-button-sizes"
-                  buttonText="+ Add Warehouse"
+                  buttonText="Save"
                   link={handleSubmit}
                 />
           </div>
@@ -205,4 +208,4 @@ function AddWarehouse() {
   );
 }
 
-export default AddWarehouse;
+export default EditWarehouse;
