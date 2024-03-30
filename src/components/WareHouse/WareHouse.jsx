@@ -22,11 +22,11 @@ export default function () {
               placeholder="Search..."
             />
 
-            <div className="header-interactive__add" onClick={handleNavigate}>
               <Button
+                classname="header-interactive__add"
                 buttonText="+ Add New Warehouse"
+                link={handleNavigate}
               />
-            </div>
 
           </div>
         </div>
@@ -52,7 +52,9 @@ export default function () {
             <p className="warehouse-list__last">ACTIONS</p>
           </span>
         </div>
-        <WareHouseItem className="warehouse-rows" />
+        <WareHouseItem className="warehouse-rows" 
+        // key={id}
+         />
       </div>
       </div>
   );

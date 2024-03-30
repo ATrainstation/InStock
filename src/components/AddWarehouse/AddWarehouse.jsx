@@ -2,9 +2,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import React, { useState } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
+import { useNavigate } from 'react-router-dom';
 import "./AddWarehouse.scss";
+import CancelButton from "../CancelButton/CancelButton";
 
 function AddWarehouse() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     warehouseName: "",
     streetAddress: "",
@@ -19,6 +23,21 @@ function AddWarehouse() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleCancel = (id) => {
+    navigate(`/#`);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleSubmit = (id) => {
+    
+  };
+
+  const classname = ""
 
   return (
     <div className="add-warehouses-container">
@@ -85,11 +104,16 @@ function AddWarehouse() {
 
         </div>
 
-        <div className="buttons">
-              <button>Cancel</button>
-              <Button />
-              <button>+ Add Warehouse</button>
-        </div>
+<div className="buttons__container">
+          <div className="buttons">
+                <CancelButton link={handleCancel} />
+                <Button
+                  classname="header-interactive__add"
+                  buttonText="+ Add Warehouse"
+                  link={handleSubmit}
+                />
+          </div>
+</div>
         
         </div>
     </div>
