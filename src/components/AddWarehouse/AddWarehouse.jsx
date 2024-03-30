@@ -73,7 +73,7 @@ function AddWarehouse() {
       console.log("Form is valid. Submitting data...", formData);
       try {
 
-        const response = await axios.post('/', formData);
+        const response = await axios.post('http://localhost:5050/api/warehouses', formData);
   
     
         console.log(response.data);
