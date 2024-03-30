@@ -33,27 +33,27 @@ export default function () {
         </div>
 
         <div className="inventory-list">
-          <span className="item-container">
+          <span className="inventory-item-container">
             <p>INVENTORY ITEM</p>
-            <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container">
+          <span className="inventory-item-container">
             <p>CATEGORY</p>
-            <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container">
+          <span className="inventory-item-container">
             <p>STATUS</p>
-            <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container item-contact">
+          <span className="inventory-item-container inventory-item-contact">
             <p>QTY</p>
-            <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container item-contact">
+          <span className="inventory-item-container">
             <p>WAREHOUSE</p>
-            <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container-actions">
+          <span className="inventory-item-container-actions">
             <p className="inventory-list__last">ACTIONS</p>
           </span>
         </div>
