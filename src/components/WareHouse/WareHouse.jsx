@@ -49,7 +49,7 @@ export default function () {
             <p>CONTACT NAME</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container item-contact">
+          <span className="item-container item-container-contact">
             <p>CONTACT INFORMATION</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
