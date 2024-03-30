@@ -12,7 +12,7 @@
         width: 100%;
         margin: 0 $mobile-margin;
         align-items: center;
-        height: 200px;
+        height: 13rem;
         gap: 1rem;
 
         @include tablet{
@@ -37,7 +37,7 @@
     &__btn-wrapper{
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-evenly;
         gap: 1rem;
 
         @include tablet{
