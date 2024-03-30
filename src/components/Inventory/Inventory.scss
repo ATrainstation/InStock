@@ -105,11 +105,12 @@
       width: 15px;
     }
   }
-  .inventory-item-contact p {
-    margin-left: 30px;
-  }
   .inventory-item-container-actions {
     width: 10%;
+  }
+  .inventory-item-contact {
+    display: flex;
+    justify-content: center;
   }
 }
 @media screen and (min-width: 1280px) {

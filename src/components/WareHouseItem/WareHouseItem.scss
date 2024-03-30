@@ -4,13 +4,14 @@
   text-decoration: none;
 }
 
-.row-container {
+.warehouse-container {
   :hover {
-    background-color: rgba(
-      $color: $instock-indigo,
-      $alpha: 0.07
-    ); /* Change background color on hover */
+    background-color: rgba($color: $instock-indigo, $alpha: 0.07);
   }
+}
+.warehouse-container .item,
+.warehouse-container .actions {
+  pointer-events: none;
 }
 
 .item {

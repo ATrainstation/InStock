@@ -51,7 +51,7 @@ export default function inventoryItem() {
         />
       )}
 
-      <div>
+      <div className="invent-container">
         {testData.map((item) => (
           <div className="inventory-row">
             <div className="inventory-item inventory-item-item">
