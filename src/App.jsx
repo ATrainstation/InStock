@@ -5,6 +5,7 @@ import WareHouse from "./components/WareHouse/WareHouse";
 import Footer from "./components/Footer/Footer";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import Inventory from "./components/Inventory/Inventory";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<WareHouse />} />
         <Route path="/warehouses" element={<>WareHouse</>} />
-        <Route path="/warehouse/:id" element={<>WarehouseDetails</>} />
+        <Route path="/warehouse/:id" element={<WarehouseDetails />} />
         <Route path="/warehouse/:id/edit" element={<>EditWarehouse</>} />
         <Route path="/warehouse/:id/add" element={<>AddWarehouse</>} />
         <Route path="/warehouse/:id/inventory" element={<>Inventory</>} />
