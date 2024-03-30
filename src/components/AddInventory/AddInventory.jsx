@@ -23,6 +23,7 @@ function AddInventory() {
     description: true,
     category: true,
     warehouse: true,
+    quantity: true,
   });
 
   const handleBackClick = (e) => {
@@ -146,7 +147,6 @@ function AddInventory() {
                       name="isAvailable"
                       value="true"
                       onChange={handleChange}
-                      className={getInputClass("contactName")}
                       checked={formData.isAvailable === "true"}
                     />
                     In Stock
@@ -157,7 +157,6 @@ function AddInventory() {
                       name="isAvailable"
                       value="false"
                       onChange={handleChange}
-                      className={getInputClass("contactName")}
                       checked={formData.isAvailable === "false"}
                     />
                     Out of Stock
@@ -173,7 +172,7 @@ function AddInventory() {
                     type="number"
                     value={formData.quantity}
                     onChange={handleChange}
-                    className="input-qty"
+                    className={`input-qty ${getInputClass("quantity")}`}
                     placeholder="Quantity"
                   />
                 </label>
@@ -186,7 +185,7 @@ function AddInventory() {
                 <select
                   name="warehouse"
                   id="warehouse"
-                  className="input-dropdown"
+                  className={`input-dropdown ${getInputClass("warehouse")}`}
                   onChange={handleChange}
                 >
                   <option value="">Choose Warehouse</option>
