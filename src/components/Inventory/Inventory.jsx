@@ -2,10 +2,19 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 import "./Inventory.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 import HeaderChevron from "../../assets/icons/sort-24px.svg";
 
 export default function () {
-  return (
+  const navigate = useNavigate();
+
+  const handleAdd = (e) => {
+    navigate(`/inventory/add`);
+  };
+
+
+
+  return (  
     <div className="inventory-container">
       <div className="inventory">
         <div className="inventory-header">
@@ -18,6 +27,7 @@ export default function () {
             <Button
               buttonText="+ Add New Item"
               classname="header-interactive__add"
+              link={handleAdd}
             />
           </div>
         </div>
@@ -47,7 +57,7 @@ export default function () {
             <p className="inventory-list__last">ACTIONS</p>
           </span>
         </div>
-        <InventoryItem className="inventory-rows" />
+        <InventoryItem className="inventory-rows"/>
       </div>
     </div>
   );
