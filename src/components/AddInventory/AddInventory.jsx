@@ -13,9 +13,9 @@ function AddInventory() {
     itemName: "",
     description: "",
     category: "",
-    isAvailable: true,
-    quantity: 0,
-    Warehouse: "",
+    isAvailable: "true",
+    quantity: "0",
+    warehouse: "",
   });
 
   const [formValidation, setFormValidation] = useState({
@@ -32,6 +32,7 @@ function AddInventory() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValidation({ ...formValidation, [e.target.name]: true });
+    console.log(`${e.target.name}:${e.target.value}`);
   };
 
   const handleCancel = (id) => {
@@ -47,6 +48,7 @@ function AddInventory() {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
+    console.log(formData);
 
     Object.keys(formData).forEach((key) => {
       if (formData[key].trim() === "") {
@@ -70,9 +72,8 @@ function AddInventory() {
 
   const getInputClass = (name) => {
     if (!formValidation[name]) {
-      return "input-box input-error";
+      return "input-error";
     }
-    return "input-box";
   };
 
   return (
@@ -101,7 +102,7 @@ function AddInventory() {
                   name="itemName"
                   value={formData.itemName}
                   onChange={handleChange}
-                  className={getInputClass("itemName")}
+                  className={`input-box ${getInputClass("itemName")}`}
                   placeholder="Item Name"
                 />
               </label>
@@ -112,14 +113,20 @@ function AddInventory() {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="input-textarea"
+                  className={`input-textarea ${getInputClass("description")}`}
                   placeholder="Please enter a brief item description..."
                 />
               </label>
 
               <label className="input-title">
                 Category
-                <select name="warehouse" id="warehouse" className="input-dropdown">
+                <select
+                  name="category"
+                  id="category"
+                  className={`input-dropdown ${getInputClass("category")}`}
+                  onChange={handleChange}
+                >
+                  <option value="">Choose Category</option>
                   <option value="Electronics">Electronics</option>
                   <option value="saab">Saab</option>
                   <option value="mercedes">Mercedes</option>
@@ -133,44 +140,56 @@ function AddInventory() {
               <label className="input-title">
                 Status
                 <div className="input-radio">
-                <label className="input-radio__container">
-                  <input
-                    type="radio"
-                    name="availability"
-                    value="true"
-                    onChange={handleChange}
-                    className={getInputClass("contactName")}
-                    checked
-                  />
-                  In Stock</label>
                   <label className="input-radio__container">
-                  <input
-                    type="radio"
-                    name="availability"
-                    value="false"
-                    onChange={handleChange}
-                    className={getInputClass("contactName")}
-                  />
-                  Out of Stock</label>
+                    <input
+                      type="radio"
+                      name="isAvailable"
+                      value="true"
+                      onChange={handleChange}
+                      className={getInputClass("contactName")}
+                      checked={formData.isAvailable === "true"}
+                    />
+                    In Stock
+                  </label>
+                  <label className="input-radio__container">
+                    <input
+                      type="radio"
+                      name="isAvailable"
+                      value="false"
+                      onChange={handleChange}
+                      className={getInputClass("contactName")}
+                      checked={formData.isAvailable === "false"}
+                    />
+                    Out of Stock
+                  </label>
                 </div>
               </label>
 
-              {formData.isAvailable === true ? (<label className="input-title">
-                Quantity
-                <input
-                  name="position"
-                  type="number"
-                  value={formData.position}
-                  onChange={handleChange}
-                  className="input-qty"
-                  placeholder="Quantity"
-                />
-              </label>):(<></>)}
-              
+              {formData.isAvailable === "true" ? (
+                <label className="input-title">
+                  Quantity
+                  <input
+                    name="quantity"
+                    type="number"
+                    value={formData.quantity}
+                    onChange={handleChange}
+                    className="input-qty"
+                    placeholder="Quantity"
+                  />
+                </label>
+              ) : (
+                <></>
+              )}
 
               <label className="input-title">
                 Warehouse
-                <select name="warehouse" id="warehouse" className="input-dropdown">
+                <select
+                  name="warehouse"
+                  id="warehouse"
+                  className="input-dropdown"
+                  onChange={handleChange}
+                >
+                  <option value="">Choose Warehouse</option>
                   <option value="Washington">Wahsington</option>
                   <option value="saab">Saab</option>
                   <option value="mercedes">Mercedes</option>
