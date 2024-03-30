@@ -1,10 +1,16 @@
-import WareHouseItem from "../WareHouseItem/WareHouseItem";
 import "./WareHouse.scss";
+import { useNavigate } from 'react-router-dom';
+import WareHouseItem from "../WareHouseItem/WareHouseItem";
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import HeaderChevron from "../../assets/icons/sort-24px.svg";
-
 export default function () {
+
+  const navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`/warehouse/add`);
+  };
+
   return (
     <div className="warehouses-container">
       <div className="warehouses">
@@ -15,10 +21,13 @@ export default function () {
               classname="header-interactive__search"
               placeholder="Search..."
             />
-            <Button
-              buttonText="+ Add New Warehouse"
-              classname="header-interactive__add"
-            />
+
+              <Button
+                classname="header-interactive__add"
+                buttonText="+ Add New Warehouse"
+                link={handleNavigate}
+              />
+
           </div>
         </div>
 
@@ -43,8 +52,10 @@ export default function () {
             <p className="warehouse-list__last">ACTIONS</p>
           </span>
         </div>
-        <WareHouseItem className="warehouse-rows" />
+        <WareHouseItem className="warehouse-rows" 
+        // key={id}
+         />
       </div>
-    </div>
+      </div>
   );
 }

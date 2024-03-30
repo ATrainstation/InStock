@@ -1,6 +1,7 @@
 import "./Modal.scss";
 import React, { useState } from "react";
 import closeIcon from "../../assets/icons/close-24px.svg"
+import CancelButton from "../CancelButton/CancelButton";
 
 export const Modal = ({
   showModal,
@@ -60,9 +61,7 @@ export const Modal = ({
             <p>{`Please confirm that you’d like to delete ${inventoryItemName} from the inventory list. You won’t be able to undo this action.`}</p>
 
             <div className="button-container">
-              <button className="cancel-button" onClick={handleCloseModal}>
-                Cancel
-              </button>
+              <CancelButton link={handleCloseModal}/>
 
               <button className="delete-button" onClick={deleteHandler}>
                 Delete
