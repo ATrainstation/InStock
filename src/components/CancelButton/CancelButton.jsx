@@ -2,11 +2,11 @@ import React from 'react'
 import "./CancelButton.scss";
 
 
-function CancelButton({link}) {
+function CancelButton({link, classname}) {
   return (
     
     
-    <button className="cancel-button" onClick={link}>
+    <button className={`${classname} cancel-button`} onClick={link}>
       Cancel
     </button>
     

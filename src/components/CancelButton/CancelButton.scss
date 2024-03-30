@@ -7,7 +7,7 @@
     height: 36px;
     padding: 0.5rem 1rem;
     background: $white;
-    border: 2px $cloud solid;
+    border: 1px $cloud solid;
     border-radius: 20px;
     cursor: pointer;
 
@@ -22,5 +22,6 @@
     @include tablet {
       height: 38px;
       font-size: $button-text-size;
+      width: 20%;
     }
   }

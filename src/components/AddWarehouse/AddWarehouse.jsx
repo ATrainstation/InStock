@@ -50,8 +50,8 @@ function AddWarehouse() {
         </div>
 
         <div className="add-warehouse__form__container">
-          <form>
-            <div className="Warehouse Details">
+          <form className="add-warehouse__form">
+            <div className="warehouse-details">
               <h2>Warehouse Details</h2>
 
               <label className="input-title">
@@ -106,9 +106,9 @@ function AddWarehouse() {
 
 <div className="buttons__container">
           <div className="buttons">
-                <CancelButton link={handleCancel} />
+                <CancelButton classname="cancel-button-sizes" link={handleCancel} />
                 <Button
-                  classname="header-interactive__add"
+                  classname="header-interactive__add add-button-sizes"
                   buttonText="+ Add Warehouse"
                   link={handleSubmit}
                 />
