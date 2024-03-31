@@ -50,14 +50,14 @@ export default function () {
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
           <span className="item-container item-container-contact">
-            <p>CONTACT INFORMATION</p>
+            <p className="item-container__contact">CONTACT INFORMATION</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
           <span className="item-container-actions">
             <p className="warehouse-list__last">ACTIONS</p>
           </span>
         </div>
-        <WareHouseItem className="warehouse-rows" 
+        <WareHouseItem 
         // key={id}
         handleEdit={handleEdit}
          />
