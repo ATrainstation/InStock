@@ -35,7 +35,7 @@
 
 .details-item {
   width: 47%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: $body-m-ts-mobile;
   &__header {
     font-size: $table-header-ts-mobile;
@@ -107,6 +107,7 @@
     display: flex;
     width: 20%;
     font-size: $body-sm-text-size;
+    margin-bottom: 0;
     &__header {
       display: none;
     }

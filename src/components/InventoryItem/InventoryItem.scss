@@ -38,7 +38,7 @@
 
 .inventory-item {
   width: 50%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: $body-m-ts-mobile;
   &__header {
     font-size: $table-header-ts-mobile;
@@ -115,6 +115,7 @@
     display: flex;
     width: 16.7%;
     font-size: $body-sm-text-size;
+    margin: 0;
     &__header {
       display: none;
     }
