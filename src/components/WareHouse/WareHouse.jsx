@@ -49,15 +49,15 @@ export default function () {
             <p>CONTACT NAME</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
-          <span className="item-container item-contact">
-            <p>CONTACT INFORMATION</p>
+          <span className="item-container item-container-contact">
+            <p className="item-container__contact">CONTACT INFORMATION</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
           <span className="item-container-actions">
             <p className="warehouse-list__last">ACTIONS</p>
           </span>
         </div>
-        <WareHouseItem className="warehouse-rows" 
+        <WareHouseItem 
         // key={id}
         handleEdit={handleEdit}
          />
