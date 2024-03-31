@@ -4,15 +4,15 @@ export default function IsInStock({ isInStock }) {
 
   if ((isInStock === true)) {
     return (
-      <span className="inStock">
+      <div className="inStock">
         <p className="inStock-text">IN STOCK</p>
-      </span>
+      </div>
     );
   }
 
   return (
-    <span className="notInStock">
+    <div className="notInStock">
       <p className="notInStock-text">OUT OF STOCK</p>
-    </span>
+    </div>
   );
 }

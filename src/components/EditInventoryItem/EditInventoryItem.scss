@@ -1,20 +1,22 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles//partials//mixins" as *;
 
-
-// IF EDITING ANYTHING PLEASE CHANGE CLASSNAME
 .arrow-icon {
   height: 35px;
   width: auto;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 }
 
-.add-warehouses-container {
+.add-inventory-container {
   width: 100%;
   display: flex;
   position: relative;
   top: -5rem;
 }
-
 
 .component-container {
   width: 100%;
@@ -22,142 +24,194 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 0 1rem;
-  
+
   @include desktop {
     margin: 0 8.125rem;
   }
+}
+
+.header__content {
+  display: flex;
+  padding: 0 2rem;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+}
+
+.component-header {
+  background-color: $white;
+  display: flex;
+  padding: 2rem 0;
+  border-bottom: 2px solid $cloud;
+
+  &__title {
+    color: $instock-black;
+    font-size: $header-ts-mobile;
   }
+}
 
-  .header__content {
-    display: flex;
-    padding: 0 2rem;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 1rem;
-    align-items: center;
-  }
+.add-inventory__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 
-  .component-header {
-    background-color: $white;
-    display: flex;
-    padding: 2rem 0;
-    border-bottom: 2px solid $cloud;
-
-    &__title {
-      color: $instock-black;
-      font-size: $header-ts-mobile;
-    }
-  }
-
-  .add-warehouse__form{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
-   justify-content: space-between;
-  
-    &__container {
+  &__container {
     padding: 2rem 2rem;
 
     @include tablet {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
     }
   }
 }
 
-.warehouse-details {
-width: 100%;
+.inventory-details {
+  width: 100%;
 
-@include tablet {
-  width: 48%;
-  padding-right: 1rem;
-  border-right: 2px solid $cloud;
-}
+  @include tablet {
+    width: 48%;
+    padding-right: 1rem;
+    border-right: 2px solid $cloud;
+  }
 }
 
-.contact-details {
+.item-availability {
   width: 100%;
   margin-top: 2rem;
 
   @include tablet {
     width: 48%;
     margin-top: 0rem;
- 
   }
 }
-  .input-title{
+.input-title {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.input-radio{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 2.5rem;
+
+  &__container{
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    margin-top: 1rem;
-  }
-
-  .input-box {
-    height: 36px;
-    outline: none; 
-    border: 2px solid $cloud;
-    border-radius: 20px;
-    padding: 0 1rem;
-    margin-top: 4px;
-
-    &:focus {
-      border: 2px solid $instock-indigo;
-    }
-  }
-
-  .input-error {
-    border: 1px solid $red; 
-  
-    &:focus {
-      
-      border-color: #993511;
-      ; 
-    }
-  }
-   
-  .buttons{
-    display: flex;
-    justify-content: space-evenly;
-    background-color: $light-grey;
-    width: 100%;
-    height: 4.375rem;
     align-items: center;
-    gap: 1rem;
-
-    @include tablet {
-      text-align: right;
-      justify-content: flex-end;
-
-    }
-
-    &__container {
-      padding: 0 1rem;
-      background-color: $light-grey;
-    }
+    gap:0.5rem;
   }
+}
 
-  .cancel-button-sizes {
-    width: 100%;
+.input-box {
+  height: 2.25rem;
+  outline: none;
+  border: 2px solid $cloud;
+  border-radius: 20px;
+  padding: 0 1rem;
+  margin-top: 4px;
 
-    @include tablet {
-      width: 10%;
-    }
 
-    @include desktop {
-      width: 8%;
-    }
+  &:focus {
+    border: 2px solid $instock-indigo;
   }
+}
+
+.input-textarea{
+  height: 7.5rem;
+  outline: none;
+  border: 2px solid $cloud;
+  border-radius: 20px;
+  padding: 1rem;
+  margin-top: 4px;
+  resize: none;
   
-  .add-button-sizes {
-    width: 100%;
 
-    @include tablet {
-      width: 18%;
-    }
-
-    @include desktop {
-      width: 13%;
-    }
+  &:focus {
+    border: 2px solid $instock-indigo;
   }
+}
+
+.input-qty{
+  width: 20%;
+  height: 2.25rem;
+  outline: none;
+  border: 2px solid $cloud;
+  border-radius: 20px;
+  padding: 0 1rem;
+  margin-top: 4px;
+}
+
+.input-dropdown{
+  height: 2.25rem;
+  outline: none;
+  border: 2px solid $cloud;
+  border-radius: 20px;
+  padding: 0 1rem;
+  margin-top: 4px;
+  -moz-appearance: none;
+  -webkit-appearance: none; 
+  background-image: url("/src/assets/icons/arrow_drop_down-24px.svg");
+  background-repeat: no-repeat;
+  background-position: center right 0.5rem;
+  background-size: 1.5rem;
+
+
+}
+
+.input-error {
+  border: 1px solid $red;
+
+  &:focus {
+    border-color: #993511;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $light-grey;
+  width: 100%;
+  height: 4.375rem;
+  align-items: center;
+  gap: 1rem;
+
+  @include tablet {
+    text-align: right;
+    justify-content: flex-end;
+  }
+
+  &__container {
+    padding: 0 1rem;
+    background-color: $light-grey;
+  }
+}
+
+.cancel-button-sizes {
+  width: 100%;
+
+  @include tablet {
+    width: 10%;
+  }
+
+  @include desktop {
+    width: 8%;
+  }
+}
+
+.add-button-sizes {
+  width: 100%;
+
+  @include tablet {
+    width: 18%;
+  }
+
+  @include desktop {
+    width: 13%;
+  }
+}

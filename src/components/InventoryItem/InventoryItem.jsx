@@ -6,12 +6,12 @@ import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import IsInStock from "../IsInStock/IsInStock";
 import React, { useState } from "react";
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function inventoryItem() {
+export default function InventoryItem() {
   const testData = [
     {
       item: "Television",
@@ -20,12 +20,12 @@ export default function inventoryItem() {
       qty: "500",
       inventory: "Washington",
     },
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
-    { item: 1 ,  category: 2, isInStock: 3, qty: 4, warehouse: 5},
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
+    { item: 1, category: 2, isInStock: 3, qty: 4, warehouse: 5 },
   ];
 
   const [showModal, setShowModal] = useState(false);
@@ -40,12 +40,12 @@ export default function inventoryItem() {
 
   return (
     <>
-    <CSSTransition
-in={showModal}
-timeout={200}
-classNames="fade"
-unmountOnExit
->
+      <CSSTransition
+        in={showModal}
+        timeout={200}
+        classNames="fade"
+        unmountOnExit
+      >
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
@@ -71,6 +71,7 @@ unmountOnExit
               <p className="inventory-item__header">CATEGORY</p>
               <p className="inventory-item__name">{item.category}</p>
             </div>
+
             <div className="inventory-item inventory-item-status">
               <p className="inventory-item__header">STATUS</p>
               <p className="inventory-item__address"><IsInStock isInStock={item.isInStock}/></p>
@@ -83,20 +84,22 @@ unmountOnExit
               <p className="inventory-item__header">WAREHOUSE</p>
               <p className="inventory-item__warehouse">{item.inventory}</p>
             </div>
+
             <div className="inventory-actions inventory-item-actions">
               <button className="inventory-actions__delete">
                 <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
               </button>
               <button className="inventory-actions__edit">
-                <img src={Edit} alt="edit icon" />
+              <Link to="/inventory/:id/edit">
+                  <img src={Edit} alt="edit icon" />
+                </Link>
               </button>
             </div>
           </div>
         ))}
         {/* Temp delete button */}
         {/* <button onClick={deleteHandler}>DELETE</button> */}
-        </div>
-        
+      </div>
     </>
   );
 }
