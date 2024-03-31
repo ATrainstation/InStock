@@ -5,6 +5,9 @@ import Button from "../Button/Button";
 import HeaderChevron from "../../assets/icons/sort-24px.svg";
 
 export default function () {
+  const handleAdd = (e) => {
+    navigate("/warehouse/asd/inventory/asd/add");
+  };
   return (
     <div className="inventory-container">
       <div className="inventory">
@@ -18,6 +21,7 @@ export default function () {
             <Button
               buttonText="+ Add New Item"
               classname="header-interactive__add"
+              link={handleAdd}
             />
           </div>
         </div>
@@ -25,23 +29,43 @@ export default function () {
         <div className="inventory-list">
           <span className="inventory-item-container">
             <p>INVENTORY ITEM</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>CATEGORY</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>STATUS</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container inventory-item-contact">
             <p>QTY</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>WAREHOUSE</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container-actions">
             <p className="inventory-list__last">ACTIONS</p>
