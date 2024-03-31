@@ -9,14 +9,14 @@ export default function Button(prop) {
     <button className={`${classname} button`} onClick={link}>
       <img
         className={`${
-          classname === "edit-button" ? "button__icon-edit" : "button__icon"
+          classname === "edit-button" ? "button__edit-icon" : "button__icon"
         }`}
         src={EditIcon}
         alt="button icon"
       />
       <p
         className={`${
-          classname === "edit-button" ? "button__icon-text" : "button__text"
+          classname === "edit-button" ? "button__edit-text" : "button__text"
         }`}
       >
         {buttonText}
