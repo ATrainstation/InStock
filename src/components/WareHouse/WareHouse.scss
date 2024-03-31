@@ -23,6 +23,7 @@
   padding: 1rem;
   flex-direction: column;
   text-align: start;
+  border-radius: 5px 5px 0 0;
   &__title {
     color: $instock-black;
     font-size: $header-ts-mobile;
@@ -45,7 +46,7 @@
 
   &__add {
     width: 100%;
-    
+
     &:hover {
       cursor: pointer;
     }
@@ -62,6 +63,9 @@
 }
 
 @include tablet {
+  .warehouses {
+    margin: 0 32px;
+  }
   .warehouse-header {
     flex-direction: row;
     border: none;
@@ -114,6 +118,9 @@
   width: 10%;
   display: flex;
   justify-content: center;
+}
+.item-container-contact {
+  width: 22%;
 }
 
 @include desktop {

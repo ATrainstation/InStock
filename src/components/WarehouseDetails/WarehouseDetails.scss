@@ -12,8 +12,11 @@
   width: 100%;
   background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 3px 3px 0 0;
   margin: 0 16px;
+}
+.warehouse-details-list {
+  display: none;
 }
 
 .details-header {
@@ -23,7 +26,6 @@
   padding: 24px;
   background-color: $white;
   border-bottom: 1px solid $cloud;
-  border-radius: 3px 3px 0 0;
 }
 
 .details-title {
@@ -43,11 +45,11 @@
   padding: 5px 24px 24px 24px;
 }
 
-.body-container1 {
+.details-body-container1 {
   width: 100%;
 }
 
-.body-container2 {
+.details-body-container2 {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -86,11 +88,37 @@
 }
 
 @media screen and (min-width: 768px) {
-  .WarehouseDetails {
+  .warehouse-details-list {
+    display: flex;
     width: 100%;
-    background-color: $white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    justify-content: space-between;
+    padding: 11px 24px 11px 24px;
+    box-sizing: border-box;
+    font-size: $table-header-ts-mobile;
+    background-color: $light-grey;
+    &__last {
+      text-align: end;
+      justify-content: end;
+      display: flex;
+    }
+  }
+  .warehouse-details-list p {
+    display: flex;
+    align-items: center;
+  }
+  .details-item-container {
+    display: flex;
+    width: 15%;
+    &__icon {
+      width: 15px;
+    }
+  }
+  .details-item-container-actions {
+    display: flex;
+    width: 10%;
+    justify-content: center;
+  }
+  .WarehouseDetails {
     margin: 0 32px;
   }
   .body {
@@ -100,14 +128,14 @@
     display: flex;
     padding: 15px 0;
   }
-  .body-container1 {
+  .details-body-container1 {
     width: 50%;
     border-right: 1px solid $cloud;
     padding: 0 24px;
     display: flex;
     flex-direction: column;
   }
-  .body-container2 {
+  .details-body-container2 {
     // width: 50%;
     padding: 0 24px;
     display: flex;
@@ -138,18 +166,21 @@
   .WarehouseDetails {
     margin: 0 130px;
   }
+  .warehouse-details-list {
+    padding: 11px 48px;
+  }
 
   .details-header {
     padding-left: 35px;
     padding-right: 35px;
   }
 
-  .body-container1 {
+  .details-body-container1 {
     padding-left: 35px;
     padding-right: 35px;
   }
 
-  .body-container2 {
+  .details-body-container2 {
     padding-left: 35px;
     padding-right: 35px;
   }

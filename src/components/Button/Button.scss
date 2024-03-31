@@ -19,7 +19,7 @@
   &__icon {
     display: none;
   }
-  &__icon-text {
+  &__edit-text {
     display: none;
   }
 
@@ -34,11 +34,11 @@
 @include tablet {
   .button {
     padding: 0.8rem;
-    &__icon-text {
+    &__edit-text {
       font-size: $button-text-size;
       display: contents;
     }
-    &__icon-edit {
+    &__edit-icon {
       margin-right: 5px;
       width: 24px;
     }

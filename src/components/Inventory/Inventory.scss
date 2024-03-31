@@ -23,6 +23,7 @@
   padding: 1rem;
   flex-direction: column;
   text-align: start;
+  border-radius: 5px 5px 0 0;
   &__title {
     color: $instock-black;
     font-size: $header-ts-mobile;
@@ -58,6 +59,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .inventory{
+    margin: 0 32px;
+  }
   .inventory-header {
     flex-direction: row;
     border: none;
