@@ -18,9 +18,9 @@ const [warehouse, setWarehouse] = useState([]);
   useEffect(() => {
     const fetchWarehouseData = async () => {
       try {
-        const getWarehouse = await axios.get('http://localhost:5050');
+        const getWarehouse = await axios.get('http://localhost:5050/api/warehouses');
         setWarehouse(getWarehouse.data);
-        console.log(getWarehouse)
+        console.log(getWarehouse.data)
       } catch (error) {
         console.log(error);
       }
@@ -54,6 +54,10 @@ const [warehouse, setWarehouse] = useState([]);
     setShowModal(true), setShowWarehouseModal(true);
   };
 
+  if (!warehouse){
+    return(<></>)
+  }
+
   return (
     <>
       <CSSTransition
@@ -72,20 +76,20 @@ const [warehouse, setWarehouse] = useState([]);
       </CSSTransition>
 
       <div className="warehouse-container">
-        {testData.map((item) => (
+        {warehouse.map((item) => (
           <div className="row">
             <div className="item">
               <p className="item__header">WAREHOUSE</p>
               <Link className="linkDetails" to={`/warehouse/asda`}>
                 <div className="warehouse-link">
-                  <button className="item__warehouse">{item.warehouse}</button>
+                  <button className="item__warehouse">{item.warehouse_name}</button>
                   <img src={HeaderArrow} alt="header arrow" />
                 </div>
               </Link>
             </div>
             <div className="item">
               <p className="item__header">CONTACT NAME</p>
-              <p className="item__name">{item.contact}</p>
+              <p className="item__name">{item.contact_name}</p>
             </div>
             <div className="item">
               <p className="item__header">ADDRESS</p>
@@ -93,7 +97,7 @@ const [warehouse, setWarehouse] = useState([]);
             </div>
             <div className="item item-contact">
               <p className="item__header">CONTACT INFORMATION</p>
-              <p className="item__email">{item.info}</p>
+              <p className="item__email">{item.contact_phone}</p>
               <p className="item__phone">{item.info}</p>
             </div>
             <div className="actions">
