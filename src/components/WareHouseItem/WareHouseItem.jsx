@@ -72,9 +72,9 @@ const [warehouse, setWarehouse] = useState([]);
       </CSSTransition>
 
       <div className="warehouse-container">
-        {warehouse.map((item) => (
-          <div className="row" key={item.id}>
-            <div className="item">
+        {testData.map((item) => (
+          <div className="row">
+            <div className="item item-warehouse">
               <p className="item__header">WAREHOUSE</p>
               <Link className="linkDetails" to={`/warehouse/${item.id}`}>
                 <div className="warehouse-link">
@@ -83,11 +83,11 @@ const [warehouse, setWarehouse] = useState([]);
                 </div>
               </Link>
             </div>
-            <div className="item">
+            <div className="item item-name">
               <p className="item__header">CONTACT NAME</p>
               <p className="item__name">{item.contact_name}</p>
             </div>
-            <div className="item">
+            <div className="item item-address">
               <p className="item__header">ADDRESS</p>
               <p className="item__address">{item.address}</p>
             </div>

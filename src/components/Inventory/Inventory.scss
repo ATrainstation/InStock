@@ -94,7 +94,7 @@
     justify-content: space-between;
     padding: 11px 24px 11px 24px;
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 0.75rem;
     &__last {
       justify-content: center;
       display: flex;
@@ -122,7 +122,7 @@
     &__name,
     &__qty,
     &__warehouse {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
 }
