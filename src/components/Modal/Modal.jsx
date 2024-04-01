@@ -29,7 +29,6 @@ export const Modal = ({
     <>
       {showWarehouseModal && (
 
-
         <div className={showHideClassName}>
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-content">
@@ -57,26 +56,34 @@ export const Modal = ({
         </div>
       )}
 
-      {showInventoryModal && (
+{showInventoryModal && (
+  <div className={showHideClassName}>
+    <div className="modal-overlay" onClick={handleCloseModal}></div>
+    <div className="modal-content">
+      <div className="content-cont">
+        <button className="close-modal" onClick={handleCloseModal}>
+          <img src={closeIcon}/>
+        </button>
 
-        <div className={showHideClassName}>
-          <div className="modal-overlay"></div>
-          <div className="modal-content">
-            <h2>{`Delete ${inventoryItemName} inventory item?`}</h2>
-            <p>{`Please confirm that you’d like to delete ${inventoryItemName} from the inventory list. You won’t be able to undo this action.`}</p>
-
-            <div className="button-container">
-              <CancelButton link={handleCloseModal}/>
-
-              <button className="delete-button" onClick={deleteHandler}>
-                Delete
-              </button>
-            </div>
-          </div>
+        <div className="modal-text">
+          <h1>{`Delete ${inventoryItemName} inventory item?`}</h1>
+          <p className="modal-para">{`Please confirm that you’d like to delete ${inventoryItemName} from the inventory list. You won’t be able to undo this action.`}</p>
         </div>
 
+        <div className="button-container">
+          <button className="cancel-button" onClick={handleCloseModal}>
+            Cancel
+          </button>
 
-      )}
+          <button className="delete-button" onClick={deleteHandler}>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </>
   );
 };
