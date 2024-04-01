@@ -1,4 +1,4 @@
-// import "../Modal/Modal.scss"
+import "../Modal/Modal.scss"
 import "./InventoryItem.scss";
 import "../../styles/partials/_transitions.scss";
 import Modal from "../Modal/Modal";
