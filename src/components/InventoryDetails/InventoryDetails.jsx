@@ -35,7 +35,7 @@ export default function InventoryDetails() {
             <div className="body-status-quantity">
               <div className="body-status">
                 <p className="body__header">STATUS:</p>
-                <p className="body__text">{<IsInStock isInStock={true} />}</p>
+                {/* {<IsInStock isInStock={true} />} */}
               </div>
               <div className="body-quantity">
                 <p className="body__header">QUANTITY:</p>

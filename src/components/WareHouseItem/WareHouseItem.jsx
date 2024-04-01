@@ -1,16 +1,31 @@
-import "../Modal/Modal.scss"
+import "../Modal/Modal.scss";
 import "./WareHouseItem.scss";
 import "../../styles/partials/_transitions.scss";
-import React, { useState } from "react";
-import { CSSTransition } from 'react-transition-group';
+import React, { useEffect, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Modal from "../Modal/Modal";
+import axios from "axios";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function WareHouseItem({handleEdit}) {
+export default function WareHouseItem({ handleEdit }) {
+  const [warehouse, setWarehouse] = useState([]);
+
+  useEffect(() => {
+    const fetchWarehouseData = async () => {
+      try {
+        const getWarehouse = await axios.get('http://localhost:5050');
+        setWarehouse(getWarehouse.data);
+        console.log(getWarehouse)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchWarehouseData();
+  },[]);
   const testData = [
     {
       warehouse: "Manhatten",
@@ -28,8 +43,6 @@ export default function WareHouseItem({handleEdit}) {
 
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
-  const [showComponent, setShowComponent] = useState(false);
- 
 
   const warehouseName = "TEMP Washington";
 
@@ -39,12 +52,12 @@ export default function WareHouseItem({handleEdit}) {
 
   return (
     <>
-          <CSSTransition
-in={showModal}
-timeout={250}
-classNames="fade"
-unmountOnExit
->
+      <CSSTransition
+        in={showModal}
+        timeout={250}
+        classNames="fade"
+        unmountOnExit
+      >
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
@@ -52,7 +65,7 @@ unmountOnExit
           setShowWarehouseModal={setShowWarehouseModal}
           warehouseName={warehouseName}
         />
-     </CSSTransition>
+      </CSSTransition>
 
       <div className="warehouse-container">
         {testData.map((item) => (
@@ -60,12 +73,11 @@ unmountOnExit
             <div className="item">
               <p className="item__header">WAREHOUSE</p>
               <Link className="linkDetails" to={`/warehouse/asda`}>
-              <div className="warehouse-link">
-                <button className="item__warehouse">{item.warehouse}</button>
-                <img src={HeaderArrow} alt="header arrow" />
-              </div>
+                <div className="warehouse-link">
+                  <button className="item__warehouse">{item.warehouse}</button>
+                  <img src={HeaderArrow} alt="header arrow" />
+                </div>
               </Link>
-
             </div>
             <div className="item">
               <p className="item__header">CONTACT NAME</p>
@@ -81,21 +93,19 @@ unmountOnExit
               <p className="item__phone">{item.info}</p>
             </div>
             <div className="actions">
-              <button className="actions__delete">
-                <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
+              <button onClick={deleteHandler} className="actions__delete">
+                <img src={Delete} alt="delete icon" />
               </button>
-              <button className="actions__edit">
-                <img 
-                src={Edit} 
-                alt="edit icon"
-                onClick={handleEdit} />
-              </button>
+
+              <Link className="actions__edit" to="/warehouse/:id/edit">
+                <img src={Edit} alt="edit icon" onClick={handleEdit} />
+              </Link>
             </div>
           </div>
         ))}
         {/* Temp delete button */}
         {/* <button onClick={deleteHandler}>DELETE</button> */}
-        </div>
+      </div>
     </>
   );
 }

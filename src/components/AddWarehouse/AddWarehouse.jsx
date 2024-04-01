@@ -5,6 +5,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from 'react-router-dom';
 import "./AddWarehouse.scss";
 import CancelButton from "../CancelButton/CancelButton";
+import axios from "axios";
 
 function AddWarehouse() {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ function AddWarehouse() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); 
     let isValid = true;
     const newValidation = {};
@@ -70,7 +71,18 @@ function AddWarehouse() {
 
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
-      navigate('/');
+      try {
+
+        const response = await axios.post('http://localhost:5050/api/warehouses', formData);
+  
+    
+        console.log(response.data);
+        alert('Warehouse added successfully!');
+        navigate('/'); 
+      } catch (error) {
+        console.error("Failed to add warehouse:", error.response ? error.response.data : error);
+        alert((error.response && error.response.data.message) || 'Failed to add warehouse.');
+      }
     } else {
       console.log("Form is invalid. Please fill in all fields.");
     }
@@ -83,7 +95,7 @@ function AddWarehouse() {
     return 'input-box';
   };
 
-  // CHANGE THE CLASSNAMES
+
   return (
     <div className="add-warehouses-container">
       <div className="component-container">

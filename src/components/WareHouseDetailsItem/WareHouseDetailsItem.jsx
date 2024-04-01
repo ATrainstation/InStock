@@ -84,14 +84,12 @@ export default function WareHouseItem({ handleEdit }) {
             </div>
             <div className="details-actions-container details-item-actions">
               <div className="details-actions">
-                <button className="details-actions__delete">
-                  <Link onClick={deleteHandler}>
+                <button onClick={deleteHandler} className="details-actions__delete">
                     <img src={Delete} alt="delete icon" />
-                  </Link>
                 </button>
-                <button className="details-actions__edit">
+                <Link to='/inventory/:id/edit' className="details-actions__edit">
                   <img src={Edit} alt="edit icon" onClick={handleEdit} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
