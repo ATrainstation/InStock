@@ -4,22 +4,23 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
 import "./AddInventory.scss";
 import CancelButton from "../CancelButton/CancelButton";
+import axios from "axios";
 
 function AddInventory() {
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
-    itemName: "",
+    item_name: "",
     description: "",
     category: "",
-    isAvailable: "true",
+    status: "true",
     quantity: "0",
     warehouse: "",
   });
 
   const [formValidation, setFormValidation] = useState({
-    itemName: true,
+    item_name: true,
     description: true,
     category: true,
     warehouse: true,
@@ -45,7 +46,7 @@ function AddInventory() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
@@ -65,7 +66,18 @@ function AddInventory() {
 
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
-      navigate("/");
+      try {
+
+        const response = await axios.post('http://localhost:5050/api/inventories', formData);
+  
+    
+        console.log(response.data);
+        alert('Inventory added successfully!');
+        navigate('/'); 
+      } catch (error) {
+        console.error("Failed to add inventory:", error.response ? error.response.data : error);
+        alert((error.response && error.response.data.message) || 'Failed to add inventory.');
+      }
     } else {
       console.log("Form is invalid. Please fill in all fields.");
     }
@@ -100,10 +112,10 @@ function AddInventory() {
               <label className="input-title">
                 Item Name
                 <input
-                  name="itemName"
+                  name="item_name"
                   value={formData.itemName}
                   onChange={handleChange}
-                  className={`input-box ${getInputClass("itemName")}`}
+                  className={`input-box ${getInputClass("item_name")}`}
                   placeholder="Item Name"
                 />
               </label>
@@ -144,27 +156,27 @@ function AddInventory() {
                   <label className="input-radio__container">
                     <input
                       type="radio"
-                      name="isAvailable"
+                      name="status"
                       value="true"
                       onChange={handleChange}
-                      checked={formData.isAvailable === "true"}
+                      checked={formData.status === "true"}
                     />
                     In Stock
                   </label>
                   <label className="input-radio__container">
                     <input
                       type="radio"
-                      name="isAvailable"
+                      name="status"
                       value="false"
                       onChange={handleChange}
-                      checked={formData.isAvailable === "false"}
+                      checked={formData.status === "false"}
                     />
                     Out of Stock
                   </label>
                 </div>
               </label>
 
-              {formData.isAvailable === "true" ? (
+              {formData.status === "true" ? (
                 <label className="input-title">
                   Quantity
                   <input
