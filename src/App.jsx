@@ -12,30 +12,26 @@ import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 
 export default function App() {
- 
-  
   return (
     <BrowserRouter>
-      <Header></Header>
-      <Routes>
-        <Route path="/" element={<WareHouse />} />
-        <Route path="/warehouse/:id" element={<WarehouseDetails />} />
-        <Route path="/warehouse/:id/edit" element={<EditWarehouse />} />
-        <Route path="/warehouse/add" element={<AddWarehouse/>} />
-        <Route path="/warehouse/:id/inventory" element={<Inventory/>} />
-        <Route
-          path="/warehouse/:id/inventory/:id"
-          element={<InventoryDetails />}
-        />
-        <Route
-          path="/inventory/:id/edit"
-          element={<EditInventoryItem/>}
-        />
-        <Route path="/inventory/add" element={<AddInventory/>} />
-        <Route path="/inventory" element={<Inventory/>} />
-
-      </Routes>
-      <Footer></Footer>
+      <div className="styling-div">
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<WareHouse />} />
+          <Route path="/warehouse/:id" element={<WarehouseDetails />} />
+          <Route path="/warehouse/:id/edit" element={<EditWarehouse />} />
+          <Route path="/warehouse/add" element={<AddWarehouse />} />
+          <Route path="/warehouse/:id/inventory" element={<Inventory />} />
+          <Route
+            path="/warehouse/:id/inventory/:id"
+            element={<InventoryDetails />}
+          />
+          <Route path="/inventory/:id/edit" element={<EditInventoryItem />} />
+          <Route path="/inventory/add" element={<AddInventory />} />
+          <Route path="/inventory" element={<Inventory />} />
+        </Routes>
+        <Footer></Footer>
+      </div>
     </BrowserRouter>
   );
 }
