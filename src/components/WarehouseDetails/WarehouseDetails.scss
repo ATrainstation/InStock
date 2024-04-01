@@ -42,7 +42,7 @@
 }
 
 .details-body {
-  padding: 5px 24px 24px 24px;
+  padding: 15px;
 }
 
 .details-body-container1 {
@@ -50,7 +50,7 @@
 }
 
 .details-body-container2 {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -66,16 +66,15 @@
   margin-top: 10px;
 
   &__header {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: $slate;
     margin-bottom: 5px;
   }
 
   &__text {
-    font-size: 14px;
-    margin-bottom: 5px;
-    margin-right: 4px;
+    font-size: 0.813rem;
+    margin: 0;
   }
 }
 .body-contact-info {
@@ -86,6 +85,13 @@
 .body-contact {
   margin-top: 10px;
 }
+.body-address {
+  margin-bottom: 20px;
+}
+.body-contact-name,
+.body-contact-email {
+  width: 50%;
+}
 
 @media screen and (min-width: 768px) {
   .warehouse-details-list {
@@ -94,7 +100,7 @@
     justify-content: space-between;
     padding: 11px 24px 11px 24px;
     box-sizing: border-box;
-    font-size: $table-header-ts-mobile;
+    font-size: 12px;
     background-color: $light-grey;
     &__last {
       text-align: end;
@@ -123,6 +129,12 @@
   }
   .body {
     margin-bottom: 5px;
+    &__header {
+      font-size: 12px;
+    }
+    &__text {
+      font-size: 14px;
+    }
   }
   .details-body {
     display: flex;
@@ -133,11 +145,10 @@
     border-right: 1px solid $cloud;
     padding: 0 24px;
     display: flex;
-    flex-direction: column;
   }
   .details-body-container2 {
     // width: 50%;
-    padding: 0 24px;
+    padding: 0 40px;
     display: flex;
   }
 
@@ -148,13 +159,23 @@
 
   .body-contact-info {
     display: flex;
-    width: 60%;
+    width: 80%;
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 5px;
   }
   .body-contact {
     margin: 0;
+  }
+  .body-contact-name {
+    margin-right: 20px;
+  }
+  .body-address {
+    width: 80%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .body__text-descript {
     max-width: 90%;
@@ -183,5 +204,8 @@
   .details-body-container2 {
     padding-left: 35px;
     padding-right: 35px;
+  }
+  .body-address {
+    width: 45%;
   }
 }

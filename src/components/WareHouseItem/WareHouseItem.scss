@@ -73,10 +73,20 @@
     &__warehouse {
       text-align: start;
     }
+    .item {
+      &__name,
+      &__warehouse,
+      &__email,
+      &__phone,
+      &__address {
+        font-size: 14px;
+      }
+    }
   }
   .item-contact {
     width: 22%;
   }
+  
   .item p {
     width: 70%;
   }
