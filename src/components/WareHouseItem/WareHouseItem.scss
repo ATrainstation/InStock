@@ -60,6 +60,22 @@
     padding-right: 24px;
     padding-left: 24px;
   }
+  .item-warehouse {
+    order: 1;
+  }
+  .item-name {
+    order: 3;
+  }
+  .item-address {
+    order: 2;
+  }
+  .item-contact {
+    order: 4;
+  }
+  .actions {
+    order: 5;
+  }
+
   .item {
     align-items: left;
     flex-direction: column;
@@ -86,7 +102,7 @@
   .item-contact {
     width: 22%;
   }
-  
+
   .item p {
     width: 70%;
   }
@@ -115,6 +131,9 @@
     &__warehouse {
       text-align: start;
     }
+  }
+  .item-contact {
+    width: 22%;
   }
   .item p {
     width: 80%;
