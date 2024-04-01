@@ -54,10 +54,6 @@ const [warehouse, setWarehouse] = useState([]);
     setShowModal(true), setShowWarehouseModal(true);
   };
 
-  if (!warehouse){
-    return(<></>)
-  }
-
   return (
     <>
       <CSSTransition
@@ -77,10 +73,10 @@ const [warehouse, setWarehouse] = useState([]);
 
       <div className="warehouse-container">
         {warehouse.map((item) => (
-          <div className="row">
+          <div className="row" key={item.id}>
             <div className="item">
               <p className="item__header">WAREHOUSE</p>
-              <Link className="linkDetails" to={`/warehouse/asda`}>
+              <Link className="linkDetails" to={`/warehouse/${item.id}`}>
                 <div className="warehouse-link">
                   <button className="item__warehouse">{item.warehouse_name}</button>
                   <img src={HeaderArrow} alt="header arrow" />
@@ -98,7 +94,6 @@ const [warehouse, setWarehouse] = useState([]);
             <div className="item item-contact">
               <p className="item__header">CONTACT INFORMATION</p>
               <p className="item__email">{item.contact_phone}</p>
-              <p className="item__phone">{item.info}</p>
             </div>
             <div className="actions">
               <button onClick={deleteHandler} className="actions__delete">
