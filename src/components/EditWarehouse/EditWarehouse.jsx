@@ -50,7 +50,7 @@ function EditWarehouse() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); 
     let isValid = true;
     const newValidation = {};
@@ -69,20 +69,39 @@ function EditWarehouse() {
 
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
-      navigate('/');
+      try {
+
+        const newWarehouse = {
+          warehouse_name: formData.warehouseName,
+          address: formData.streetAddress,
+          city: formData.city,
+          country: formData.country,
+          contact_name: formData.contactName,
+          contact_position: formData.position,
+          contact_phone: formData.phoneNumber,
+          contact_email: formData.email,
+        };
+
+        const response = await axios.post('http://localhost:5050/api/warehouses', newWarehouse);
+  
+    
+        console.log(response.data);
+        alert('Warehouse edited successfully!');
+        navigate('/'); 
+      } catch (error) {
+        console.error("Failed to edit warehouse:", error.response ? error.response.data : error);
+        alert((error.response && error.response.data.message) || 'Failed to edit warehouse.');
+      }
     } else {
       console.log("Form is invalid. Please fill in all fields.");
     }
-    navigate('/');
   };
 
   const getInputClass = (name) => {
     if (!formValidation[name]) {
       return 'input-box input-error'; 
     }
-    // if (userCorrections[name]) {
-    //   return 'input-box input-corrected'; 
-    // }
+
     return 'input-box';
   };
 
