@@ -43,6 +43,11 @@
     color: $instock-indigo;
     font-weight: 600;
     background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+      gap: 4px;
+    }
   }
   &__qty,
   &__category,
@@ -53,6 +58,13 @@
 
 .details-warehouse-link {
   display: flex;
+  gap: 0; 
+  transition: gap 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    gap: 4px;
+  }
 }
 
 .details-row {
