@@ -1,8 +1,9 @@
 import "./Modal.scss";
 import React, { useState } from "react";
 
-import closeIcon from "../../assets/icons/close-24px.svg"
+import closeIcon from "../../assets/icons/close-24px.svg";
 import CancelButton from "../CancelButton/CancelButton";
+import axios from "axios";
 
 export const Modal = ({
   showModal,
@@ -13,77 +14,99 @@ export const Modal = ({
   setShowInventoryModal,
   warehouseName,
   inventoryItemName,
+  passedInfo,
 }) => {
   const showHideClassName = true ? "modal display-block" : "modal display-none";
+
+  console.log(passedInfo);
 
   const handleCloseModal = () => {
     setShowModal(!showModal);
   };
 
+  const deleteHandler = async () => {
+    try {
+      const deleteWarehouse = await axios.delete(
+        `http://localhost:5050/api/warehouses/${passedInfo.id}`
+      );
 
-  const deleteHandler = () => {
-    // include on warehouse/inventory page, pass as prop, delete from list in delete request
+      console.log(deleteWarehouse.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setShowModal(!showModal);
+  };
+
+  const deleteInventoryHandler = async () => {
+    try {
+      const deleteInventory = await axios.delete(
+        `http://localhost:5050/api/inventories/${passedInfo.id}`
+      );
+
+      console.log(deleteInventory.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setShowModal(!showModal);
   };
 
   return (
     <>
       {showWarehouseModal && (
-
         <div className={showHideClassName}>
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-content">
-           <div className="content-cont">
+            <div className="content-cont">
               <button className="close-modal" onClick={handleCloseModal}>
-                <img src={closeIcon}/>
+                <img src={closeIcon} />
               </button>
-  
+
               <div className="modal-text">
-                <h1>{`Delete ${warehouseName} warehouse?`}</h1>
-                <p className="modal-para">{`Please confirm that you’d like to delete ${warehouseName} from the list of warehouses. You won’t be able to undo this action.`}</p>
+                <h1>{`Delete ${passedInfo.name} warehouse?`}</h1>
+                <p className="modal-para">{`Please confirm that you’d like to delete ${passedInfo.name} from the list of warehouses. You won’t be able to undo this action.`}</p>
               </div>
-  
+
               <div className="button-container">
                 <button className="cancel-button" onClick={handleCloseModal}>
                   Cancel
                 </button>
-  
+
                 <button className="delete-button" onClick={deleteHandler}>
                   Delete
                 </button>
-           </div>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-{showInventoryModal && (
-  <div className={showHideClassName}>
-    <div className="modal-overlay" onClick={handleCloseModal}></div>
-    <div className="modal-content">
-      <div className="content-cont">
-        <button className="close-modal" onClick={handleCloseModal}>
-          <img src={closeIcon}/>
-        </button>
+      {showInventoryModal && (
+        <div className={showHideClassName}>
+          <div className="modal-overlay" onClick={handleCloseModal}></div>
+          <div className="modal-content">
+            <div className="content-cont">
+              <button className="close-modal" onClick={handleCloseModal}>
+                <img src={closeIcon} />
+              </button>
 
-        <div className="modal-text">
-          <h1>{`Delete ${inventoryItemName} inventory item?`}</h1>
-          <p className="modal-para">{`Please confirm that you’d like to delete ${inventoryItemName} from the inventory list. You won’t be able to undo this action.`}</p>
+              <div className="modal-text">
+                <h1>{`Delete ${passedInfo.name} inventory item?`}</h1>
+                <p className="modal-para">{`Please confirm that you’d like to delete ${passedInfo.name} from the inventory list. You won’t be able to undo this action.`}</p>
+              </div>
+
+              <div className="button-container">
+                <button className="cancel-button" onClick={handleCloseModal}>
+                  Cancel
+                </button>
+
+                <button className="delete-button" onClick={deleteInventoryHandler}>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="button-container">
-          <button className="cancel-button" onClick={handleCloseModal}>
-            Cancel
-          </button>
-
-          <button className="delete-button" onClick={deleteHandler}>
-            Delete
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </>
   );
 };

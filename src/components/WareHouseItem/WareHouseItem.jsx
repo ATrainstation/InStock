@@ -11,9 +11,16 @@ import axios from "axios";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
-export default function WareHouseItem({ handleEdit }) {
+export default function WareHouseItem() {
 
 const [warehouse, setWarehouse] = useState([]);
+
+
+  const [showModal, setShowModal] = useState(false);
+  const [showWarehouseModal, setShowWarehouseModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
+  const [passedInfo, setPassedInfo] = useState({})
+
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
@@ -26,32 +33,16 @@ const [warehouse, setWarehouse] = useState([]);
       }
     };
     fetchWarehouseData();
-  },[]);
+  },[showModal]);
 
-  const testData = [
-    {
-      warehouse: "Manhatten",
-      contact: "Parmin Aujla",
-      address: "503 Broadway, New York, USA",
-      info: "647 807 5673",
-    },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-    { warehouse: 1, contact: 2, address: 3, info: 4 },
-  ];
 
-  const [showModal, setShowModal] = useState(false);
-  const [showWarehouseModal, setShowWarehouseModal] = useState(false);
-  const [showComponent, setShowComponent] = useState(false);
 
-  const warehouseName = "TEMP Washington";
-
-  const deleteHandler = () => {
-    console.log("tapped")
-    setShowModal(true), setShowWarehouseModal(true);
+  const deleteHandler = (id, name) => {
+    console.log(name,id)
+    setShowModal(true); 
+    setShowWarehouseModal(true);
+    setPassedInfo({id: id, name: name})
+    
   };
 
   return (
@@ -67,12 +58,12 @@ const [warehouse, setWarehouse] = useState([]);
           setShowModal={setShowModal}
           showWarehouseModal={showWarehouseModal}
           setShowWarehouseModal={setShowWarehouseModal}
-          warehouseName={warehouseName}
+          passedInfo={passedInfo}
         />
       </CSSTransition>
 
       <div className="warehouse-container">
-        {testData.map((item) => (
+        {warehouse.map((item) => (
           <div className="row">
             <div className="item item-warehouse">
               <p className="item__header">WAREHOUSE</p>
@@ -96,12 +87,12 @@ const [warehouse, setWarehouse] = useState([]);
               <p className="item__email">{item.contact_phone}</p>
             </div>
             <div className="actions">
-              <button onClick={deleteHandler} className="actions__delete">
+              <button onClick={()=>{deleteHandler(item.id, item.warehouse_name)}} className="actions__delete">
                 <img src={Delete} alt="delete icon" />
               </button>
 
-              <Link className="actions__edit" to="/warehouse/:id/edit">
-                <img src={Edit} alt="edit icon" onClick={handleEdit} />
+              <Link className="actions__edit" to={`warehouse/${item.id}/edit`}>
+                <img src={Edit} alt="edit icon"/>
               </Link>
             </div>
           </div>

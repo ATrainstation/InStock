@@ -1,14 +1,33 @@
 import "./WarehouseDetails.scss";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
-import { Link } from "react-router-dom";
+import { Link , useParams } from "react-router-dom";
 import WarehouseDetailsItem from "../WareHouseDetailsItem/WareHouseDetailsItem";
 import HeaderChevron from "../../assets/icons/sort-24px.svg";
+import axios from "axios";
+import { useEffect , useState} from "react";
 
 export default function WarehouseDetails() {
-  const handleEdit = (e) => {
-    navigate(`/warehouse/:id/edit`);
-  };
+
+
+  const params = useParams();
+  const [warehouse, setWarehouse] = useState([]);
+
+
+
+  useEffect(() => {
+    const fetchWarehouseDetails = async () => {
+      try {
+        const getWarehouse = await axios.get(`http://localhost:5050/api/warehouses/${params.id}`);
+        setWarehouse(getWarehouse.data);
+        console.log(getWarehouse.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchWarehouseDetails();
+  },[]);
+
 
   return (
     <div className="WarehouseDetails-container">
@@ -18,9 +37,9 @@ export default function WarehouseDetails() {
             <Link to="/" className="details-title__back">
               <img src={BackIcon} alt="back icon" />
             </Link>
-            <h1 className="details-title__title">Toronto</h1>
+            <h1 className="details-title__title">{warehouse.warehouse_name}</h1>
           </div>
-          <Link to="/warehouse/:id/edit">
+          <Link to={`/warehouse/${warehouse.id}/edit`}>
             <Button buttonText="Edit" classname="edit-button" />
           </Link>
         </div>
@@ -30,7 +49,7 @@ export default function WarehouseDetails() {
               <p className="body__header">WAREHOUSE ADDRESS:</p>
               <div className="body__text--wrapper">
                 <p className="body__text body__text-descript">
-                  482 Front Street W, Toronto, Canada
+                  {warehouse.address}
                 </p>
               </div>
             </div>
@@ -40,13 +59,12 @@ export default function WarehouseDetails() {
             <div className="body-contact-info">
               <div className="body-contact body-contact-name">
                 <p className="body__header">CONTACT NAME:</p>
-                <p className="body__text">Rocket Racoon </p>
-                <p className="body__text">Toronto Man</p>
+                <p className="body__text">{warehouse.contact_name}</p>
               </div>
               <div className="body-contact body-contact-email">
                 <p className="body__header">CONTACT INFORMATION:</p>
-                <p className="body__text">+1(416)647-0905</p>
-                <p className="body__text">rracoon@tdot.com</p>
+                <p className="body__text">{warehouse.contact_phone}</p>
+                <p className="body__text">{warehouse.contact_email}</p>
               </div>
             </div>
           </div>
@@ -90,8 +108,6 @@ export default function WarehouseDetails() {
         </div>
         <WarehouseDetailsItem
           className="details-warehouse-rows"
-          // key={id}
-          handleEdit={handleEdit}
         />
       </div>
     </div>
