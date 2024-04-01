@@ -33,7 +33,7 @@
   margin-bottom: 1rem;
   font-size: $body-m-ts-mobile;
   &__header {
-    font-size: $table-header-ts-mobile;
+    font-size: 11px;
     margin-bottom: 0.2rem;
     font-weight: 600;
     color: $slate;
@@ -43,6 +43,11 @@
     color: $instock-indigo;
     font-weight: 600;
     background-color: inherit;
+  }
+  &__qty,
+  &__category,
+  &__item {
+    font-size: 13px;
   }
 }
 
@@ -96,6 +101,7 @@
     padding-right: 24px;
     padding-left: 24px;
   }
+
   .details-item {
     align-items: left;
     flex-direction: column;
@@ -109,9 +115,11 @@
     &__warehouse {
       text-align: start;
     }
-  }
-  .details-item p {
-    width: 70%;
+    &__qty,
+    &__category,
+    &__item {
+      font-size: 14px;
+    }
   }
   .details-actions-container {
     width: 10%;
@@ -138,9 +146,11 @@
     &__warehouse {
       text-align: start;
     }
-  }
-  .details-item p {
-    width: 80%;
+    &__qty,
+    &__category,
+    &__item {
+      font-size: 14px;
+    }
   }
   .details-actions-container {
     width: 10%;

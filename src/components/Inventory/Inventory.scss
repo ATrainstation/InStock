@@ -59,7 +59,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .inventory{
+  .inventory {
     margin: 0 32px;
   }
   .inventory-header {
@@ -94,6 +94,7 @@
     justify-content: space-between;
     padding: 11px 24px 11px 24px;
     box-sizing: border-box;
+    font-size: 12px;
     &__last {
       justify-content: center;
       display: flex;
@@ -115,6 +116,14 @@
   .inventory-item-contact {
     display: flex;
     justify-content: center;
+  }
+  .inventory-item {
+    &__inventory,
+    &__name,
+    &__qty,
+    &__warehouse {
+      font-size: 14px;
+    }
   }
 }
 @media screen and (min-width: 1280px) {
