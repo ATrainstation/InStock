@@ -35,23 +35,43 @@ export default function () {
         <div className="inventory-list">
           <span className="inventory-item-container">
             <p>INVENTORY ITEM</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>CATEGORY</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>STATUS</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container inventory-item-contact">
             <p>QTY</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container">
             <p>WAREHOUSE</p>
-            <img className="inventory-item-container__icon" src={HeaderChevron} alt="sort icon" />
+            <img
+              className="inventory-item-container__icon"
+              src={HeaderChevron}
+              alt="sort icon"
+            />
           </span>
           <span className="inventory-item-container-actions">
             <p className="inventory-list__last">ACTIONS</p>
