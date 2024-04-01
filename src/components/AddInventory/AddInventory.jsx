@@ -14,7 +14,7 @@ function AddInventory() {
     item_name: "",
     description: "",
     category: "",
-    status: "true",
+    status: "In Stock",
     quantity: "0",
     warehouse: "",
   });
@@ -157,9 +157,9 @@ function AddInventory() {
                     <input
                       type="radio"
                       name="status"
-                      value="true"
+                      value="In Stock"
                       onChange={handleChange}
-                      checked={formData.status === "true"}
+                      checked={formData.status === "In Stock"}
                     />
                     In Stock
                   </label>
@@ -167,16 +167,16 @@ function AddInventory() {
                     <input
                       type="radio"
                       name="status"
-                      value="false"
+                      value="Out of Stock"
                       onChange={handleChange}
-                      checked={formData.status === "false"}
+                      checked={formData.status === "Out of Stock"}
                     />
                     Out of Stock
                   </label>
                 </div>
               </label>
 
-              {formData.status === "true" ? (
+              {formData.status === "In Stock" ? (
                 <label className="input-title">
                   Quantity
                   <input
