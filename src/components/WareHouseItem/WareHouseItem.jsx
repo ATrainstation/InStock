@@ -1,16 +1,33 @@
 import "../Modal/Modal.scss";
 import "./WareHouseItem.scss";
 import "../../styles/partials/_transitions.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Modal from "../Modal/Modal";
+import axios from "axios";
 
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem({ handleEdit }) {
+
+const [warehouse, setWarehouse] = useState([]);
+
+  useEffect(() => {
+    const fetchWarehouseData = async () => {
+      try {
+        const getWarehouse = await axios.get('http://localhost:5050');
+        setWarehouse(getWarehouse.data);
+        console.log(getWarehouse)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchWarehouseData();
+  },[]);
+
   const testData = [
     {
       warehouse: "Manhatten",
@@ -80,17 +97,18 @@ export default function WareHouseItem({ handleEdit }) {
               <p className="item__phone">{item.info}</p>
             </div>
             <div className="actions">
-              <button className="actions__delete" onClick={deleteHandler}>
-                  <img src={Delete} alt="delete icon" />
+              <button onClick={deleteHandler} className="actions__delete">
+                <img src={Delete} alt="delete icon" />
               </button>
-              <button className="actions__edit" onClick={handleEdit}>
-                <img src={Edit} alt="edit icon"/>
-              </button>
+
+              <Link className="actions__edit" to="/warehouse/:id/edit">
+                <img src={Edit} alt="edit icon" onClick={handleEdit} />
+              </Link>
             </div>
           </div>
         ))}
         {/* Temp delete button */}
-        <button onClick={deleteHandler}>DELETE</button>
+        {/* <button onClick={deleteHandler}>DELETE</button> */}
       </div>
     </>
   );

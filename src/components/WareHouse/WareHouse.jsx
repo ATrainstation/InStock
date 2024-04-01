@@ -38,7 +38,7 @@ export default function () {
 
         <div className="warehouse-list">
           <span className="item-container">
-            <p>WAREHOUSE</p>
+            <p>INVENTORY ITEM</p>
             <img className="item-container__icon" src={HeaderChevron} alt="sort icon" />
           </span>
           <span className="item-container">
