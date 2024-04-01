@@ -86,14 +86,12 @@ export default function InventoryItem() {
             </div>
 
             <div className="inventory-actions inventory-item-actions">
-              <button className="inventory-actions__delete">
-                <Link onClick={deleteHandler}><img src={Delete} alt="delete icon" /></Link>
+              <button onClick={deleteHandler} className="inventory-actions__delete">
+               <img src={Delete} alt="delete icon" />
               </button>
-              <button className="inventory-actions__edit">
-              <Link to="/inventory/:id/edit">
+              <Link className="inventory-actions__edit" to="/inventory/:id/edit">
                   <img src={Edit} alt="edit icon" />
                 </Link>
-              </button>
             </div>
           </div>
         ))}

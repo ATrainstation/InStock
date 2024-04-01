@@ -20,15 +20,10 @@
   order: 5;
 }
 
-.details-warehouse-container {
-  :hover {
-    background-color: rgba($color: $instock-indigo, $alpha: 0.07);
-  }
+.details-row:hover {
+  background-color: rgba($color: $instock-indigo, $alpha: 0.07);
 }
-.details-warehouse-container .details-item,
-.details-warehouse-container .details-actions-container {
-  pointer-events: none;
-}
+
 .details-actions-container {
   width: 100%;
 }
