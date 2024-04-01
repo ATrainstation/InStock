@@ -12,7 +12,8 @@ import axios from "axios";
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem({ handleEdit }) {
-  const [warehouse, setWarehouse] = useState([]);
+
+const [warehouse, setWarehouse] = useState([]);
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
@@ -26,6 +27,7 @@ export default function WareHouseItem({ handleEdit }) {
     };
     fetchWarehouseData();
   },[]);
+
   const testData = [
     {
       warehouse: "Manhatten",
@@ -43,10 +45,12 @@ export default function WareHouseItem({ handleEdit }) {
 
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
 
   const warehouseName = "TEMP Washington";
 
   const deleteHandler = () => {
+    console.log("tapped")
     setShowModal(true), setShowWarehouseModal(true);
   };
 
