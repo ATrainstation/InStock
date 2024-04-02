@@ -34,6 +34,11 @@
     justify-content: flex-start;
     gap: 1rem;
     align-items: center;
+    transition: gap 0.3s ease;
+  
+    &:hover {
+      gap: 1.5rem;
+    }
   }
 
   .component-header {

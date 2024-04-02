@@ -97,8 +97,7 @@ const [warehouse, setWarehouse] = useState([]);
             </div>
           </div>
         ))}
-        {/* Temp delete button */}
-        {/* <button onClick={deleteHandler}>DELETE</button> */}
+
       </div>
     </>
   );
