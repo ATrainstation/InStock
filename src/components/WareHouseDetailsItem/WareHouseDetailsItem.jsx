@@ -94,8 +94,6 @@ export default function WareHouseItem({ handleEdit }) {
             </div>
           </div>
         ))}
-        {/* Temp delete button */}
-        {/* <button onClick={deleteHandler}>DELETE</button> */}
       </div>
     </>
   );

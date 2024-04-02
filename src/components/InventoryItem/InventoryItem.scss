@@ -36,16 +36,27 @@
     font-weight: 600;
     color: $slate;
   }
+  
   &__inventory {
     border: none;
     background-color: inherit;
     color: $instock-indigo;
     font-weight: 600;
+
+    &:hover {
+      cursor: pointer;}
   }
 }
 
 .inventory-link {
   display: flex;
+  gap: 0; 
+  transition: gap 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    gap: 4px;
+  }
 }
 
 .inventory-row {
