@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
 import "./AddInventory.scss";
@@ -9,7 +9,6 @@ import axios from "axios";
 function AddInventory() {
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
-
   const [formData, setFormData] = useState({
     item_name: "",
     description: "",
@@ -18,7 +17,6 @@ function AddInventory() {
     quantity: "0",
     warehouse: "",
   });
-
   const [formValidation, setFormValidation] = useState({
     item_name: true,
     description: true,
@@ -26,6 +24,23 @@ function AddInventory() {
     warehouse: true,
     quantity: true,
   });
+  const [warehouse, setWarehouse] = useState([]);
+
+  useEffect(() => {
+    const fetchWarehouseData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5050/api/warehouses"
+        );
+        console.log(response.data);
+        setWarehouse(response.data);
+      } catch (err) {
+        console.error(error);
+      }
+    };
+
+    fetchWarehouseData();
+  }, []);
 
   const handleBackClick = (e) => {
     navigate(-1);
@@ -45,7 +60,7 @@ function AddInventory() {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
@@ -65,19 +80,26 @@ function AddInventory() {
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
       try {
-
-        const response = await axios.post('http://localhost:5050/api/inventories', formData);
-        navigate('/inventory');
-        alert('Inventory added successfully!');
+        const response = await axios.post(
+          "http://localhost:5050/api/inventories",
+          formData
+        );
+        navigate("/inventory");
+        alert("Inventory added successfully!");
         window.scrollTo({
           bottom: 0,
           left: 0,
           behavior: "smooth",
         });
-        
       } catch (error) {
-        console.error("Failed to add inventory:", error.response ? error.response.data : error);
-        alert((error.response && error.response.data.message) || 'Failed to add inventory.');
+        console.error(
+          "Failed to add inventory:",
+          error.response ? error.response.data : error
+        );
+        alert(
+          (error.response && error.response.data.message) ||
+            "Failed to add inventory."
+        );
       }
     } else {
       console.log("Form is invalid. Please fill in all fields.");
@@ -140,10 +162,11 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("category")}`}
                   onChange={handleChange}
                 >
-                  <option value="">Choose Category</option>
+                  <option value="Accessories">Accessories</option>
+                  <option value="Apparel">Apparel</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
+                  <option value="Gear">Gear</option>
+                  <option value="Health">Health</option>
                 </select>
               </label>
             </div>
@@ -201,10 +224,10 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("warehouse")}`}
                   onChange={handleChange}
                 >
-                  <option value="">Choose Warehouse</option>
-                  <option value="Washington">Wahsington</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
+                  {warehouse.map((item) => {
+                    return <option value={item.id}>{item.warehouse_name}</option>;
+                  })}
+
                 </select>
               </label>
             </div>
