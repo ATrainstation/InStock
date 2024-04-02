@@ -52,8 +52,6 @@ function EditWarehouse() {
     fetchWarehouseDetails();
   }, []);
 
-  console.log({ warehouse });
-  console.log({ formData });
 
   const [formValidation, setFormValidation] = useState({
     warehouseName: true,
@@ -70,9 +68,52 @@ function EditWarehouse() {
     navigate(-1);
   };
 
+
+  function formatPhoneNumber(value, previousValue) {
+
+    let numbers = '';
+    for (let i = 0; i < value.length; i++) {
+      if (value[i] >= '0' && value[i] <= '9') {
+        numbers += value[i];
+      }
+    }
+    if (numbers.startsWith("1")) {
+      numbers = numbers.substring(1);
+    }
+    numbers = numbers.slice(0, 10); 
+    if (previousValue && value.length < previousValue.length) {
+      const diffs = previousValue.length - value.length;
+      const isDeletingSpecialChar = [14, 9, 5].includes(previousValue.length) && diffs === 1;
+      if (isDeletingSpecialChar) {
+        numbers = numbers.slice(0, numbers.length - 1);
+      }
+    }
+  
+    let formattedNumber = numbers;
+  
+    if (numbers.length > 6) {
+      formattedNumber = `+1 (${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;
+    } else if (numbers.length > 3) {
+      formattedNumber = `+1 (${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
+    } else if (numbers.length > 0) {
+      formattedNumber = `+1 (${numbers}`;
+    } else {
+      formattedNumber = "+1 ";
+    }
+  
+    return formattedNumber;
+  }
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setFormValidation({ ...formValidation, [e.target.name]: true });
+
+    const { name, value } = e.target;
+  if (name === "phoneNumber") {
+    const formattedValue = formatPhoneNumber(value);
+    setFormData({ ...formData, [name]: formattedValue });
+  } else {
+    setFormData({ ...formData, [name]: value });
+  }
+  setFormValidation({ ...formValidation, [name]: true });
   };
 
   const handleCancel = (id) => {

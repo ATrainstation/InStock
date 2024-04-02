@@ -13,14 +13,11 @@ export default function WarehouseDetails() {
   const params = useParams();
   const [warehouse, setWarehouse] = useState([]);
 
-
-
   useEffect(() => {
     const fetchWarehouseDetails = async () => {
       try {
         const getWarehouse = await axios.get(`http://localhost:5050/api/warehouses/${params.id}`);
         setWarehouse(getWarehouse.data);
-        console.log(getWarehouse.data);
       } catch (error) {
         console.log(error);
       }

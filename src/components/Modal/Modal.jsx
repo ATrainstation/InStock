@@ -18,8 +18,6 @@ export const Modal = ({
 }) => {
   const showHideClassName = true ? "modal display-block" : "modal display-none";
 
-  console.log(passedInfo);
-
   const handleCloseModal = () => {
     setShowModal(!showModal);
   };
@@ -29,25 +27,35 @@ export const Modal = ({
       const deleteWarehouse = await axios.delete(
         `http://localhost:5050/api/warehouses/${passedInfo.id}`
       );
+      alert('Warehouse deleted successfully!');
 
-      console.log(deleteWarehouse.data);
     } catch (error) {
       console.log(error);
     }
     setShowModal(!showModal);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const deleteInventoryHandler = async () => {
     try {
       const deleteInventory = await axios.delete(
         `http://localhost:5050/api/inventories/${passedInfo.id}`
-      );
-
-      console.log(deleteInventory.data);
+        );
+        alert('Inventory Item deleted successfully!');
+        
     } catch (error) {
       console.log(error);
     }
     setShowModal(!showModal);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return (

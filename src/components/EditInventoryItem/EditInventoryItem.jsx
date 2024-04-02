@@ -37,12 +37,7 @@ function AddInventory() {
   };
 
   const handleCancel = (id) => {
-    navigate(`/#`);
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    navigate(`/inventory`);
   };
 
   const handleSubmit = (e) => {
@@ -65,7 +60,13 @@ function AddInventory() {
 
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
-      navigate("/");
+      navigate("/inventory");
+      alert('Inventory Item edited successfully!');
+      window.scrollTo({
+        top: document.documentElement.scrollHeight - window.innerHeight,
+        left: 0,
+        behavior: "smooth",
+      });
     } else {
       console.log("Form is invalid. Please fill in all fields.");
     }

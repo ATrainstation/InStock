@@ -34,11 +34,10 @@ function AddInventory() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValidation({ ...formValidation, [e.target.name]: true });
-    console.log(`${e.target.name}:${e.target.value}`);
   };
 
   const handleCancel = (id) => {
-    navigate(`/#`);
+    navigate(`/inventory`);
     window.scrollTo({
       top: 0,
       left: 0,
@@ -50,7 +49,6 @@ function AddInventory() {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
-    console.log(formData);
 
     Object.keys(formData).forEach((key) => {
       if (formData[key].trim() === "") {
@@ -69,11 +67,14 @@ function AddInventory() {
       try {
 
         const response = await axios.post('http://localhost:5050/api/inventories', formData);
-  
-    
-        console.log(response.data);
+        navigate('/inventory');
         alert('Inventory added successfully!');
-        navigate('/'); 
+        window.scrollTo({
+          bottom: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+        
       } catch (error) {
         console.error("Failed to add inventory:", error.response ? error.response.data : error);
         alert((error.response && error.response.data.message) || 'Failed to add inventory.');
