@@ -16,17 +16,18 @@ export default function Header() {
           <Link
             to={"/"}
             className={
-              location.pathname === "/"
+              location.pathname === "/" || location.pathname.includes("warehouse") && !location.pathname.includes("/inventory")
                 ? "header__btn--selected"
                 : "header__btn"
             }
+            
           >
             Warehouses
           </Link>
           <Link
             to={"/inventory"}
             className={
-              location.pathname === "/inventory"
+              location.pathname.includes("/inventory")
                 ? "header__btn--selected"
                 : "header__btn"
             }
