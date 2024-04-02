@@ -79,7 +79,7 @@ export default function InventoryItem() {
               <p className="inventory-item__header">INVENTORY ITEM</p>
               <Link
                 className="inventory-linkDetails"
-                to={`/inventory/${item.id}`}
+                to={`/warehouse/${item.warehouse_id}/inventory/${item.id}`}
               >
                 <div className="inventory-link">
                   <button className="inventory-item__inventory">
