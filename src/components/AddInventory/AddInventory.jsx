@@ -162,6 +162,7 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("category")}`}
                   onChange={handleChange}
                 >
+                  <option value="">Choose Category</option>
                   <option value="Accessories">Accessories</option>
                   <option value="Apparel">Apparel</option>
                   <option value="Electronics">Electronics</option>
@@ -224,9 +225,10 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("warehouse")}`}
                   onChange={handleChange}
                 >
+                  <option value="">Choose Warehouse</option>
                   {warehouse.map((item) => {
                     return (
-                      <option value={item.id}>{item.warehouse_name}</option>
+                      <option key={item.id} value={item.id}>{item.warehouse_name}</option>
                     );
                   })}
                 </select>
