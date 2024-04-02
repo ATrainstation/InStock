@@ -33,6 +33,11 @@ export const Modal = ({
       console.log(error);
     }
     setShowModal(!showModal);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const deleteInventoryHandler = async () => {
@@ -46,6 +51,11 @@ export const Modal = ({
       console.log(error);
     }
     setShowModal(!showModal);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return (

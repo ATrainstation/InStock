@@ -13,14 +13,11 @@ import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem() {
 
-const [warehouse, setWarehouse] = useState([]);
-
-
+  const [warehouse, setWarehouse] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
   const [passedInfo, setPassedInfo] = useState({})
-
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
@@ -34,14 +31,11 @@ const [warehouse, setWarehouse] = useState([]);
     fetchWarehouseData();
   },[showModal]);
 
-
-
   const deleteHandler = (id, name) => {
     console.log(name,id)
     setShowModal(true); 
     setShowWarehouseModal(true);
     setPassedInfo({id: id, name: name})
-    
   };
 
   return (
