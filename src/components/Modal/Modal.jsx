@@ -27,8 +27,7 @@ export const Modal = ({
       const deleteWarehouse = await axios.delete(
         `http://localhost:5050/api/warehouses/${passedInfo.id}`
       );
-      alert('Warehouse deleted successfully!');
-
+      alert("Warehouse deleted successfully!");
     } catch (error) {
       console.log(error);
     }
@@ -44,9 +43,8 @@ export const Modal = ({
     try {
       const deleteInventory = await axios.delete(
         `http://localhost:5050/api/inventories/${passedInfo.id}`
-        );
-        alert('Inventory Item deleted successfully!');
-        
+      );
+      alert("Inventory Item deleted successfully!");
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +105,10 @@ export const Modal = ({
                   Cancel
                 </button>
 
-                <button className="delete-button" onClick={deleteInventoryHandler}>
+                <button
+                  className="delete-button"
+                  onClick={deleteInventoryHandler}
+                >
                   Delete
                 </button>
               </div>

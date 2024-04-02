@@ -12,30 +12,31 @@ import axios from "axios";
 import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 
 export default function WareHouseItem() {
-
   const [warehouse, setWarehouse] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
-  const [passedInfo, setPassedInfo] = useState({})
+  const [passedInfo, setPassedInfo] = useState({});
 
   useEffect(() => {
     const fetchWarehouseData = async () => {
       try {
-        const getWarehouse = await axios.get('http://localhost:5050/api/warehouses');
+        const getWarehouse = await axios.get(
+          "http://localhost:5050/api/warehouses"
+        );
         setWarehouse(getWarehouse.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchWarehouseData();
-  },[showModal]);
+  }, [showModal]);
 
   const deleteHandler = (id, name) => {
-    console.log(name,id)
-    setShowModal(true); 
+    console.log(name, id);
+    setShowModal(true);
     setShowWarehouseModal(true);
-    setPassedInfo({id: id, name: name})
+    setPassedInfo({ id: id, name: name });
   };
 
   return (
@@ -62,7 +63,9 @@ export default function WareHouseItem() {
               <p className="item__header">WAREHOUSE</p>
               <Link className="linkDetails" to={`/warehouse/${item.id}`}>
                 <div className="warehouse-link">
-                  <button className="item__warehouse">{item.warehouse_name}</button>
+                  <button className="item__warehouse">
+                    {item.warehouse_name}
+                  </button>
                   <img src={HeaderArrow} alt="header arrow" />
                 </div>
               </Link>
@@ -80,17 +83,21 @@ export default function WareHouseItem() {
               <p className="item__email">{item.contact_phone}</p>
             </div>
             <div className="actions">
-              <button onClick={()=>{deleteHandler(item.id, item.warehouse_name)}} className="actions__delete">
+              <button
+                onClick={() => {
+                  deleteHandler(item.id, item.warehouse_name);
+                }}
+                className="actions__delete"
+              >
                 <img src={Delete} alt="delete icon" />
               </button>
 
               <Link className="actions__edit" to={`warehouse/${item.id}/edit`}>
-                <img src={Edit} alt="edit icon"/>
+                <img src={Edit} alt="edit icon" />
               </Link>
             </div>
           </div>
         ))}
-
       </div>
     </>
   );

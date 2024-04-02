@@ -4,20 +4,22 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
 import "./EditInventoryItem.scss";
 import CancelButton from "../CancelButton/CancelButton";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-function AddInventory() {
+function EditInventory() {
   const params = useParams();
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [inventoryItem, setInventoryItem] = useState([]);
 
   const [formData, setFormData] = useState({
-    itemName: "",
-    description: "",
-    category: "",
-    isAvailable: "true",
-    quantity: "0",
-    warehouse: "",
+    itemName: '',
+    description: '',
+    category: '',
+    isAvailable: '',
+    quantity:'',
+    warehouse: '',
   });
 
   useEffect(() => {
@@ -33,7 +35,7 @@ function AddInventory() {
         const inventoriesData = responseInventory.data;
         const warehousesData = responseWarehouse.data;
         const warehouseName = warehousesData.find(
-          (e) => e.id === inventoriesData.id
+          (e) => e.id === inventoriesData.warehouse_id
         );
         setInventoryItem(inventoriesData);
 
@@ -49,6 +51,7 @@ function AddInventory() {
         console.log(error);
       }
     };
+    fetchInventoryDetails();
   }, []);
 
   const [formValidation, setFormValidation] = useState({
@@ -185,7 +188,7 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("category")}`}
                   onChange={handleChange}
                 >
-                  <option value="">{formData.category}</option>
+                  <option value={formData.category}>{formData.category}</option>
                   <option value="Electronics">Electronics</option>
                   <option value="saab">Saab</option>
                   <option value="mercedes">Mercedes</option>
@@ -205,7 +208,11 @@ function AddInventory() {
                       name="isAvailable"
                       value="true"
                       onChange={handleChange}
-                      checked={formData.isAvailable === "true"}
+                      checked={
+                        formData.quantity === 0
+                          ? formData.isAvailable === "true"
+                          : formData.isAvailable === "false"
+                      }
                     />
                     In Stock
                   </label>
@@ -215,7 +222,11 @@ function AddInventory() {
                       name="isAvailable"
                       value="false"
                       onChange={handleChange}
-                      checked={formData.isAvailable === "false"}
+                      checked={
+                        formData.quantity === 0
+                          ? formData.isAvailable === "true"
+                          : formData.isAvailable === "false"
+                      }
                     />
                     Out of Stock
                   </label>
@@ -271,4 +282,4 @@ function AddInventory() {
   );
 }
 
-export default AddInventory;
+export default EditInventory;

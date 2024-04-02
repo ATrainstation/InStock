@@ -23,15 +23,16 @@
     color: $instock-indigo;
     font-weight: 600;
     background-color: inherit;
-    
+
     &:hover {
-      cursor: pointer;}
+      cursor: pointer;
+    }
   }
 }
 
 .warehouse-link {
   display: flex;
-  gap: 0; 
+  gap: 0;
   transition: gap 0.3s ease;
 
   &:hover {
@@ -119,6 +120,8 @@
   .actions {
     width: 10%;
     margin: 0;
+    justify-content: center;
+    gap: 1rem;
   }
 }
 

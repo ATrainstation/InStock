@@ -60,7 +60,10 @@
   display: flex;
   flex-direction: row;
 }
-
+.body__text-city-country--wrapper {
+  display: flex;
+  flex-direction: row;
+}
 .body {
   width: 100%;
   margin-top: 10px;
@@ -75,6 +78,7 @@
   &__text {
     font-size: 0.813rem;
     margin: 0;
+    padding-left: 4px;
   }
 }
 .body-contact-info {
@@ -134,6 +138,7 @@
     }
     &__text {
       font-size: 14px;
+      padding-left: 4px;
     }
   }
   .details-body {
@@ -155,6 +160,10 @@
   .body__text--wrapper {
     display: flex;
     flex-direction: column;
+  }
+  .body__text-city-country--wrapper {
+    display: flex;
+    flex-direction: row;
   }
 
   .body-contact-info {
