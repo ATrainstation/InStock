@@ -1,13 +1,15 @@
 import Button from "../Button/Button";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
 import "./EditInventoryItem.scss";
 import CancelButton from "../CancelButton/CancelButton";
 
 function AddInventory() {
+  const params = useParams();
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [inventoryItem, setInventoryItem] = useState([]);
 
   const [formData, setFormData] = useState({
     itemName: "",
@@ -17,6 +19,37 @@ function AddInventory() {
     quantity: "0",
     warehouse: "",
   });
+
+  useEffect(() => {
+    const fetchInventoryDetails = async () => {
+      try {
+        const responseInventory = await axios.get(
+          `http://localhost:5050/api/inventories/${params.id}`
+        );
+        const responseWarehouse = await axios.get(
+          `http://localhost:5050/api/warehouses/${params.id}`
+        );
+
+        const inventoriesData = responseInventory.data;
+        const warehousesData = responseWarehouse.data;
+        const warehouseName = warehousesData.find(
+          (e) => e.id === inventoriesData.id
+        );
+        setInventoryItem(inventoriesData);
+
+        setFormData({
+          itemName: inventoriesData.item_name,
+          description: inventoriesData.description,
+          category: inventoriesData.category,
+          isAvailable: inventoriesData.status,
+          quantity: inventoriesData.quantity,
+          warehouse: warehouseName.warehouse_name,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  }, []);
 
   const [formValidation, setFormValidation] = useState({
     itemName: true,
@@ -40,7 +73,7 @@ function AddInventory() {
     navigate(`/inventory`);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
@@ -59,9 +92,33 @@ function AddInventory() {
     setFormSubmitted(true);
 
     if (isValid) {
+      try {
+        const newInventoryItem = {
+          item_name: formData.itemName,
+          description: formData.description,
+          category: formData.category,
+          isAvailable: formData.status,
+          quantity: formData.quantity,
+          warehouse_name: formData.warehouse,
+        };
+        const response = await axios.put(
+          `http://localhost:5050/api/inventories/${params.id}`,
+          newInventoryItem
+        );
+      } catch (error) {
+        console.error(
+          "Failed to edit inventory item:",
+          error.response ? error.response.data : error
+        );
+        alert(
+          (error.response && error.response.data.message) ||
+            "Failed to edit inventory item."
+        );
+      }
+
       console.log("Form is valid. Submitting data...", formData);
       navigate("/inventory");
-      alert('Inventory Item edited successfully!');
+      alert("Inventory Item edited successfully!");
       window.scrollTo({
         top: document.documentElement.scrollHeight - window.innerHeight,
         left: 0,
@@ -128,7 +185,7 @@ function AddInventory() {
                   className={`input-dropdown ${getInputClass("category")}`}
                   onChange={handleChange}
                 >
-                  <option value="">Choose Category</option>
+                  <option value="">{formData.category}</option>
                   <option value="Electronics">Electronics</option>
                   <option value="saab">Saab</option>
                   <option value="mercedes">Mercedes</option>
