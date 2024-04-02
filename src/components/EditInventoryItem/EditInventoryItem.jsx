@@ -33,7 +33,6 @@ function AddInventory() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValidation({ ...formValidation, [e.target.name]: true });
-    console.log(`${e.target.name}:${e.target.value}`);
   };
 
   const handleCancel = (id) => {
@@ -44,7 +43,6 @@ function AddInventory() {
     e.preventDefault();
     let isValid = true;
     const newValidation = {};
-    console.log(formData);
 
     Object.keys(formData).forEach((key) => {
       if (formData[key].trim() === "") {
@@ -59,16 +57,10 @@ function AddInventory() {
     setFormSubmitted(true);
 
     if (isValid) {
-      console.log("Form is valid. Submitting data...", formData);
       navigate("/inventory");
       alert("Inventory Item edited successfully!");
-      window.scrollTo({
-        top: document.documentElement.scrollHeight - window.innerHeight,
-        left: 0,
-        behavior: "smooth",
-      });
     } else {
-      console.log("Form is invalid. Please fill in all fields.");
+      alert("Form is invalid. Please fill in all fields.");
     }
   };
 

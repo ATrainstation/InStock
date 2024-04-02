@@ -18,9 +18,9 @@ export default function InventoryDetails() {
           `http://localhost:5050/api/inventories/${params.id}`
         );
         setInventory(getInventory.data);
-        console.log(getInventory.data);
+
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchInventoryDetails();

@@ -44,7 +44,7 @@ function EditWarehouse() {
           email: warehouseData.contact_email,
         });
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchWarehouseDetails();
@@ -141,7 +141,6 @@ function EditWarehouse() {
     setFormSubmitted(true);
 
     if (isValid) {
-      console.log("Form is valid. Submitting data...", formData);
       try {
         const newWarehouse = {
           warehouse_name: formData.warehouseName,
@@ -159,11 +158,10 @@ function EditWarehouse() {
           newWarehouse
         );
 
-        console.log(response.data);
         alert("Warehouse edited successfully!");
         navigate("/");
       } catch (error) {
-        console.error(
+        alert(
           "Failed to edit warehouse:",
           error.response ? error.response.data : error
         );
@@ -173,7 +171,7 @@ function EditWarehouse() {
         );
       }
     } else {
-      console.log("Form is invalid. Please fill in all fields.");
+      alert("Form is invalid. Please fill in all fields.");
     }
   };
 
