@@ -4,7 +4,7 @@
 .header{
     display: flex;
     width: 100%;
-    background-color: $instock-black;
+    background-color: $graphite;
 
     &__container{
         display: flex;
@@ -70,7 +70,7 @@
             padding: 0.5rem 2rem 0.5rem 2rem;
             border-radius: 20px;
             border-radius: 20px;
-            background-color: $slate;
+            background-color: $instock-black;
 
             @include tablet{
                 padding: 0.5rem 1rem 0.5rem 1rem;

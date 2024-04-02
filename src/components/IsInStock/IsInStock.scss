@@ -10,11 +10,12 @@
   background-color: rgba($green, 0.15);
   color: $green;
   align-items: center;
+  font-size: 12px;
 }
 
 .inStock-text {
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .notInStock {
@@ -32,5 +33,5 @@
 .notInStock-text {
   max-height: 1rem;
   text-align: center;
-  font-weight: 600;
+  font-weight: 400;
 }
