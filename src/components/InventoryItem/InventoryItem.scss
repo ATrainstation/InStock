@@ -36,7 +36,7 @@
     font-weight: 600;
     color: $slate;
   }
-  
+
   &__inventory {
     border: none;
     background-color: inherit;
@@ -44,13 +44,14 @@
     font-weight: 600;
 
     &:hover {
-      cursor: pointer;}
+      cursor: pointer;
+    }
   }
 }
 
 .inventory-link {
   display: flex;
-  gap: 0; 
+  gap: 0;
   transition: gap 0.3s ease;
 
   &:hover {

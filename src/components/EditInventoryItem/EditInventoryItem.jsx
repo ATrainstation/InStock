@@ -61,7 +61,7 @@ function AddInventory() {
     if (isValid) {
       console.log("Form is valid. Submitting data...", formData);
       navigate("/inventory");
-      alert('Inventory Item edited successfully!');
+      alert("Inventory Item edited successfully!");
       window.scrollTo({
         top: document.documentElement.scrollHeight - window.innerHeight,
         left: 0,

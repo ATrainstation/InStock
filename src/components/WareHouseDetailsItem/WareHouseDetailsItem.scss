@@ -57,7 +57,7 @@
 
 .details-warehouse-link {
   display: flex;
-  gap: 0; 
+  gap: 0;
   transition: gap 0.3s ease;
 
   &:hover {
@@ -135,6 +135,10 @@
   .details-actions-container {
     width: 10%;
     margin: 0;
+  }
+  .details-actions {
+    justify-content: center;
+    gap: 1rem;
   }
 }
 

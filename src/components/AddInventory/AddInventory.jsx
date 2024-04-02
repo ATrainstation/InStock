@@ -225,9 +225,10 @@ function AddInventory() {
                   onChange={handleChange}
                 >
                   {warehouse.map((item) => {
-                    return <option value={item.id}>{item.warehouse_name}</option>;
+                    return (
+                      <option value={item.id}>{item.warehouse_name}</option>
+                    );
                   })}
-
                 </select>
               </label>
             </div>

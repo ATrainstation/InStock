@@ -1,84 +1,78 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.header{
+.header {
+  display: flex;
+  width: 100%;
+  background-color: $graphite;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 $mobile-margin;
+    align-items: center;
+    height: 13rem;
+    gap: 1rem;
+
+    @include tablet {
+      margin: 0 $tablet-margin;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      margin: 0 $desktop-margin;
+    }
+  }
+
+  &__image-wrapper {
+    margin-top: 1rem;
+    @include tablet {
+      margin-top: 2rem;
+    }
+  }
+
+  &__btn-wrapper {
     display: flex;
     width: 100%;
-    background-color: $graphite;
+    justify-content: space-evenly;
+    gap: 1rem;
 
-    &__container{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin: 0 $mobile-margin;
-        align-items: center;
-        height: 13rem;
-        gap: 1rem;
+    @include tablet {
+      width: 50%;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+  }
 
-        @include tablet{
-            margin: 0 $tablet-margin;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
+  &__btn {
+    background: none;
+    border: none;
+    color: $cloud;
+    font-weight: 600;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border-radius: 20px;
 
-        @include desktop{
-            margin: 0 $desktop-margin;
-        }
+    @include tablet {
+      padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
-    &__image-wrapper{
-        margin-top: 1rem;
-        @include tablet{
-            margin-top: 2rem;
-        }
+    &--selected {
+      background: none;
+      border: none;
+      color: $white;
+      font-weight: 600;
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      border-radius: 20px;
+      border-radius: 20px;
+      background-color: $instock-black;
+
+      @include tablet {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+      }
     }
-
-    &__btn-wrapper{
-        display: flex;
-        width: 100%;
-        justify-content: space-evenly;
-        gap: 1rem;
-
-        @include tablet{
-            width: 50%;
-            align-items: flex-start;
-            justify-content: flex-end;
-            margin-top: 2rem;
-            
-        }
-    }
-
-    &__btn{
-        background: none;
-        border: none;
-        color: $cloud;
-        font-weight: 600;
-        padding: 0.5rem 2rem 0.5rem 2rem;
-        border-radius: 20px;
-
-        @include tablet{
-            padding: 0.5rem 1rem 0.5rem 1rem;
-
-        }
-
-        &--selected{
-            background: none;
-            border: none;
-            color: $white;
-            font-weight: 600;
-            padding: 0.5rem 2rem 0.5rem 2rem;
-            border-radius: 20px;
-            border-radius: 20px;
-            background-color: $instock-black;
-
-            @include tablet{
-                padding: 0.5rem 1rem 0.5rem 1rem;
-
-            }
-        }
-    }
-
- 
-
+  }
 }

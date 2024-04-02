@@ -2,112 +2,104 @@
 @use "../../styles/partials/mixins" as *;
 
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.content-cont {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+
+  @include tablet {
+    height: 50vh;
   }
+}
 
-  .close-modal {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .content-cont {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 2rem;
+.modal-content {
+  position: fixed;
 
-   
-    @include tablet {
-      height: 50vh;
-    }
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: white;
 
-  }
-
-  .modal-content {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    background-color: white;
-
-  
-    @include tablet {
+  @include tablet {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     height: 50vh;
-  
+
     border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-
-    @include desktop {
-      width: 50%;
-    }
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
-  .modal-text {
-
-    padding-top: 3rem;
-
-  }
-
-  .modal-para {
-    padding-right: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  .button-container {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    width: 100%;
-    padding-right: 2rem;
-    margin-bottom: 1rem;
-
-    @include tablet {
-      text-align: right;
-      justify-content: flex-end;
-      width: 95%;
-      margin-bottom: 2rem;
-    }
-  }
-
-
-  
-  .delete-button {
+  @include desktop {
     width: 50%;
-    height: 36px;
-    padding: 0.5rem 1rem;
-    background-color: #C94515; 
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+  }
+}
 
-    @include tablet {
-      width: 20%;
-      height: 38px;
-    }
+.modal-text {
+  padding-top: 3rem;
+}
+
+.modal-para {
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  padding-right: 2rem;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    text-align: right;
+    justify-content: flex-end;
+    width: 95%;
+    margin-bottom: 2rem;
   }
-  
-  .delete-button:hover {
-    background-color: #b43f14; 
+}
+
+.delete-button {
+  width: 50%;
+  height: 36px;
+  padding: 0.5rem 1rem;
+  background-color: #c94515;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  @include tablet {
+    width: 20%;
+    height: 38px;
   }
+}
+
+.delete-button:hover {
+  background-color: #b43f14;
+}

@@ -12,9 +12,7 @@ export default function () {
     navigate(`/inventory/add`);
   };
 
-
-
-  return (  
+  return (
     <div className="inventory-container">
       <div className="inventory">
         <div className="inventory-header">
@@ -77,7 +75,7 @@ export default function () {
             <p className="inventory-list__last">ACTIONS</p>
           </span>
         </div>
-        <InventoryItem className="inventory-rows"/>
+        <InventoryItem className="inventory-rows" />
       </div>
     </div>
   );

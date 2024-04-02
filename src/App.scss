@@ -1,16 +1,16 @@
 @use "/src/styles/partials/typography" as *;
 @use "/src/styles/partials/variables" as *;
 
-*{
-    font-family: "Tilitium Web";    
+* {
+  font-family: "Tilitium Web";
 }
 
-body{
-    background-color: $light-grey;
+body {
+  background-color: $light-grey;
 }
 
 .styling-div {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
