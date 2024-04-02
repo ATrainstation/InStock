@@ -27,7 +27,6 @@ const [warehouse, setWarehouse] = useState([]);
       try {
         const getWarehouse = await axios.get('http://localhost:5050/api/warehouses');
         setWarehouse(getWarehouse.data);
-        console.log(getWarehouse.data)
       } catch (error) {
         console.log(error);
       }

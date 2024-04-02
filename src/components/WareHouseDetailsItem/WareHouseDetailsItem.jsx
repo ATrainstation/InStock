@@ -20,9 +20,6 @@ export default function WareHouseItem() {
   const [showComponent, setShowComponent] = useState(false);
   const [inventories, setInventories] = useState([]);
   const [passedInfo, setPassedInfo] = useState({})
-
-
-
   const warehouseName = "TEMP Washington";
 
   const deleteHandler = (id, name) => {
@@ -35,7 +32,6 @@ export default function WareHouseItem() {
       try {
         const getWarehouseInventories = await axios.get(`http://localhost:5050/api/warehouses/${params.id}/inventories`);
         setInventories(getWarehouseInventories.data);
-        console.log(getWarehouseInventories.data)
       } catch (error) {
         console.log(error);
       }

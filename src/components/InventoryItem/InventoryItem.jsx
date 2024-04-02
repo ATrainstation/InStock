@@ -28,7 +28,6 @@ export default function InventoryItem() {
           "http://localhost:5050/api/inventories"
         );
         setInventory(getInventory.data);
-        console.log(getInventory.data);
       } catch (error) {
         console.log(error);
       }
@@ -50,7 +49,6 @@ export default function InventoryItem() {
   }, [showModal]);
 
   const deleteHandler = (id, name) => {
-    console.log(name, id);
     setShowModal(true), setShowInventoryModal(true);
     setPassedInfo({id: id, name: name})
   };
@@ -125,8 +123,7 @@ export default function InventoryItem() {
             </div>
           </div>
         ))}
-        {/* Temp delete button */}
-        {/* <button onClick={deleteHandler}>DELETE</button> */}
+
       </div>
     </>
   );
