@@ -1,9 +1,9 @@
 import "../Modal/Modal.scss";
 import "./WareHouseDetailsItem.scss";
 import "../../styles/partials/_transitions.scss";
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
-import { Link , useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Modal from "../Modal/Modal";
@@ -14,31 +14,32 @@ import HeaderArrow from "../../assets/icons/chevron_right-24px.svg";
 export default function WareHouseItem() {
   const params = useParams();
 
-
   const [showModal, setShowModal] = useState(false);
   const [showInventoryModal, setShowInventoryModal] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
   const [inventories, setInventories] = useState([]);
-  const [passedInfo, setPassedInfo] = useState({})
+  const [passedInfo, setPassedInfo] = useState({});
   const warehouseName = "TEMP Washington";
 
   const deleteHandler = (id, name) => {
-    setShowModal(true); setShowInventoryModal(true); setPassedInfo({id: id, name: name})
-
+    setShowModal(true);
+    setShowInventoryModal(true);
+    setPassedInfo({ id: id, name: name });
   };
 
   useEffect(() => {
     const fetchWarehouseInventories = async () => {
       try {
-        const getWarehouseInventories = await axios.get(`http://localhost:5050/api/warehouses/${params.id}/inventories`);
+        const getWarehouseInventories = await axios.get(
+          `http://localhost:5050/api/warehouses/${params.id}/inventories`
+        );
         setInventories(getWarehouseInventories.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchWarehouseInventories();
-  },[showModal]);
-
+  }, [showModal]);
 
   return (
     <>
@@ -62,7 +63,10 @@ export default function WareHouseItem() {
           <div className="details-row" key={item.id}>
             <div className="details-item details-item-item">
               <p className="details-item__header">INVENTORY ITEM</p>
-              <Link className="details-linkDetails" to={`/warehouse/${params.id}/inventory/${item.id}`}>
+              <Link
+                className="details-linkDetails"
+                to={`/warehouse/${params.id}/inventory/${item.id}`}
+              >
                 <div className="details-warehouse-link">
                   <button className="details-item__item">
                     {item.item_name}
@@ -87,11 +91,19 @@ export default function WareHouseItem() {
             </div>
             <div className="details-actions-container details-item-actions">
               <div className="details-actions">
-                <button onClick={()=>{deleteHandler(item.id, item.item_name)}} className="details-actions__delete">
-                    <img src={Delete} alt="delete icon" />
+                <button
+                  onClick={() => {
+                    deleteHandler(item.id, item.item_name);
+                  }}
+                  className="details-actions__delete"
+                >
+                  <img src={Delete} alt="delete icon" />
                 </button>
-                <Link to={`/inventory/${item.id}/edit`} className="details-actions__edit">
-                  <img src={Edit} alt="edit icon"/>
+                <Link
+                  to={`/inventory/${item.id}/edit`}
+                  className="details-actions__edit"
+                >
+                  <img src={Edit} alt="edit icon" />
                 </Link>
               </div>
             </div>

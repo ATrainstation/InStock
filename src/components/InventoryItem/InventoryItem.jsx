@@ -19,7 +19,7 @@ export default function InventoryItem() {
   const [showModal, setShowModal] = useState(false);
   const [showInventoryModal, setShowInventoryModal] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
-  const [passedInfo, setPassedInfo] = useState({})
+  const [passedInfo, setPassedInfo] = useState({});
 
   useEffect(() => {
     const fetchInventoryData = async () => {
@@ -50,7 +50,7 @@ export default function InventoryItem() {
 
   const deleteHandler = (id, name) => {
     setShowModal(true), setShowInventoryModal(true);
-    setPassedInfo({id: id, name: name})
+    setPassedInfo({ id: id, name: name });
   };
 
   return (
@@ -104,12 +104,16 @@ export default function InventoryItem() {
             </div>
             <div className="inventory-item inventory-item-warehouse">
               <p className="inventory-item__header">WAREHOUSE</p>
-              <p className="inventory-item__warehouse">{warehouses[item.warehouse_id]}</p>
+              <p className="inventory-item__warehouse">
+                {warehouses[item.warehouse_id]}
+              </p>
             </div>
 
             <div className="inventory-actions inventory-item-actions">
               <button
-                onClick={()=>{deleteHandler(item.id, item.item_name)}}
+                onClick={() => {
+                  deleteHandler(item.id, item.item_name);
+                }}
                 className="inventory-actions__delete"
               >
                 <img src={Delete} alt="delete icon" />
@@ -123,7 +127,6 @@ export default function InventoryItem() {
             </div>
           </div>
         ))}
-
       </div>
     </>
   );

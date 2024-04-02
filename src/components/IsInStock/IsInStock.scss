@@ -1,11 +1,11 @@
 @use "/src/styles/partials/variables" as *;
 
 .inStock {
-    box-sizing: border-box;
+  box-sizing: border-box;
   padding: 4px, 8px, 4px, 8px;
   display: flex;
   justify-content: center;
-  width: 5rem;
+  width: 4.5rem;
   border-radius: 20px;
   background-color: rgba($green, 0.15);
   color: $green;
@@ -16,22 +16,23 @@
 .inStock-text {
   text-align: center;
   font-weight: 400;
+  margin: 4px 0;
 }
 
 .notInStock {
   padding: 4px, 8px, 4px, 8px;
   display: flex;
   justify-content: center;
-  max-height: 1rem;
-  width: 7rem;
+  width: 6.8rem;
   border-radius: 20px;
   background-color: rgba($red, 0.15);
   color: $red;
   align-items: center;
+  font-size: 12px;
 }
 
 .notInStock-text {
-  max-height: 1rem;
   text-align: center;
   font-weight: 400;
+  margin: 4px 0;
 }

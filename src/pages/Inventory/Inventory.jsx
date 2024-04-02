@@ -4,7 +4,6 @@ import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 
 export default function () {
-
   return (
     <div className="warehouses">
       <div className="warehouse-header">

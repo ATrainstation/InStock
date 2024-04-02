@@ -1,30 +1,29 @@
 import "./WarehouseDetails.scss";
 import BackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
-import { Link , useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import WarehouseDetailsItem from "../WareHouseDetailsItem/WareHouseDetailsItem";
 import HeaderChevron from "../../assets/icons/sort-24px.svg";
 import axios from "axios";
-import { useEffect , useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function WarehouseDetails() {
-
-
   const params = useParams();
   const [warehouse, setWarehouse] = useState([]);
 
   useEffect(() => {
     const fetchWarehouseDetails = async () => {
       try {
-        const getWarehouse = await axios.get(`http://localhost:5050/api/warehouses/${params.id}`);
+        const getWarehouse = await axios.get(
+          `http://localhost:5050/api/warehouses/${params.id}`
+        );
         setWarehouse(getWarehouse.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchWarehouseDetails();
-  },[]);
-
+  }, []);
 
   return (
     <div className="WarehouseDetails-container">
@@ -46,8 +45,16 @@ export default function WarehouseDetails() {
               <p className="body__header">WAREHOUSE ADDRESS:</p>
               <div className="body__text--wrapper">
                 <p className="body__text body__text-descript">
-                  {warehouse.address}
+                  {warehouse.address},{" "}
                 </p>
+                <div className="body__text-city-country--wrapper">
+                  <p className="body__text body__text-descript">
+                    {warehouse.city},{" "}
+                  </p>
+                  <p className="body__text body__text-descript">
+                    {warehouse.country}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -103,9 +110,7 @@ export default function WarehouseDetails() {
             <p className="details-warehouse-list__last">ACTIONS</p>
           </span>
         </div>
-        <WarehouseDetailsItem
-          className="details-warehouse-rows"
-        />
+        <WarehouseDetailsItem className="details-warehouse-rows" />
       </div>
     </div>
   );

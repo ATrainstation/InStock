@@ -13,7 +13,6 @@ function EditWarehouse() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [warehouse, setWarehouse] = useState([]);
 
-  
   const [formData, setFormData] = useState({
     warehouseName: "",
     streetAddress: "",
@@ -44,14 +43,12 @@ function EditWarehouse() {
           phoneNumber: warehouseData.contact_phone,
           email: warehouseData.contact_email,
         });
-
       } catch (error) {
         console.log(error);
       }
     };
     fetchWarehouseDetails();
   }, []);
-
 
   const [formValidation, setFormValidation] = useState({
     warehouseName: true,
@@ -68,31 +65,33 @@ function EditWarehouse() {
     navigate(-1);
   };
 
-
   function formatPhoneNumber(value, previousValue) {
-
-    let numbers = '';
+    let numbers = "";
     for (let i = 0; i < value.length; i++) {
-      if (value[i] >= '0' && value[i] <= '9') {
+      if (value[i] >= "0" && value[i] <= "9") {
         numbers += value[i];
       }
     }
     if (numbers.startsWith("1")) {
       numbers = numbers.substring(1);
     }
-    numbers = numbers.slice(0, 10); 
+    numbers = numbers.slice(0, 10);
     if (previousValue && value.length < previousValue.length) {
       const diffs = previousValue.length - value.length;
-      const isDeletingSpecialChar = [14, 9, 5].includes(previousValue.length) && diffs === 1;
+      const isDeletingSpecialChar =
+        [14, 9, 5].includes(previousValue.length) && diffs === 1;
       if (isDeletingSpecialChar) {
         numbers = numbers.slice(0, numbers.length - 1);
       }
     }
-  
+
     let formattedNumber = numbers;
-  
+
     if (numbers.length > 6) {
-      formattedNumber = `+1 (${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6)}`;
+      formattedNumber = `+1 (${numbers.slice(0, 3)}) ${numbers.slice(
+        3,
+        6
+      )}-${numbers.slice(6)}`;
     } else if (numbers.length > 3) {
       formattedNumber = `+1 (${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
     } else if (numbers.length > 0) {
@@ -100,20 +99,19 @@ function EditWarehouse() {
     } else {
       formattedNumber = "+1 ";
     }
-  
+
     return formattedNumber;
   }
 
   const handleChange = (e) => {
-
     const { name, value } = e.target;
-  if (name === "phoneNumber") {
-    const formattedValue = formatPhoneNumber(value);
-    setFormData({ ...formData, [name]: formattedValue });
-  } else {
-    setFormData({ ...formData, [name]: value });
-  }
-  setFormValidation({ ...formValidation, [name]: true });
+    if (name === "phoneNumber") {
+      const formattedValue = formatPhoneNumber(value);
+      setFormData({ ...formData, [name]: formattedValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+    setFormValidation({ ...formValidation, [name]: true });
   };
 
   const handleCancel = (id) => {
@@ -285,7 +283,7 @@ function EditWarehouse() {
                   onChange={handleChange}
                   className={getInputClass("phoneNumber")}
                   placeholder={`${warehouse.contact_phone}`}
-                  />
+                />
               </label>
 
               <label className="input-title">
