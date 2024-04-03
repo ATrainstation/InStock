@@ -12,14 +12,16 @@ function EditInventory() {
   const navigate = useNavigate();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [inventoryItem, setInventoryItem] = useState([]);
+  const [warehouse, setWarehouse] = useState([]);
 
   const [formData, setFormData] = useState({
-    itemName: '',
-    description: '',
-    category: '',
-    isAvailable: '',
-    quantity:'',
-    warehouse: '',
+    warehouseId: "",
+    itemName: "",
+    description: "",
+    category: "",
+    isAvailable: "",
+    quantity: "",
+    warehouse: "",
   });
 
   useEffect(() => {
@@ -28,24 +30,21 @@ function EditInventory() {
         const responseInventory = await axios.get(
           `http://localhost:5050/api/inventories/${params.id}`
         );
-        const responseWarehouse = await axios.get(
-          `http://localhost:5050/api/warehouses/${params.id}`
+        const responseWarehouses = await axios.get(
+          `http://localhost:5050/api/warehouses`
         );
 
         const inventoriesData = responseInventory.data;
-        const warehousesData = responseWarehouse.data;
-        const warehouseName = warehousesData.find(
-          (e) => e.id === inventoriesData.warehouse_id
-        );
         setInventoryItem(inventoriesData);
+        setWarehouse(responseWarehouses.data);
 
         setFormData({
+          warehouseId: inventoriesData.warehouse_id,
           itemName: inventoriesData.item_name,
           description: inventoriesData.description,
           category: inventoriesData.category,
           isAvailable: inventoriesData.status,
           quantity: inventoriesData.quantity,
-          warehouse: warehouseName.warehouse_name,
         });
       } catch (error) {
         console.log(error);
@@ -138,6 +137,14 @@ function EditInventory() {
     }
   };
 
+  // function warehouseCategory() {
+  //   const warehouseDefault = warehouse.find(
+  //     (e) => e.id === formData.warehouseId
+  //   );
+  //   return warehouseDefault.warehouse_name;
+  //   }
+  //   const warehouseCategoryValue = warehouseCategory();
+
   return (
     <div className="add-inventory-container">
       <div className="component-container">
@@ -209,9 +216,7 @@ function EditInventory() {
                       value="true"
                       onChange={handleChange}
                       checked={
-                        formData.quantity === 0
-                          ? formData.isAvailable === "true"
-                          : formData.isAvailable === "false"
+                        formData.isAvailable === "In Stock" ? true : false
                       }
                     />
                     In Stock
@@ -223,9 +228,7 @@ function EditInventory() {
                       value="false"
                       onChange={handleChange}
                       checked={
-                        formData.quantity === 0
-                          ? formData.isAvailable === "true"
-                          : formData.isAvailable === "false"
+                        formData.isAvailable === "Out of Stock" ? true : false
                       }
                     />
                     Out of Stock
@@ -256,11 +259,15 @@ function EditInventory() {
                   id="warehouse"
                   className={`input-dropdown ${getInputClass("warehouse")}`}
                   onChange={handleChange}
+                  defaultValue={inventoryItem.warehouse}
                 >
-                  <option value="">Choose Warehouse</option>
-                  <option value="Washington">Wahsington</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
+                  {warehouse.map((item) => {
+                    return (
+                      <option key={item.id} value={item.warehouse}>
+                        {item.warehouse_name}
+                      </option>
+                    );
+                  })}
                 </select>
               </label>
             </div>
