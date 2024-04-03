@@ -1,0 +1,180 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+* {
+  text-decoration: none;
+}
+.inventory-row:hover {
+  background-color: rgba($color: $instock-indigo, $alpha: 0.07);
+}
+
+.inventory-item-item {
+  order: 1;
+}
+.inventory-item-category {
+  order: 3;
+}
+.inventory-item-status {
+  order: 2;
+}
+.inventory-item-quantity {
+  order: 4;
+}
+.inventory-item-warehouse {
+  order: 5;
+}
+.inventory-item-actions {
+  order: 6;
+}
+
+.inventory-item {
+  width: 50%;
+  margin-bottom: 1rem;
+  font-size: $body-m-ts-mobile;
+  &__header {
+    font-size: $table-header-ts-mobile;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+    color: $slate;
+  }
+
+  &__inventory {
+    border: none;
+    background-color: inherit;
+    color: $instock-indigo;
+    font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.inventory-link {
+  display: flex;
+  gap: 0;
+  transition: gap 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    gap: 0.25rem;
+  }
+}
+
+.inventory-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  padding: 1rem;
+  border-top: 0.2px solid $cloud;
+}
+
+.inventory-actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  &__delete,
+  &__edit {
+    border: none;
+    background-color: inherit;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inventory-item-item {
+    order: 1;
+  }
+  .inventory-item-category {
+    order: 2;
+  }
+  .inventory-item-status {
+    order: 3;
+  }
+  .inventory-item-quantity {
+    order: 4;
+    display: flex;
+    align-items: center;
+  }
+  .inventory-item-warehouse {
+    order: 5;
+  }
+  .inventory-item-actions {
+    order: 6;
+  }
+  .item-container-actions {
+    display: flex;
+    align-items: center;
+  }
+  .inventory-row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .inventory-item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 16.7%;
+    font-size: $body-sm-text-size;
+    margin: 0;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+
+    &__warehouse {
+      text-align: start;
+    }
+    &__qty {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .inventory-item p {
+    width: 70%;
+  }
+  .inventory-actions {
+    width: 10%;
+    margin: 0;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inventory-row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  .inventory-item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    font-size: 0.75rem;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+    &__qty {
+      justify-content: center;
+    }
+  }
+  .inventory-item-quantity {
+    align-items: center;
+  }
+
+  .inventory-item p {
+    width: 80%;
+  }
+  .inventory-actions {
+    width: 6.5%;
+    margin: 0;
+  }
+}

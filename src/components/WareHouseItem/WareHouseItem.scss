@@ -1,0 +1,158 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+* {
+  text-decoration: none;
+}
+
+.row:hover {
+  background-color: rgba($color: $instock-indigo, $alpha: 0.07);
+}
+
+.item {
+  width: 47%;
+  margin-bottom: 1rem;
+  font-size: $body-m-ts-mobile;
+  &__header {
+    font-size: $table-header-ts-mobile;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+    color: $slate;
+  }
+  &__warehouse {
+    border: none;
+    color: $instock-indigo;
+    font-weight: 600;
+    background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.warehouse-link {
+  display: flex;
+  gap: 0;
+  transition: gap 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    gap: 0.25rem;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 0.2px solid $cloud;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  &__delete,
+  &__edit {
+    border: none;
+    background-color: inherit;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .item-warehouse {
+    order: 1;
+  }
+  .item-name {
+    order: 3;
+  }
+  .item-address {
+    order: 2;
+  }
+  .item-contact {
+    order: 4;
+  }
+  .actions {
+    order: 5;
+  }
+
+  .item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 20%;
+    font-size: $body-sm-text-size;
+    margin-bottom: 0;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+    .item {
+      &__name,
+      &__warehouse,
+      &__email,
+      &__phone,
+      &__address {
+        font-size: 0.875rem;
+      }
+    }
+  }
+  .item-contact {
+    width: 22%;
+  }
+
+  .item p {
+    width: 70%;
+  }
+  .actions {
+    width: 10%;
+    margin: 0;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .row {
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  .item {
+    align-items: left;
+    flex-direction: column;
+    display: flex;
+    width: 20%;
+    font-size: 0.75rem;
+    &__header {
+      display: none;
+    }
+    &__warehouse {
+      text-align: start;
+    }
+  }
+  .item-contact {
+    width: 22%;
+  }
+  .item p {
+    width: 80%;
+  }
+  .actions {
+    width: 6.5%;
+    margin: 0;
+  }
+}

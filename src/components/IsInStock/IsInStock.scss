@@ -1,0 +1,38 @@
+@use "/src/styles/partials/variables" as *;
+
+.inStock {
+  box-sizing: border-box;
+  padding: 0.25rem, 0.5rem, 0.25rem, 0.5rem;
+  display: flex;
+  justify-content: center;
+  width: 4.5rem;
+  border-radius: 20px;
+  background-color: rgba($green, 0.15);
+  color: $green;
+  align-items: center;
+  font-size: 12px;
+}
+
+.inStock-text {
+  text-align: center;
+  font-weight: 400;
+  margin: 0.25rem 0;
+}
+
+.notInStock {
+  padding: 0.25rem, 0.5rem, 0.25rem, 0.5rem;
+  display: flex;
+  justify-content: center;
+  width: 6.8rem;
+  border-radius: 20px;
+  background-color: rgba($red, 0.15);
+  color: $red;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.notInStock-text {
+  text-align: center;
+  font-weight: 400;
+  margin: 0.25rem 0;
+}

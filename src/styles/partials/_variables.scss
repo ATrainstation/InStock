@@ -1,0 +1,79 @@
+// Primary Colors
+$instock-black: #13182c;
+$instock-indigo: #2e66e5;
+$white: #ffffff;
+
+// Secondary Colors
+$slate: #5c667e;
+$cloud: #bdc5d5;
+
+// Background Colors
+$graphite: #232940;
+$light-grey: #f7f8f9;
+
+// Support Colors
+$green: #158463;
+$red: #c94515;
+
+//Breakpoints
+$mobile-breakpoint: 320px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+//TextSize for Desktop/Tablet
+$header-text-size: 2rem;
+$subheader-text-size: 1.5rem;
+$button-text-size: 0.875rem;
+$links-text-size: 0.9rem;
+$labels-text-size: 0.9rem;
+$table-header-text-size: 0.75rem;
+$body-lg-text-size: 1rem;
+$body-m-text-size: 0.9rem;
+$body-sm-text-size: 0.75rem;
+
+//TextSize for mobile
+$header-ts-mobile: 1.75rem;
+$subheader-ts-mobile: 1.25rem;
+$button-ts-mobile: 0.8125rem;
+$links-ts-mobile: 0.8rem;
+$labels-ts-mobile: 0.8rem;
+$table-header-ts-mobile: 0.7rem;
+$body-lg-ts-mobile: 0.9rem;
+$body-m-ts-mobile: 0.8rem;
+$body-sm-ts-mobile: 0.68rem;
+
+// LineHeight for Desktop
+$header-line-height: 2.5rem;
+$subheader-line-height: 2rem;
+$button-line-height: 0.9rem;
+$links-line-height: 0.9rem;
+$labels-line-height: 0.9rem;
+$table-header-line-height: 1.1rem;
+$body-lg-line-height: 1.75rem;
+$body-m-line-height: 1.3rem;
+$body-sm-line-height: 1.1rem;
+
+// LineHeight for Tablet/Mobile
+$header-line-height-mb: 2.25rem;
+$subheader-line-height-mb: 1.75rem;
+$button-line-height-mb: 1.25rem;
+$links-line-height-mb: 1.25rem;
+$labels-line-height-mb: 1.25rem;
+$table-header-line-height-mb: 0.65rem;
+$body-lg-line-height-mb: 1.6rem;
+$body-m-line-height-mb: 1.25rem;
+$body-sm-line-height-mb: 1rem;
+
+//TextWeight
+$text-weight-bold: 600;
+$text-weight-regular: 400;
+
+//Margin sizes Desktop/Tablet/Mobile
+
+$mobile-margin: 1rem;
+$tablet-margin: 2rem;
+$desktop-margin: 8.125rem;
+
+//Padding is in increments of 8px
+
+$padding: 1rem;

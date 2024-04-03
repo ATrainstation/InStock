@@ -1,0 +1,173 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles//partials//mixins" as *;
+
+.arrow-icon {
+  height: 35px;
+  width: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-warehouses-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  top: -5rem;
+}
+
+.component-container {
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 0 1rem;
+
+  @include desktop {
+    margin: 0 8.125rem;
+  }
+}
+
+.header__content {
+  display: flex;
+  padding: 0 2rem;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+  transition: gap 0.3s ease;
+
+  &:hover {
+    gap: 1.5rem;
+  }
+}
+
+.component-header {
+  background-color: $white;
+  display: flex;
+  padding: 2rem 0;
+  border-bottom: 2px solid $cloud;
+
+  &__title {
+    color: $instock-black;
+    font-size: $header-ts-mobile;
+  }
+}
+
+.add-warehouse__form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+
+  &__container {
+    padding: 2rem 2rem;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+}
+
+.warehouse-details {
+  width: 100%;
+
+  @include tablet {
+    width: 48%;
+    padding-right: 1rem;
+    border-right: 2px solid $cloud;
+  }
+}
+
+.contact-details {
+  width: 100%;
+  margin-top: 2rem;
+
+  @include tablet {
+    width: 48%;
+    margin-top: 0rem;
+  }
+}
+.input-title {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input-box {
+  height: 36px;
+  outline: none;
+  border: 2px solid $cloud;
+  border-radius: 20px;
+  padding: 0 1rem;
+  margin-top: 0.25rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    border: 2px solid $instock-indigo;
+  }
+}
+
+.input-error {
+  border: 1px solid $red;
+
+  &:focus {
+    border-color: #993511;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: $light-grey;
+  width: 100%;
+  height: 4.375rem;
+  align-items: center;
+  gap: 1rem;
+
+  @include tablet {
+    text-align: right;
+    justify-content: flex-end;
+  }
+
+  &__container {
+    padding: 0 1rem;
+    background-color: $light-grey;
+  }
+}
+
+.cancel-button-sizes {
+  width: 100%;
+
+  @include tablet {
+    width: 10%;
+  }
+
+  @include desktop {
+    width: 8%;
+  }
+}
+
+.add-button-sizes {
+  width: 100%;
+
+  @include tablet {
+    width: 18%;
+  }
+
+  @include desktop {
+    width: 13%;
+  }
+}

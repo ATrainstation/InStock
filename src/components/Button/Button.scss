@@ -1,0 +1,46 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.button {
+  background-color: #2e66e5;
+  border-radius: 20px;
+  color: white;
+  height: 36px;
+  border: none;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__icon-edit {
+    width: 24px;
+  }
+
+  &__icon {
+    display: none;
+  }
+  &__edit-text {
+    display: none;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    font-size: $button-ts-mobile;
+    font-weight: 600;
+  }
+}
+
+@include tablet {
+  .button {
+    padding: 0.8rem;
+    &__edit-text {
+      font-size: $button-text-size;
+      display: contents;
+    }
+    &__edit-icon {
+      margin-right: 0.313rem;
+      width: 24px;
+    }
+  }
+}
