@@ -104,7 +104,6 @@ function EditInventory() {
           quantity: formData.quantity,
           warehouse_id: formData.warehouse_id,
         };
-        console.log(newInventoryItem)
         if (newInventoryItem.status === "Out of Stock"){
           newInventoryItem = ({ ...newInventoryItem, quantity: 0 });
         }
@@ -116,13 +115,7 @@ function EditInventory() {
         alert("Inventory Item edited successfully!");
       } catch (error) {
         console.error(error)
-        //   "Failed to edit inventory item:",
-        //   error.response ? error.response.data : error
-        // );
-        // alert(
-        //   (error.response && error.response.data.message) ||
-        //     "Failed to edit inventory item."
-        // );
+
       }
 
       console.log("Form is valid. Submitting data...", formData);
