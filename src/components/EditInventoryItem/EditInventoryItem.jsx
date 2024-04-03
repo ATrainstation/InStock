@@ -45,8 +45,6 @@ function EditInventory() {
           category: inventoriesData.category,
           isAvailable: inventoriesData.status,
           quantity: inventoriesData.quantity,
-          warehouse_name: formData.warehouse,
-          
         });
       } catch (error) {
         console.log(error);
@@ -100,7 +98,7 @@ function EditInventory() {
           item_name: formData.itemName,
           description: formData.description,
           category: formData.category,
-          status: formData.isAvailable,
+          isAvailable: formData.status,
           quantity: formData.quantity,
           warehouse_name: formData.warehouse,
         };
@@ -120,6 +118,7 @@ function EditInventory() {
       }
 
       console.log("Form is valid. Submitting data...", formData);
+
       navigate("/inventory");
       alert("Inventory Item edited successfully!");
     } else {
@@ -133,6 +132,13 @@ function EditInventory() {
     }
   };
 
+  // function warehouseCategory() {
+  //   const warehouseDefault = warehouse.find(
+  //     (e) => e.id === formData.warehouseId
+  //   );
+  //   return warehouseDefault.warehouse_name;
+  //   }
+  //   const warehouseCategoryValue = warehouseCategory();
 
   return (
     <div className="add-inventory-container">
@@ -185,10 +191,9 @@ function EditInventory() {
                   onChange={handleChange}
                 >
                   <option value={formData.category}>{formData.category}</option>
-                  <option value="Apparel">Apparel</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="Gear">Gear</option>
-                  <option value="Health">Health</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
                 </select>
               </label>
             </div>
@@ -203,7 +208,7 @@ function EditInventory() {
                     <input
                       type="radio"
                       name="isAvailable"
-                      value="In Stock"
+                      value="true"
                       onChange={handleChange}
                       checked={
                         formData.isAvailable === "In Stock" ? true : false
@@ -215,7 +220,7 @@ function EditInventory() {
                     <input
                       type="radio"
                       name="isAvailable"
-                      value="Out of Stock"
+                      value="false"
                       onChange={handleChange}
                       checked={
                         formData.isAvailable === "Out of Stock" ? true : false
@@ -226,7 +231,7 @@ function EditInventory() {
                 </div>
               </label>
 
-              {formData.isAvailable === "In Stock" ? (
+              {formData.isAvailable === "true" ? (
                 <label className="input-title">
                   Quantity
                   <input
@@ -251,7 +256,7 @@ function EditInventory() {
                   onChange={handleChange}
                   defaultValue={inventoryItem.warehouse}
                 >
-                  {warehouse.sort((a,b)=>(b.id===formData.warehouseId)-(a.id===formData.warehouseId)).map((item) => {
+                  {warehouse.map((item) => {
                     return (
                       <option key={item.id} value={item.warehouse}>
                         {item.warehouse_name}
