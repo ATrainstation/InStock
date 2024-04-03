@@ -2,7 +2,7 @@
 
 .inStock {
   box-sizing: border-box;
-  padding: 4px, 8px, 4px, 8px;
+  padding: 0.25rem, 0.5rem, 0.25rem, 0.5rem;
   display: flex;
   justify-content: center;
   width: 4.5rem;
@@ -16,11 +16,11 @@
 .inStock-text {
   text-align: center;
   font-weight: 400;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }
 
 .notInStock {
-  padding: 4px, 8px, 4px, 8px;
+  padding: 0.25rem, 0.5rem, 0.25rem, 0.5rem;
   display: flex;
   justify-content: center;
   width: 6.8rem;
@@ -28,11 +28,11 @@
   background-color: rgba($red, 0.15);
   color: $red;
   align-items: center;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .notInStock-text {
   text-align: center;
   font-weight: 400;
-  margin: 4px 0;
+  margin: 0.25rem 0;
 }

@@ -4,8 +4,8 @@
 
 .footer {
   font-weight: 400;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 0.688rem;
+  line-height: 1rem;
   color: $slate;
   display: flex;
   justify-content: center;
@@ -13,6 +13,6 @@
   margin-bottom: 2rem;
 
   @include tablet {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }

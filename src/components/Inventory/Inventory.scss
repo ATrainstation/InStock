@@ -65,7 +65,7 @@
   .inventory-header {
     flex-direction: row;
     border: none;
-    padding: 24px;
+    padding: 1.5rem;
     &__title {
       margin: 0;
       width: 30%;
@@ -131,8 +131,8 @@
     margin: 0 130px;
   }
   .inventory-header {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .inventory-item-container-actions {
@@ -149,7 +149,7 @@
   }
 
   .inventory-list {
-    padding: 11px 48px 11px 48px;
+    padding: 0.688rem 3rem 0.688rem 3rem;
 
     &__last {
       text-align: end;
