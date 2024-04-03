@@ -72,7 +72,7 @@ export default function InventoryItem() {
 
       <div className="invent-container">
         {inventory.map((item) => (
-          <div className="inventory-row">
+          <div key={item.id} className="inventory-row">
             <div className="inventory-item inventory-item-item">
               <p className="inventory-item__header">INVENTORY ITEM</p>
               <Link
@@ -94,9 +94,7 @@ export default function InventoryItem() {
 
             <div className="inventory-item inventory-item-status">
               <p className="inventory-item__header">STATUS</p>
-              <p className="inventory-item__address">
                 <IsInStock isInStock={item.status} />
-              </p>
             </div>
             <div className="inventory-item inventory-item-quantity">
               <p className="inventory-item__header">QTY</p>

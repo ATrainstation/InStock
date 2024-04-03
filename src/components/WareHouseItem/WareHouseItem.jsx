@@ -57,7 +57,7 @@ export default function WareHouseItem() {
 
       <div className="warehouse-container">
         {warehouse.map((item) => (
-          <div className="row">
+          <div key={item.id} className="row">
             <div className="item item-warehouse">
               <p className="item__header">WAREHOUSE</p>
               <Link className="linkDetails" to={`/warehouse/${item.id}`}>
