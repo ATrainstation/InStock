@@ -100,7 +100,7 @@ function EditInventory() {
           item_name: formData.itemName,
           description: formData.description,
           category: formData.category,
-          status: formData.isAvailable,
+          isAvailable: formData.status,
           quantity: formData.quantity,
           warehouse_name: formData.warehouse,
         };
@@ -269,7 +269,7 @@ function EditInventory() {
             <CancelButton classname="cancel-button-sizes" link={handleCancel} />
             <Button
               classname="header-interactive__add add-button-sizes"
-              buttonText="+ Add Inventory"
+              buttonText="Edit"
               link={handleSubmit}
             />
           </div>
