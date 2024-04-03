@@ -1,5 +1,5 @@
 import "./Modal.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import closeIcon from "../../assets/icons/close-24px.svg";
 import CancelButton from "../CancelButton/CancelButton";
@@ -55,6 +55,17 @@ export const Modal = ({
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (showWarehouseModal || showInventoryModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showWarehouseModal, showInventoryModal]);
 
   return (
     <>
