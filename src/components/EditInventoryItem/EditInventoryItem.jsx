@@ -267,7 +267,7 @@ function EditInventory() {
             <CancelButton classname="cancel-button-sizes" link={handleCancel} />
             <Button
               classname="header-interactive__add add-button-sizes"
-              buttonText="Edit"
+              buttonText="Save"
               link={handleSubmit}
             />
           </div>
