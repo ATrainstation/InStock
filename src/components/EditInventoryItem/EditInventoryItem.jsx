@@ -45,6 +45,8 @@ function EditInventory() {
           category: inventoriesData.category,
           isAvailable: inventoriesData.status,
           quantity: inventoriesData.quantity,
+          warehouse_name: formData.warehouse,
+          
         });
       } catch (error) {
         console.log(error);
@@ -97,7 +99,7 @@ function EditInventory() {
           item_name: formData.itemName,
           description: formData.description,
           category: formData.category,
-          isAvailable: formData.status,
+          status: formData.isAvailable,
           quantity: formData.quantity,
           warehouse_name: formData.warehouse,
         };
@@ -117,7 +119,6 @@ function EditInventory() {
       }
 
       console.log("Form is valid. Submitting data...", formData);
-
       navigate("/inventory");
       alert("Inventory Item edited successfully!");
     } else {
@@ -131,13 +132,6 @@ function EditInventory() {
     }
   };
 
-  // function warehouseCategory() {
-  //   const warehouseDefault = warehouse.find(
-  //     (e) => e.id === formData.warehouseId
-  //   );
-  //   return warehouseDefault.warehouse_name;
-  //   }
-  //   const warehouseCategoryValue = warehouseCategory();
 
   return (
     <div className="add-inventory-container">
@@ -208,7 +202,7 @@ function EditInventory() {
                     <input
                       type="radio"
                       name="isAvailable"
-                      value="true"
+                      value="In Stock"
                       onChange={handleChange}
                       checked={
                         formData.isAvailable === "In Stock" ? true : false
@@ -220,7 +214,7 @@ function EditInventory() {
                     <input
                       type="radio"
                       name="isAvailable"
-                      value="false"
+                      value="Out of Stock"
                       onChange={handleChange}
                       checked={
                         formData.isAvailable === "Out of Stock" ? true : false
@@ -231,7 +225,7 @@ function EditInventory() {
                 </div>
               </label>
 
-              {formData.isAvailable === "true" ? (
+              {formData.isAvailable === "In Stock" ? (
                 <label className="input-title">
                   Quantity
                   <input
