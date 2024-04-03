@@ -37,7 +37,7 @@
 
   &:hover {
     cursor: pointer;
-    gap: 4px;
+    gap: 0.25rem;
   }
 }
 
@@ -68,8 +68,8 @@
   .row {
     justify-content: space-between;
     align-items: center;
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
   .item-warehouse {
     order: 1;
@@ -106,7 +106,7 @@
       &__email,
       &__phone,
       &__address {
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
   }
@@ -129,8 +129,8 @@
   .row {
     justify-content: space-between;
     align-items: center;
-    padding-right: 48px;
-    padding-left: 48px;
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
   .item {
     align-items: left;

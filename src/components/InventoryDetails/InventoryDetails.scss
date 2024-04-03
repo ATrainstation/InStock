@@ -13,14 +13,14 @@
   background-color: $white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  margin: 0 16px;
+  margin: 0 1rem;
 }
 
 .details-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;
+  padding: 1.5rem;
   background-color: $white;
   border-bottom: 1px solid $cloud;
   border-radius: 3px 3px 0 0;
@@ -30,17 +30,17 @@
   display: flex;
 
   &__title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   &__back {
-    margin-right: 6px;
+    margin-right: 0.375rem;
     display: flex;
     align-items: center;
   }
 }
 
 .details-body {
-  padding: 5px 24px 24px 24px;
+  padding: 0.313rem 1.5rem 1.5rem 1.5rem;
 }
 
 .body-container1 {
@@ -56,18 +56,18 @@
 
 .body {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 
   &__header {
     font-size: 11px;
     font-weight: 600;
     color: $slate;
-    margin-bottom: 5px;
+    margin-bottom: 0.313rem;
   }
 
   &__text {
-    font-size: 13px;
-    margin-bottom: 5px;
+    font-size: 0.813rem;
+    margin-bottom: 0.313rem;
   }
 }
 .body-status-quantity {
@@ -77,7 +77,7 @@
 }
 .body-status,
 .body-quantity {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,33 +86,33 @@
     background-color: $white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin: 0 32px;
+    margin: 0 2rem;
   }
   .body {
-    margin-bottom: 5px;
+    margin-bottom: 0.313rem;
   }
   .details-body {
     display: flex;
-    padding: 15px 0;
+    padding: 0.938rem 0;
   }
   .body-container1 {
     width: 50%;
     border-right: 1px solid $cloud;
-    padding: 0 24px;
+    padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
   }
   .body-container2 {
     width: 50%;
-    padding: 0 24px;
+    padding: 0 1.5rem;
     display: flex;
   }
   .body-status-quantity {
     display: flex;
     width: 60%;
     justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: 0.625rem;
+    margin-bottom: 0.313rem;
   }
   .body-status,
   .body-quantity {
@@ -126,21 +126,21 @@
 
 @media screen and (min-width: 1280px) {
   .InventoryDetails {
-    margin: 0 130px;
+    margin: 0 8.125rem;
   }
 
   .details-header {
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 2.188rem;
+    padding-right: 2.188;
   }
 
   .body-container1 {
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 2.188rem;
+    padding-right: 2.188rem;
   }
 
   .body-container2 {
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 2.188rem;
+    padding-right: 2.188rem;
   }
 }

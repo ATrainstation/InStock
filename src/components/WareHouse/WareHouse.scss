@@ -64,12 +64,12 @@
 
 @include tablet {
   .warehouses {
-    margin: 0 32px;
+    margin: 0 2rem;
   }
   .warehouse-header {
     flex-direction: row;
     border: none;
-    padding: 24px;
+    padding: 1.5rem;
     &__title {
       margin: 0;
       width: 30%;
@@ -98,7 +98,7 @@
     justify-content: space-between;
     padding: 11px 24px 11px 24px;
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 0.75rem;
     &__last {
       text-align: end;
       justify-content: end;
@@ -126,11 +126,11 @@
 
 @include desktop {
   .warehouses {
-    margin: 0 130px;
+    margin: 0 8.125rem;
   }
   .warehouse-header {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .item-container-actions {
@@ -147,7 +147,7 @@
   }
 
   .warehouse-list {
-    padding: 11px 48px 11px 48px;
+    padding: 0.688rem 3rem 0.688rem 3rem;
 
     &__last {
       text-align: end;
