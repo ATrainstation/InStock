@@ -240,7 +240,7 @@ function AddInventory() {
             <CancelButton classname="cancel-button-sizes" link={handleCancel} />
             <Button
               classname="header-interactive__add add-button-sizes"
-              buttonText="+ Add Inventory"
+              buttonText="+ Add Item"
               link={handleSubmit}
             />
           </div>
