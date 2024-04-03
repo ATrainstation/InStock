@@ -16,10 +16,10 @@ function EditInventory() {
 
   const [formData, setFormData] = useState({
     warehouseId: "",
-    itemName: "",
+    item_name: "",
     description: "",
     category: "",
-    isAvailable: "",
+    status: "",
     quantity: "",
     warehouse: "",
   });
@@ -39,13 +39,13 @@ function EditInventory() {
         setWarehouse(responseWarehouses.data);
 
         setFormData({
-          warehouseId: inventoriesData.warehouse_id,
+          warehouse_id: inventoriesData.warehouse_id,
           itemName: inventoriesData.item_name,
           description: inventoriesData.description,
           category: inventoriesData.category,
-          isAvailable: inventoriesData.status,
+          status: inventoriesData.status,
           quantity: inventoriesData.quantity,
-          warehouse_name: formData.warehouse,
+          // warehouse_name: formData.warehouse,
           
         });
       } catch (error) {
@@ -96,32 +96,37 @@ function EditInventory() {
 
     if (isValid) {
       try {
-        const newInventoryItem = {
+        let newInventoryItem = {
           item_name: formData.itemName,
           description: formData.description,
           category: formData.category,
-          isAvailable: formData.status,
+          status: formData.status,
           quantity: formData.quantity,
-          warehouse_name: formData.warehouse,
+          warehouse_id: formData.warehouse_id,
         };
+        console.log(newInventoryItem)
+        if (newInventoryItem.status === "Out of Stock"){
+          newInventoryItem = ({ ...newInventoryItem, quantity: 0 });
+        }
+
         const response = await axios.put(
           `http://localhost:5050/api/inventories/${params.id}`,
           newInventoryItem
         );
+        alert("Inventory Item edited successfully!");
       } catch (error) {
-        console.error(
-          "Failed to edit inventory item:",
-          error.response ? error.response.data : error
-        );
-        alert(
-          (error.response && error.response.data.message) ||
-            "Failed to edit inventory item."
-        );
+        console.error(error)
+        //   "Failed to edit inventory item:",
+        //   error.response ? error.response.data : error
+        // );
+        // alert(
+        //   (error.response && error.response.data.message) ||
+        //     "Failed to edit inventory item."
+        // );
       }
 
       console.log("Form is valid. Submitting data...", formData);
       navigate("/inventory");
-      alert("Inventory Item edited successfully!");
     } else {
       alert("Form is invalid. Please fill in all fields.");
     }
@@ -202,11 +207,11 @@ function EditInventory() {
                   <label className="input-radio__container">
                     <input
                       type="radio"
-                      name="isAvailable"
+                      name="status"
                       value="In Stock"
                       onChange={handleChange}
                       checked={
-                        formData.isAvailable === "In Stock" ? true : false
+                        formData.status === "In Stock" ? true : false
                       }
                     />
                     In Stock
@@ -214,11 +219,11 @@ function EditInventory() {
                   <label className="input-radio__container">
                     <input
                       type="radio"
-                      name="isAvailable"
+                      name="status"
                       value="Out of Stock"
                       onChange={handleChange}
                       checked={
-                        formData.isAvailable === "Out of Stock" ? true : false
+                        formData.status === "Out of Stock" ? true : false
                       }
                     />
                     Out of Stock
@@ -226,7 +231,7 @@ function EditInventory() {
                 </div>
               </label>
 
-              {formData.isAvailable === "In Stock" ? (
+              {formData.status === "In Stock" ? (
                 <label className="input-title">
                   Quantity
                   <input
@@ -245,7 +250,7 @@ function EditInventory() {
               <label className="input-title">
                 Warehouse
                 <select
-                  name="warehouse"
+                  name="warehouse_id"
                   id="warehouse"
                   className={`input-dropdown ${getInputClass("warehouse")}`}
                   onChange={handleChange}
@@ -253,7 +258,7 @@ function EditInventory() {
                 >
                   {warehouse.sort((a,b)=>(b.id===formData.warehouseId)-(a.id===formData.warehouseId)).map((item) => {
                     return (
-                      <option key={item.id} value={item.warehouse}>
+                      <option key={item.id} value={item.id}>
                         {item.warehouse_name}
                       </option>
                     );
