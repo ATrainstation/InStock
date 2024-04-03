@@ -33,7 +33,7 @@
   margin-bottom: 1rem;
   font-size: $body-m-ts-mobile;
   &__header {
-    font-size: 11px;
+    font-size: 0.688rem;
     margin-bottom: 0.2rem;
     font-weight: 600;
     color: $slate;
@@ -51,7 +51,7 @@
   &__qty,
   &__category,
   &__item {
-    font-size: 13px;
+    font-size: 0.813rem;
   }
 }
 
@@ -62,7 +62,7 @@
 
   &:hover {
     cursor: pointer;
-    gap: 4px;
+    gap: 0.25rem;
   }
 }
 
@@ -109,8 +109,8 @@
   .details-row {
     justify-content: space-between;
     align-items: center;
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }
 
   .details-item {
@@ -129,7 +129,7 @@
     &__qty,
     &__category,
     &__item {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
   .details-actions-container {
@@ -146,8 +146,8 @@
   .details-row {
     justify-content: space-between;
     align-items: center;
-    padding-right: 48px;
-    padding-left: 48px;
+    padding-right: 3rem;
+    padding-left: 3rem;
   }
   .details-item {
     align-items: left;
@@ -164,7 +164,7 @@
     &__qty,
     &__category,
     &__item {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
   .details-actions-container {
