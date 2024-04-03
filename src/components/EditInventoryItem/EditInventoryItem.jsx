@@ -82,7 +82,8 @@ function EditInventory() {
     const newValidation = {};
 
     Object.keys(formData).forEach((key) => {
-      if (formData[key].trim() === "") {
+      const value = formData[key];
+      if (typeof value === 'string' && value.trim() === "") {
         isValid = false;
         newValidation[key] = false;
       } else {
