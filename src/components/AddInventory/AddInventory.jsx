@@ -32,7 +32,6 @@ function AddInventory() {
         const response = await axios.get(
           "http://localhost:5050/api/warehouses"
         );
-        console.log(response.data);
         setWarehouse(response.data);
       } catch (err) {
         console.error(error);
@@ -78,7 +77,6 @@ function AddInventory() {
     setFormSubmitted(true);
 
     if (isValid) {
-      console.log("Form is valid. Submitting data...", formData);
       try {
         const response = await axios.post(
           "http://localhost:5050/api/inventories",
@@ -92,7 +90,7 @@ function AddInventory() {
           behavior: "smooth",
         });
       } catch (error) {
-        console.error(
+        alert(
           "Failed to add inventory:",
           error.response ? error.response.data : error
         );
@@ -102,7 +100,7 @@ function AddInventory() {
         );
       }
     } else {
-      console.log("Form is invalid. Please fill in all fields.");
+      alert("Form is invalid. Please fill in all fields.");
     }
   };
 

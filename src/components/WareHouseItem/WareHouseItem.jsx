@@ -26,14 +26,13 @@ export default function WareHouseItem() {
         );
         setWarehouse(getWarehouse.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchWarehouseData();
   }, [showModal]);
 
   const deleteHandler = (id, name) => {
-    console.log(name, id);
     setShowModal(true);
     setShowWarehouseModal(true);
     setPassedInfo({ id: id, name: name });
