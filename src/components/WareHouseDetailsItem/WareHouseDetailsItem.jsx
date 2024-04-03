@@ -35,7 +35,7 @@ export default function WareHouseItem() {
         );
         setInventories(getWarehouseInventories.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchWarehouseInventories();

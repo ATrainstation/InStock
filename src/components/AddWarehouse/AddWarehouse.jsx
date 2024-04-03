@@ -113,7 +113,6 @@ function AddWarehouse() {
     setFormSubmitted(true);
 
     if (isValid) {
-      console.log("Form is valid. Submitting data...", formData);
       try {
         const newWarehouse = {
           warehouse_name: formData.warehouseName,
@@ -134,7 +133,7 @@ function AddWarehouse() {
         alert("Warehouse added successfully!");
         navigate("/");
       } catch (error) {
-        console.error(
+        alert(
           "Failed to add warehouse:",
           error.response ? error.response.data : error
         );
@@ -144,7 +143,7 @@ function AddWarehouse() {
         );
       }
     } else {
-      console.log("Form is invalid. Please fill in all fields.");
+      alert("Form is invalid. Please fill in all fields.");
     }
   };
 

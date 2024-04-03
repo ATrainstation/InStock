@@ -29,7 +29,7 @@ export const Modal = ({
       );
       alert("Warehouse deleted successfully!");
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
     setShowModal(!showModal);
     window.scrollTo({
@@ -46,7 +46,7 @@ export const Modal = ({
       );
       alert("Inventory Item deleted successfully!");
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
     setShowModal(!showModal);
     window.scrollTo({

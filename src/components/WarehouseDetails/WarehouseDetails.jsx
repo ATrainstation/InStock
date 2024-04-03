@@ -19,7 +19,7 @@ export default function WarehouseDetails() {
         );
         setWarehouse(getWarehouse.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchWarehouseDetails();

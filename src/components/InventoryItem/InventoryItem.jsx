@@ -29,7 +29,7 @@ export default function InventoryItem() {
         );
         setInventory(getInventory.data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     fetchInventoryData();
