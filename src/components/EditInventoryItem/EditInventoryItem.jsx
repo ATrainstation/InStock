@@ -184,9 +184,10 @@ function EditInventory() {
                   onChange={handleChange}
                 >
                   <option value={formData.category}>{formData.category}</option>
+                  <option value="Apparel">Apparel</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
+                  <option value="Gear">Gear</option>
+                  <option value="Health">Health</option>
                 </select>
               </label>
             </div>
@@ -249,7 +250,7 @@ function EditInventory() {
                   onChange={handleChange}
                   defaultValue={inventoryItem.warehouse}
                 >
-                  {warehouse.map((item) => {
+                  {warehouse.sort((a,b)=>(b.id===formData.warehouseId)-(a.id===formData.warehouseId)).map((item) => {
                     return (
                       <option key={item.id} value={item.warehouse}>
                         {item.warehouse_name}
